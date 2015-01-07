@@ -1,42 +1,254 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <title>DOM Fiddler</title>
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="/google-code-prettify/prettify.css">
+    <!--    <link href="/bootstrap.min.css" rel="stylesheet">-->
+    <!-- Custom styles for this template -->
+    <!--    <link href="/bootstrap-theme.css" rel="stylesheet">-->
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>-->
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
-    </body>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/zeroclipboard/2.2.0/ZeroClipboard.Core.min.js"></script>
+<!--    <script>ZeroClipboard.config( { swfPath: "/ZeroClipboard.swf" } );</script>-->
+    <!--    <script src="/ZeroClipboardClient.js"></script>-->
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="page-header">
+            <h1 id="Domheader">DOM Fiddler v1.0</h1>
+            <small class="text-muted">A tool to generate raw HTML code to manipulate the DOM. To be passed into a global container such as an Adobe Target global mbox.
+        <i>Uses CSS and jQuery.</i>
+          </small>
+            <!--            <br>-->
+            <button type="button" data-toggle="collapse" data-target="#collapseExample" class="btn btn-info btn-xs" aria-expanded="false">
+                See Example
+            </button>
+        </div>
+
+        <div class="collapse" id="collapseExample">
+            <div class="well example">
+                <code class="prettyprint lang-html">
+                &lt;!-- 1. USE CSS TO HIDE/REMOVE THE ELEMENT --&gt;<br>
+                &lt;style type= &quot;text/css&quot;&gt;<br>
+                #banner img{visibility:hidden;}<br>
+                &lt;/style&gt;<br>
+                &lt;!-- 2. MANIPULATE THE ELEMENT WITH JAVASCRIPT/JQUERY --&gt;<br>
+                &lt;script&gt;<br>
+                // MUST WAIT FOR THE DOCUMENT TO LOAD FIRST<br>
+                $(function() {<br>
+                // THIS EXAMPLE SHOWS THE SRC ATTRIBUTE OF AN IMAGE BEING CHANGED<br>
+                $(&quot;#banner img&quot;).attr(&quot;src&quot;,&quot;http://www.example.co.uk/images/new-image.jpg&quot;);<br> 
+                // 3.	SHOW THE ELEMENT WITH JAVASCRIPT/JQUERY<br>
+                $('#banner img').css('visibility', 'visible');<br>
+                });<br>
+                &lt;/script&gt;
+               </code>
+            </div>
+        </div>
+        <div class="row">
+            <div id="cssColumn" class="col-md-2">
+                <h3>CSS</h3> 
+                <div class="control-group" id="CSSfields">
+                    <p class="text-muted">Enter selector(s):-</p>
+                    <div class="controls">
+                        <form role="form" autocomplete="off">
+                            <div class="entry input-group">
+                                <input id="cssSelVal" class="form-control" name="fields[]" type="text" placeholder="e.g. #id.class" />
+                                <span class="input-group-btn">
+                                            <button class="btn btn-default btn-add" type="button">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <p class="text-muted">Hide or Remove content?</p>
+                <div class="btn-group" id="HideRemove" data-toggle="buttons">
+                    <label class="btn btn-default">
+                        <input type="radio" name="options" id="option1" autocomplete="off" checked>Hide
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="options" id="option2" autocomplete="off">Remove
+                    </label>
+                </div>
+            </div>
+            <div id="scriptColumn" class="col-md-6">
+                <h3>jQuery</h3>
+                <div id="jSelect">
+                    <p class="text-muted">Enter jQuery selector*:-</p>
+                    <form role="form" autocomplete="off">
+                        <div class="entry input-group">
+                            <input id="jsSelVal" class="form-control" name="fields[]" type="text" placeholder="$('...')" />
+                        </div>
+                        <!--                        <br>-->
+                        <!--                        <small class="text-muted">*Only enter the selector portion, e.g. $(' <mark>#id.class</mark> ')</small>-->
+                    </form>
+                    <button id="addAnother" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Saves data to ouput and clears the form for another statement">Add another<span id="addAnotherPlus" class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </div>
+                <h3 id="methodsHead">Methods</h3>
+                <p class="text-muted">Select from the below categories:-</p>
+                <!--                <h3>Query Constructor</h3>-->
+                <div id="JSfields">
+                    <div id="methodsDiv">
+                        <!-- Split button -->
+                        <div class="btn-group Manipulators">
+                            <button type="button" class="btn btn-default">Manipulators</button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu" id="Manipulators" role="menu">
+                                <li><a href="#">.html()</a>
+                                </li>
+                                <li><a href="#">.replaceWith()</a>
+                                </li>
+                                <li><a href="#">.before()</a>
+                                </li>
+                                <li><a href="#">.after()</a>
+                                </li>
+                                <li><a href="#">.text()</a>
+                                </li>
+                                <li><a href="#">.val()</a>
+                                </li>
+                                <li><a href="#">.attr()</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="#">.remove()</a>
+                                </li>
+                                <li><a href="#">.show()</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="btn-group EventHandlers inlineDrpDwn" id="eHandlersGr">
+                            <button type="button" class="btn btn-default">Event Handlers</button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu" id="eventHandlers" role="menu">
+                                <li><a href="#">.click()</a>
+                                </li>
+                                <li><a href="#">.focus()</a>
+                                </li>
+                                <li><a href="#">.blur()</a>
+                                </li>
+                                <li><a href="#">.bind()</a>
+                                </li>
+                                <li><a href="#">.one()</a>
+                                </li>
+                                <li><a href="#">.submit()</a>
+                                </li>
+                                <li><a href="#">.trigger()</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="btn-group cssMethds inlineDrpDwn" id="cssMethdsGr">
+                            <button type="button" class="btn btn-default">CSS</button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu" id="eventHandlers" role="menu">
+                                <li><a href="#" id="cssJson">.css()</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="#">.addClass()</a>
+                                </li>
+                                <li><a href="#">.removeClass()</a>
+                                </li>
+                                <li><a href="#">.hasClass()</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="btn-group travMethds inlineDrpDwn" id="travMethdsGr">
+                            <button type="button" class="btn btn-default">Traversal</button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu" id="eventHandlers" role="menu">
+                                <li><a href="#">.each()</a>
+                                </li>
+                                <li><a href="#">.eq()</a> 
+                                </li>
+                                <li><a href="#">.find()</a>
+                                </li>
+                                <li><a href="#">.is()</a>
+                                </li>
+                                <li><a href="#">.children()</a>
+                                </li>
+                                <li><a href="#">.parent()</a>
+                                </li>
+                                <li><a href="#">.parents()</a>
+                                </li>
+                                <li><a href="#">.slice()</a>
+                                </li>
+                                <li><a href="#">.add()</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="methodsPlHolder"></div>
+                </div>
+
+            </div>
+            <div id="outputColumn" class="col-md-4">
+                <h3 id="outputHeader">Output
+                    <span id = "outputFlash" class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                </h3>
+                <div class="well example">
+                    <pre id="styleTags" class="prettyprint lang-css">&lt;style type = &quot;text/css&quot;&gt;<p id="dynamicCSS"></p><p id="dynHideRem"></p>&lt;/style&gt;</pre>
+                    <pre id="scriptTags" class="prettyprint lang-html">&lt;script&gt;<p id="dynamicJS"></p><p id="method0"></p><p id="method1"></p><p id="method2"></p><p id="method3"></p><p id="method4"></p><p id="method5"></p><p id="method6"></p><p id="method7"></p><p id="method8"></p><p id="method9"></p><p id="method9"></p><p id="method10"></p>&lt;/script&gt;</pre>
+                    <div class="btn-clipboard clip_button" id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="/bootstrap.js"></script>
+    <script src="/tooltipsInit.js"></script>
+    <script src="/dynamic_form_fields_add.js"></script>
+    <script src="/google-code-prettify/run_prettify.js"></script>
+    <script src="/CSSruleConstruct.js"></script>
+    <script src="/jquery-ui-1.10.4.custom.js"></script>
+    <script src="/jQuerySortablePanel.js"></script>
+    <script src="/AddSaveClear.js"></script>
+    <script src="/jsAddTextBox.js"></script>
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.2.0/ZeroClipboard.Core.min.js"></script>-->
+    <script src="/ZeroClipboardClient.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
+</body>
+
 </html>
