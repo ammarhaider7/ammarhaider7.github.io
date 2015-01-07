@@ -89,7 +89,9 @@ $(function () {
                     }
                 }, 100);
             });
-            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="tooltip"]').one('mouseenter', function () {
+                $(this).tooltip();
+            });
         } else {
             $('#jsSelVal').parent().removeClass('has-success').addClass('has-error');
         }
