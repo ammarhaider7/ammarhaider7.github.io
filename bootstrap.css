@@ -6520,9 +6520,11 @@ form.form-inline {
 }
 #outputFlash {
     font-size: 30px;
-    color: black;
+    color: white;
     float:right;
     top: 0px;
+    margin-top: -10px;
+/*    background-image:url(https://cloud.githubusercontent.com/assets/10219824/5647904/ee928d8e-9681-11e4-943c-7d46c8fc2f58.png);*/
 }
 
 #outputFlashCSS {
