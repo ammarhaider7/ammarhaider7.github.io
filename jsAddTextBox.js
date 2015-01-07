@@ -54,7 +54,7 @@ $(function () {
             methodStr = this.text;
             //Append a textarea in a default panel div and assign the method name as its id and value to the textarea element
             $('#methodsPlHolder').append(function () {
-                return "<div class = \"panel panel-default queryMethods\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><div id=" + methodStr + " class=\"panel-heading\">" + methodStr + "</div><div class=\"panel-body\"><div class=\"form-group\"><textarea id=" + methodStr + " rows=1 class=\"form-control parameter\" name=\"fields[]\" type=\"text\" placeholder=\"Paste parameter values here\"></textarea></div></div></div>";
+                return "<div class = \"panel panel-default queryMethods\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><div id=" + methodStr + " class=\"panel-heading\" data-toggle=\"tooltip\" data-placement=\"left\" data-original-title=\"Click and Drag to reorder the chain of methods\">" + methodStr + "</div><div class=\"panel-body\"><div class=\"form-group\"><textarea id=" + methodStr + " rows=1 class=\"form-control parameter\" name=\"fields[]\" type=\"text\" placeholder=\"Paste parameter values here\"></textarea></div></div></div>";
             });
             //Push to output
             var paramVal = methodStr;
@@ -89,7 +89,7 @@ $(function () {
                     }
                 }, 100);
             });
-            //            }
+            $('[data-toggle="tooltip"]').tooltip();
         } else {
             $('#jsSelVal').parent().removeClass('has-success').addClass('has-error');
         }
