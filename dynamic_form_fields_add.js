@@ -1,5 +1,5 @@
 $(function () {
-    $(document).on('click', '.btn-add, a', function (e) {
+    $(document).on('click', '.btn-add', function (e) {
         e.preventDefault();
         var controlForm = $('.controls form:first'),
             currentEntry = $(this).parents('.entry:first'),
