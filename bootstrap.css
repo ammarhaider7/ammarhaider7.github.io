@@ -5152,6 +5152,7 @@ a.list-group-item-danger.active:focus {
     color: #fff;
     background-color: #a94442;
     border-color: #a94442;
+
 }
 .list-group-item-heading {
     margin-top: 0;
@@ -6647,4 +6648,8 @@ border-radius: 0 4px 0 4px;
 .btn-clipboard:hover
 {
     color:#fff;background-color:#563d7c;border-color:#563d7c
+}
+
+#byLine {
+    font-size: 40%;
 }
