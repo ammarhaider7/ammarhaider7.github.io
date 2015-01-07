@@ -1,6 +1,6 @@
 $(function () {
-    $(document).on('click', '.btn-add', function (e) {
-        e.preventDefault();
+    $(document).on('click', '.btn-add, a', function (e) {
+//        e.preventDefault();
         var controlForm = $('.controls form:first'),
             currentEntry = $(this).parents('.entry:first'),
             newEntry = $(currentEntry.clone()).appendTo(controlForm);
@@ -21,10 +21,10 @@ $(function () {
         e.preventDefault();
         return false;
     });
-    $("input, .form-group").bind("keypress", function () {
+    $("input, textarea").bind("keypress", function () {
         $('#outputFlash').addClass('blink');
     });
-    $("input, .form-group").blur(function () {
+    $("input, textarea").blur(function () {
         $('#outputFlash').removeClass('blink');
     });
 });
