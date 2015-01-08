@@ -8,6 +8,10 @@ $(function () {
             });
             //console.log(arr.join(','));
             $('#dynamicCSS').text(arr.join(',\n') + ' {' + '\n').show();
+            //Now enable the Hide/Remove popover for when a user hovers over it 
+            $('.HideRemoveWrap').one("mouseenter", function () {
+                $(this).popover('show');
+            });
         }
     });
     $('#HideRemove').click(function (e) {
@@ -29,16 +33,43 @@ $(function () {
             $('#dynamicCSS').text("");
         }
     });
+    //Show the jQuery selector popover but only once.
+    $('#HideRemove').one("click", function () {
+        if ($('#cssSelVal').val()) {
+            //Destroy the Hide/Remove popover
+            $('.HideRemoveWrap').popover('destroy');
+            //Show the jQuery selector popover when user clicks on Hide/Remove
+            $('#jSelect .entry').popover('show');
+        }
+    });
     //JS Selector CONSTRUCT
     //When a user presses a key in the jQuery selector div
     $('#jSelect').bind("keyup", function () {
-
+        $('.navbar-fixed-bottom').show("slide", {
+            direction: "down"
+        }, 250);
         //if there is text in the jQuery selector field, populate the #dynamicJS tag with the selector
         if ($('#jsSelVal').val()) {
             var selVal = $('#jsSelVal').val();
             $('#dynamicJS').text('$(\'' + selVal + '\')');
         }
     });
+    //Show the jQuery controls popover but only once
+    $('#jSelect').one("keyup", function () {
+        setTimeout(function () {
+            $('.navbar-brand').tooltip('show');
+            $('#cssMethdsGr').tooltip('show');
+            setTimeout(function () {
+                $('.navbar-brand').tooltip('destroy');
+            }, 5000);
+        }, 800);
+    });
+    //When user starts using methods dropdowns, destroy tooltip
+    if ($('#cssSelVal').val()) {
+        $('#JSfields').click(function () {
+            $('#cssMethdsGr').tooltip('destroy');
+        });
+    }
     //jQUERY METHODS CONSTRUCT
     //When a user presses a key in the methods textareas div
     $('#methodsPlHolder').bind("keyup", function () {
@@ -75,4 +106,5 @@ $(function () {
             $('#method' + (i - 1)).text(paramValp1 + textVal + paramValp2);
         }
     });
+
 });
