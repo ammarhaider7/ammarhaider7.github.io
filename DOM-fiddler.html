@@ -13,6 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="/bootstrap.css" rel="stylesheet">
+    <!--    <link rel="stylesheet" href="/google-code-prettify/prettify.css">-->
     <link rel="stylesheet" href="/prettify.css">
     <!--    <link href="/bootstrap.min.css" rel="stylesheet">-->
     <!-- Custom styles for this template -->
@@ -28,13 +29,13 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<!--    <script src="//cdn.jsdelivr.net/zeroclipboard/2.2.0/ZeroClipboard.Core.min.js"></script>-->
-<!--    <script>ZeroClipboard.config( { swfPath: "/ZeroClipboard.swf" } );</script>-->
+    <!--    <script src="//cdn.jsdelivr.net/zeroclipboard/2.2.0/ZeroClipboard.Core.min.js"></script>-->
+    <!--    <script>ZeroClipboard.config( { swfPath: "/ZeroClipboard.swf" } );</script>-->
     <!--    <script src="/ZeroClipboardClient.js"></script>-->
 </head>
 
 <body>
-<!-- Google Tag Manager -->
+    <!-- Google Tag Manager -->
     <noscript>
         <iframe src="//www.googletagmanager.com/ns.html?id=GTM-M5XKJW" height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
@@ -58,7 +59,8 @@
     <div class="container">
 
         <div class="page-header">
-           <h1 id="Domheader">DOM Fiddler v1.0<small id="byLine"> by <a href="https://github.com/ammarhaider7" target="_blank">Ammar Haider</a></small></h1>
+            <h1 id="Domheader">DOM Fiddler v1.0<small id="byLine">  by <a href="//github.com/ammarhaider7" target="_blank">Ammar Haider</a></small>
+</h1>
             <small class="text-muted">A tool to generate raw HTML code to manipulate the DOM. To be passed into a global container such as an Adobe Target global mbox.
         <i>Uses CSS and jQuery.</i>
           </small>
@@ -92,9 +94,9 @@
             <div id="cssColumn" class="col-md-2">
                 <h3>CSS</h3> 
                 <div class="control-group" id="CSSfields">
-                    <p class="text-muted">Enter selector(s):-</p>
+                    <p class="text-muted">1. Enter selector(s):-</p>
                     <div class="controls">
-                        <form role="form" autocomplete="off">
+                        <form role="form" autocomplete="off" data-trigger="focus" data-toggle="popover" data-placement="left" title="Step 1" data-content="Enter your CSS selectors">
                             <div class="entry input-group">
                                 <input id="cssSelVal" class="form-control" name="fields[]" type="text" placeholder="e.g. #id.class" />
                                 <span class="input-group-btn">
@@ -107,35 +109,39 @@
                     </div>
                 </div>
                 <br>
-                <p class="text-muted">Hide or Remove content?</p>
-                <div class="btn-group" id="HideRemove" data-toggle="buttons">
-                    <label class="btn btn-default">
-                        <input type="radio" name="options" id="option1" autocomplete="off" checked>Hide
-                    </label>
-                    <label class="btn btn-default">
-                        <input type="radio" name="options" id="option2" autocomplete="off">Remove
-                    </label>
+                <div class="HideRemoveWrap" data-toggle="popover" data-placement="bottom" title="Step 2" data-content="Hide = visibility:hidden   Remove = display:none">
+                    <p class="text-muted">2. Hide or Remove content?</p>
+                    <div class="btn-group" id="HideRemove" data-toggle="buttons">
+                        <label class="btn btn-default">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked>Hide
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="radio" name="options" id="option2" autocomplete="off">Remove
+                        </label>
+                    </div>
                 </div>
             </div>
             <div id="scriptColumn" class="col-md-6">
                 <h3>jQuery</h3>
                 <div id="jSelect">
-                    <p class="text-muted">Enter jQuery selector*:-</p>
+                    <p class="text-muted">3. Enter jQuery selector*:-</p>
                     <form role="form" autocomplete="off">
-                        <div class="entry input-group">
+                        <div class="entry input-group" data-toggle="popover" data-placement="right" title="Step 3" data-content="Enter jQuery selector">
                             <input id="jsSelVal" class="form-control" name="fields[]" type="text" placeholder="$('...')" />
                         </div>
                         <!--                        <br>-->
                         <!--                        <small class="text-muted">*Only enter the selector portion, e.g. $(' <mark>#id.class</mark> ')</small>-->
                     </form>
+                    <!--
                     <button id="addAnother" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Saves data to ouput and clears the form for another statement">Add another<span id="addAnotherPlus" class="glyphicon glyphicon-plus"></span>
                     </button>
+-->
                 </div>
                 <h3 id="methodsHead">Methods</h3>
-                <p class="text-muted">Select from the below categories:-</p>
+                <p class="text-muted">4. Select from the below categories:-</p>
                 <!--                <h3>Query Constructor</h3>-->
                 <div id="JSfields">
-                    <div id="methodsDiv">
+                    <div id="methodsDiv" data-trigger="focus" data-toggle="tooltip" data-placement="top" data-original-title="Add as many methods as you want, you can even reorder the method chain by clicking & dragging.">
                         <!-- Split button -->
                         <div class="btn-group Manipulators">
                             <button type="button" class="btn btn-default">Manipulators</button>
@@ -157,6 +163,10 @@
                                 <li><a href="#">.val()</a>
                                 </li>
                                 <li><a href="#">.attr()</a>
+                                </li>
+                                <li><a href="#">.split()</a>
+                                </li>
+                                <li><a href="#">.join()</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li><a href="#">.remove()</a>
@@ -231,6 +241,10 @@
                                 </li>
                                 <li><a href="#">.add()</a>
                                 </li>
+                                <li><a href="#">.first()</a>
+                                </li>
+                                <li><a href="#">.last()</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -238,7 +252,7 @@
                 </div>
 
             </div>
-            <div id="outputColumn" class="col-md-4">
+            <div id="outputColumn" class="col-md-4" data-toggle="tooltip" data-placement="bottom" title="The code will dynamically update as you work.">
                 <h3 id="outputHeader">Output
 <!--                    <span id = "outputFlash" class="glyphicon glyphicon-flash" aria-hidden="true"></span>-->
                                   <img id="outputFlash" class="glyphicon glyphicon-flash" src="https://cloud.githubusercontent.com/assets/10219824/5648070/77a7a2b6-9683-11e4-8b0b-8fba2974e4e8.png" alt="Flash">
@@ -248,11 +262,12 @@
                 <div class="well example">
                     <pre id="styleTags" class="prettyprint lang-css">&lt;style type = &quot;text/css&quot;&gt;<p id="dynamicCSS"></p><p id="dynHideRem"></p>&lt;/style&gt;</pre>
                     <pre id="scriptTags" class="prettyprint lang-html">&lt;script&gt;<p id="dynamicJS"></p><p id="method0"></p><p id="method1"></p><p id="method2"></p><p id="method3"></p><p id="method4"></p><p id="method5"></p><p id="method6"></p><p id="method7"></p><p id="method8"></p><p id="method9"></p><p id="method9"></p><p id="method10"></p>&lt;/script&gt;</pre>
-                    <div class="btn-clipboard clip_button" id="copy-button">Wrap in $(document).ready()</div>
+<!--                    <div class="btn-clipboard clip_button">Copy code</div>-->
                 </div>
             </div>
         </div>
     </div>
+
     <!-- /.container -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -261,17 +276,57 @@
     <script src="/bootstrap.js"></script>
     <script src="/tooltipsInit.js"></script>
     <script src="/dynamic_form_fields_add.js"></script>
+    <!--    <script src="/google-code-prettify/run_prettify.js"></script>-->
     <script src="/run_prettify.js"></script>
-    <script src="/CSSruleConstruct.js"></script>
     <script src="/jquery-ui-1.10.4.custom.js"></script>
+    <script src="/jquery-ui-1.11.2.custom/jquery-ui.js"></script>
+    <script src="/CSSruleConstruct.js"></script>
     <script src="/jQuerySortablePanel.js"></script>
     <script src="/AddSaveClear.js"></script>
     <script src="/jsAddTextBox.js"></script>
     <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.2.0/ZeroClipboard.Core.min.js"></script>-->
-<!--    <script src="/ZeroClipboardClient.js"></script>-->
+    <!--    <script src="/ZeroClipboardClient.js"></script>-->
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!--    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="main-div-wrapper">
+            <div class="container-fluidnav1"></div>
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+<!--                    <span class="navbar-brand" data-trigger="focus" data-toggle="tooltip" data-placement="top" title="Add another statement, wrap your code in &quot;quotation marks&quot; or insert a function().">jQuery Controls</span>-->
+               <span class="navbar-brand" data-trigger="focus" data-toggle="tooltip" data-placement="top" title="Add another statement or wrap your code in a doc ready.">jQuery Controls</span>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                    <ul class="nav navbar-nav">
+                        <li id="addAnother" class="nav-border" data-trigger="focus" data-toggle="tooltip" data-placement="top" title="Saves data to ouput and clears the form for another statement"><a href="#">Add another statement <b>+</b></a>
+                            <!--                        <span id="addAnotherPlus" class="glyphicon glyphicon-plus"></span>-->
+                        </li>
+                        <li class="nav-border wrap-in"><a id="copy-button" href="#">Wrap JS in $(document).ready()</a>
+                        </li>
+<!--
+                        <li class="nav-border wrap-in"><a id="Wrap_in_quotes" href="#">Wrap in "..."</a>
+                        </li>
+                        <li class="add-function"><a href="#">Insert function()</a>
+                        </li>
+-->
+
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+        </div>
+    </nav>
 </body>
+
 
 </html>
