@@ -1377,7 +1377,7 @@ pre {
     color: #333;
     word-break: break-all;
     word-wrap: break-word;
-/*
+    /*
     background-color: #f5f5f5;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -1416,11 +1416,12 @@ pre code {
         width: 1170px;
     }
 }
-.container-fluid {
+nav .container-fluid {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+    width: 50%;
 }
 .row {
     margin-top: 15px;
@@ -2673,15 +2674,15 @@ select[multiple].form-group-lg .form-control {
 .has-success.checkbox label,
 .has-success.radio-inline label,
 .has-success.checkbox-inline label {
-    color: #3c763d;
+    color: #09C50C;
 }
 .has-success .form-control {
-    border-color: #3c763d;
+    border-color: #09C50C;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 .has-success .form-control:focus {
-    border-color: #2b542c;
+    border-color: #09C50C;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
 }
@@ -2733,15 +2734,15 @@ select[multiple].form-group-lg .form-control {
 .has-error.checkbox label,
 .has-error.radio-inline label,
 .has-error.checkbox-inline label {
-    color: #a94442;
+    color: #E70300;
 }
 .has-error .form-control {
-    border-color: #a94442;
+    border-color: #E70300;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 .has-error .form-control:focus {
-    border-color: #843534;
+    border-color: #E70300;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
 }
@@ -4579,9 +4580,6 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
     text-align: center;
     list-style: none;
 }
-.pager li {
-    display: inline;
-}
 .pager li > a,
 .pager li > span {
     display: inline-block;
@@ -5152,7 +5150,6 @@ a.list-group-item-danger.active:focus {
     color: #fff;
     background-color: #a94442;
     border-color: #a94442;
-
 }
 .list-group-item-heading {
     margin-top: 0;
@@ -5570,8 +5567,8 @@ button.close {
     cursor: pointer;
     background: transparent;
     border: 0;
-   margin-right: 13px;
-margin-top: 9px;
+    margin-right: 13px;
+    margin-top: 9px;
 }
 .modal-open {
     overflow: hidden;
@@ -5806,7 +5803,7 @@ margin-top: 9px;
     z-index: 1060;
     display: none;
     max-width: 276px;
-    padding: 1px;
+/*    padding: 1px;*/
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: normal;
@@ -5835,10 +5832,12 @@ margin-top: 9px;
     margin-left: -10px;
 }
 .popover-title {
+    color: #fff;
     padding: 8px 14px;
     margin: 0;
     font-size: 14px;
-    background-color: #f7f7f7;
+    background-color: #337ab7;
+    border-color: #2e6da4;
     border-bottom: 1px solid #ebebeb;
     border-radius: 5px 5px 0 0;
 }
@@ -6454,7 +6453,6 @@ button .text-info {
 #ChainingCheck {
     vertical-align: -webkit-baseline-middle;
 }
-
 .inlineDrpDwn {
     margin-left: 5px;
 }
@@ -6466,7 +6464,7 @@ button .text-info {
 /* show the grab cursor as the user moves the mouse over the panel header.*/
 
 .queryMethods .panel-heading:hover,
-.cssQueryMethods .panel-heading:hover{
+.cssQueryMethods .panel-heading:hover {
     cursor: -webkit-grab;
     cursor: moz-grab;
 }
@@ -6522,21 +6520,18 @@ form.form-inline {
 #outputFlash {
     font-size: 30px;
     color: white;
-    float:right;
+    float: right;
     top: 0px;
     margin-top: -10px;
-/*    background-image:url(https://cloud.githubusercontent.com/assets/10219824/5647904/ee928d8e-9681-11e4-943c-7d46c8fc2f58.png);*/
 }
-
 #outputFlashCSS {
     font-size: 19px;
-
 }
 
 @-webkit-keyframes blink {
     0% {
         opacity: 1;
-        color: grey; 
+        color: grey;
     }
     50% {
         opacity: 0;
@@ -6549,7 +6544,7 @@ form.form-inline {
 @-moz-keyframes blink {
     0% {
         opacity: 1;
-         color: black; 
+        color: black;
     }
     50% {
         opacity: 0;
@@ -6562,7 +6557,7 @@ form.form-inline {
 @-o-keyframes blink {
     0% {
         opacity: 1;
-        color: black; 
+        color: black;
     }
     50% {
         opacity: 0;
@@ -6580,75 +6575,96 @@ form.form-inline {
     -o-animation: blink 1s;
     -o-animation-iteration-count: infinite;
 }
-    
 
 #methodsPlHolder {
-    margin-top: 21px;
+    margin-top: 15px;
 }
-
 #styleTags {
     border: initial;
 }
-
 #scriptTags {
     border: initial;
 }
-
 #jsSelVal {
     border-radius: 4px;
 }
-
 #outputColumn {
+/*    position: absolute;*/
+    padding-bottom: 20px;
+/*    right: 18%;*/
+    width: 36%;
+/*    background-color: silver;*/
+    border-radius: 8px;
+/*    box-shadow: 0px 0px 10px 0px #999999;*/
+    margin-top: 10px;
+}
+#outputColumn.flash {
+    transition: box-shadow 0.5s ease;
+/*
     position: fixed;
     right: 18%;
     width: 22%;
-    background-color:silver;
+    background-color: silver;
     border-radius: 8px;
-    box-shadow: 0px 0px 20px 0px #999999;;
-    margin-top: 10px;
+*/
+    box-shadow: 0px 0px 20px 10px #999999;
+/*    margin-top: 10px;*/
 }
-
 #scriptColumn {
-    width:46%
+    width: 46%
 }
-
 #Domheader {
     font-family: monospace;
 }
-
 #outputHeader {
     margin-left: 10px;
     font-family: monospace;
 }
-
-#addAnother {
-    margin: 15px 0 0;
-}
-
 #addAnotherPlus {
     margin-left: 5px;
-position: inherit;
+    position: inherit;
 }
-
 .btn-clipboard {
-position: absolute;
-bottom: 0;
-right: 0;
-z-index: 10;
-display: block;
-padding: 5px 8px;
-font-size: 12px;
-color: #777;
-cursor: pointer;
-background-color: #fff;
-border: 1px solid #e1e1e8;
-border-radius: 0 4px 0 4px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    display: block;
+    padding: 5px 8px;
+    font-size: 12px;
+    color: #777;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #e1e1e8;
+    border-radius: 0 4px 0 4px;
 }
-
-.btn-clipboard:hover
-{
-    color:#fff;background-color:#563d7c;border-color:#563d7c
+.btn-clipboard:hover {
+    color: #fff;
+    background-color: #563d7c;
+    border-color: #563d7c
 }
 #byLine {
     font-size: 40%;
 }
+body > .container {
+    padding-bottom: 60px;
+}
+.navbar-fixed-bottom {
+    display: none;
+}
+.container-fluidnav1 {
+    width: 16.66666667%;
+}
+.main-div-wrapper {
+    width: 110%;
+padding-right: 15px;
+padding-left: 15px;
+margin-right: auto;
+margin-left: -66px;
+}
+.nav-border {
+    display: inline;
+    border-right: 1px groove #9d9d9d;
+    border-left: 1px groove #9d9d9d;
+}
+
