@@ -96,6 +96,7 @@ $(function () {
         } else {
             $('#jsSelVal').parent().removeClass('has-success').addClass('has-error');
         }
+        //When user closes a textarea
         $('button.close').click(function () {
             //Get all methods in output
             var closeArr = $('#scriptTags p').get();
@@ -108,7 +109,7 @@ $(function () {
                 //Clear output text and remove class
                 if (closeVal == closeArr[q].className) {
                     //                    console.log('#method' + (q - 1));
-                    $('#method' + (q - 1)).text("").removeClass();
+                    $('#method' + (q)).text("").removeClass();
                 }
             }
             //Remove Text box
