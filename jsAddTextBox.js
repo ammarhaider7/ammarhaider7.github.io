@@ -109,7 +109,7 @@ $(function () {
                 //Clear output text and remove class
                 if (closeVal == closeArr[q].className) {
                     //                    console.log('#method' + (q - 1));
-                    $('#method' + (q)).text("").removeClass();
+                    $('#method' + (q-1)).text("").removeClass();
                 }
             }
             //Remove Text box
