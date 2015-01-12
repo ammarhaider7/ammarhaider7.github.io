@@ -1,11 +1,11 @@
 $(function () {
-//    //Wrap in quotes
-//        $('a#Wrap_in_quotes').one("click", function (e) {
-//        e.preventDefault();
-//        var textVal = $('textarea:focus').val();
-//        var textValQuo = "\"" + textVal + "\"";
-//        $('#scriptTags p').val(textValQuo);
-//    });
+    //    //Wrap in quotes
+    //        $('a#Wrap_in_quotes').one("click", function (e) {
+    //        e.preventDefault();
+    //        var textVal = $('textarea:focus').val();
+    //        var textValQuo = "\"" + textVal + "\"";
+    //        $('#scriptTags p').val(textValQuo);
+    //    });
     //Add another +
     $('#addAnother').click(function (e) {
         e.preventDefault();
@@ -35,9 +35,35 @@ $(function () {
     $(document).submit(function (e) {
         e.preventDefault();
     });
-    //Wrap in ".." script
-    $('a.wrap-in').click(function (e) {
-        e.preventDefault();
+
+    //Wrap in ".." script 
+    $('#methodsPlHolder').on("click", ".wrap-in", function () {
+        //Get current input text
+        var currentValtxt = $(this).prev().find('textarea').val();
+        //Wrap text in " " 
+        var wrappedVal = '\"' + currentValtxt + '\"';
+        //Update input with " "
+        $(this).prev().find('textarea').val(wrappedVal);
+        //Get ID of textarea
+        var valTxtId = $(this).prev().find('textarea').attr('id');
+        //Get all script method p tags
+        var arr = $('#scriptTags p').get();
+        //Match the id with the classNames of method p tags, return true
+        function outputMatch() {
+            for (i = 1; i < arr.length; i++) {
+                if (arr[i].className == valTxtId) {
+                    return true;
+                }
+            }
+        }
+        //When a match is found, populate the relevant method div (i-1) with the method
+        if (outputMatch()) {
+            splitIdVal = valTxtId.split('(');
+            //Split method to make space for Quotes and then update
+            splitIdValp1 = splitIdVal[0] + "(";
+            splitIdValp2 = splitIdVal[1];
+            $('#method' + (i-1)).text(splitIdValp1 + wrappedVal + splitIdValp2);
+        }
     });
     //Add function script
     $('a.add-function').click(function (e) {
