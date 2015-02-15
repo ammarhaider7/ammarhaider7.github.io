@@ -1,0 +1,41 @@
+<html>
+<head>
+<script type="text/javascript" src="http://www.nomisweb.co.uk/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+google.load('visualization', '1', {packages:['table','corechart']});
+google.setOnLoadCallback(displayData);
+
+function displayData()
+{
+	$.ajax({
+		url: 'http://www.nomisweb.co.uk/api/v01/dataset/NM_1_1.google.visualization.datatable.json',
+		data: 'geography=2092957697&date=latestMINUS24-latest&item=1&measures=20201&select=date,sex_name,obs_value&rows=date&scols=sex_name',
+		dataType: 'jsonp',
+		success: function(data)
+			{
+				// Create google DataTable from JSON data taken directly from the Nomis API.
+				var datatable = new google.visualization.DataTable(data);
+
+				var chart = new google.visualization.LineChart(document.getElementById('nomis_chart'));
+				chart.draw(datatable, {width: 800, height: 500, title: 'Nomis Data'});
+
+				var table = new google.visualization.Table(document.getElementById('nomis_table'));
+				table.draw(datatable, {showRowNumber: true});
+			}
+		});
+		
+	// You can repeat the above call with different API queries and different chart initializations
+	// here to produce as many different charts as you require on your page.
+}
+
+</script>
+</head>
+<body>
+<h1>Census - JSON - AJAX - Demo</h1>
+
+<div id="nomis_chart"></div>
+<div id="nomis_table"></div>
+</body>
+</html>
