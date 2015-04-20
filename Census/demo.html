@@ -1,0 +1,79 @@
+<html>
+
+<head>
+    <style>
+        body,
+        p,
+        table,
+        div {
+            font-family: verdana;
+            font-size: 8pt;
+        }
+        th {
+            background: #909090;
+            color: #eeeeee;
+            padding: 5px;
+        }
+        td {
+            border: 1px solid #c0c0c0;
+            padding: 3px;
+        }
+        div {
+            padding: 5px;
+        }
+        input[type="button"] {
+          margin-bottom: 5px;
+        }
+        
+    </style>
+    <link href="/Census/census.demo.css" rel="stylesheet">    
+</head>
+
+<body>
+    <h2>Using the <a href="http://www.nomisweb.co.uk/api/v01/help">Nomis API</a> with AJAX and JSON</h2>
+    <p>Data from 2011 Census showing Ethnicity breakdowns for Muslims by Region.</p>
+    <table>
+        <tr>
+            <td valign="top">
+                <b>Choose an area:</b>
+                <div style="width: 200px;" id="mylist"><span style="color: #0000a0;">Please wait...</span>
+                </div>
+            </td>
+            <td valign="top">
+                <div style="width: 400px; padding-top: 10px;" id="mydata"></div>
+        </tr>
+    </table>
+    <div id="pie_container" style="min-width: 310px; height: 400px; max-width: 600px; margin-left: 650px; margin-top: -380px;"></div>
+    <div class="sex_selector">
+        <input type="button" value="Females">
+        <input type="button" value="Males">
+        <input type="button" value="All">
+    </div>
+    <div id="pyramid_container" style="min-width: 310px; max-width: 800px; height: 400px"></div>
+    <table id="religions">
+        <tr>
+            <td valign="top">
+                <b>Choose a religion:</b>
+                <div id="mylist">
+                    <input type="button" value="All" code="0">
+                    <input type="button" value="Muslims" code="5">
+                    <input type="button" value="Christians" code="1">
+                    <input type="button" value="Hindu" code="3">
+                    <input type="button" value="Jewish" code="4">
+                    <input type="button" value="No religion" code="9">
+                    <input type="button" value="Sikh" code="6">
+                    <input type="button" value="Buddhist" code="2">
+                    <input type="button" value="Other religion" code="7">
+                </div>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript" src="http://www.nomisweb.co.uk/js/jquery-1.5.2.js"></script>
+    <script type="text/javascript" src="/Census/EthbyRel.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="/Census/EconbySex.js"></script>
+    <script type="text/javascript" src="/Census/popPyramid.js"></script>
+
+</body>
+
+</html>
