@@ -1,38 +1,3 @@
-<!--
-
-Nomis (http://www.nomisweb.co.uk)
-Author: Spencer Hedger
-
-Example of using the Nomis RESTful API (v01) in conjunction with AJAX and JSON
-to discover the names and codes for a sub-set of available areas for a dataset,
-obtaining data and presenting it to the user.
-
-Note: There are alternative methods of making AJAX calls and parsing JSON
-that may be more appropriate for your application. The code in this file is
-for demonstration purposes and is written for simplicity not browser compatibility.
-
-There are two AJAX calls being made, the JSON responses to these calls are then
-parsed as JavaScript variables using the standard "eval" function.
-
-The first call happens as soon as the page loads. The purpose of this call is to
-establish a valid list of geographic areas and codes. In the example,
-the developer has previously investigated the geography codelist,
-looking at:
-  http://www.nomisweb.co.uk/api/v01/nm_1_1/geography.def.sdmx.json
-and then the United Kingdom code at:
-  http://www.nomisweb.co.uk/api/v01/nm_1_1/geography/2092957697.def.sdmx.json
-to establish that:
-  http://www.nomisweb.co.uk/api/v01/nm_1_1/geography/2092957697TYPE480.def.sdmx.json
-will give all regions in the UK.
-
-The second call is made when the user clicks an area button. The developer has decided on
-a URI that will query a range of dates from Jan 2009 up to the latest available from the
-"Claimant Count with Rates and Proportions dataset".
-
-The basic URI is modified with the code for the selected area and the JSON response is then
-formatted for presentation in an html table to the user.
-
--->
 <html>
 
 <head>
