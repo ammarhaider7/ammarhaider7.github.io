@@ -15,7 +15,7 @@ Employment types (c_ecopuk11):-
 function runAjax(sex) {
     
     $.ajax({
-        url: "https://www.nomisweb.co.uk/api/v01/dataset/NM_681_1.data.json?date=latest&c_age=0&c_sex=" + sex + "&geography=2013265927&c_relpuk11=5",
+        url: "https://www.nomisweb.co.uk/api/v01/dataset/NM_681_1.data.json?date=latest&c_age=0&c_sex=" + sex + "&geography=K04000001&c_relpuk11=5",
         success: pieSuccess,
         error: function() {
                     console.log("This one failed")
@@ -67,7 +67,7 @@ var pieSuccess = function(data) {
                                 plotShadow: false
                             },
                             title: {
-                                text: 'Economic activity of Muslims in London, 2011'
+                                text: 'Economic activity of Muslims, England & Wales, 2011'
                             },
                             tooltip: {
                                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
