@@ -1,0 +1,114 @@
+<!--
+
+Nomis (http://www.nomisweb.co.uk)
+Author: Spencer Hedger
+
+Example of using the Nomis RESTful API (v01) in conjunction with AJAX and JSON
+to discover the names and codes for a sub-set of available areas for a dataset,
+obtaining data and presenting it to the user.
+
+Note: There are alternative methods of making AJAX calls and parsing JSON
+that may be more appropriate for your application. The code in this file is
+for demonstration purposes and is written for simplicity not browser compatibility.
+
+There are two AJAX calls being made, the JSON responses to these calls are then
+parsed as JavaScript variables using the standard "eval" function.
+
+The first call happens as soon as the page loads. The purpose of this call is to
+establish a valid list of geographic areas and codes. In the example,
+the developer has previously investigated the geography codelist,
+looking at:
+  http://www.nomisweb.co.uk/api/v01/nm_1_1/geography.def.sdmx.json
+and then the United Kingdom code at:
+  http://www.nomisweb.co.uk/api/v01/nm_1_1/geography/2092957697.def.sdmx.json
+to establish that:
+  http://www.nomisweb.co.uk/api/v01/nm_1_1/geography/2092957697TYPE480.def.sdmx.json
+will give all regions in the UK.
+
+The second call is made when the user clicks an area button. The developer has decided on
+a URI that will query a range of dates from Jan 2009 up to the latest available from the
+"Claimant Count with Rates and Proportions dataset".
+
+The basic URI is modified with the code for the selected area and the JSON response is then
+formatted for presentation in an html table to the user.
+
+-->
+<html>
+
+<head>
+    <style>
+        body,
+        p,
+        table,
+        div {
+            font-family: verdana;
+            font-size: 8pt;
+        }
+        th {
+            background: #909090;
+            color: #eeeeee;
+            padding: 5px;
+        }
+        td {
+            border: 1px solid #c0c0c0;
+            padding: 3px;
+        }
+        div {
+            padding: 5px;
+        }
+        input[type="button"] {
+          margin-bottom: 5px;
+        }
+        
+    </style>
+    <link href="/Census/census.demo.css" rel="stylesheet">    
+</head>
+
+<body>
+    <h2>Using the <a href="http://www.nomisweb.co.uk/api/v01/help">Nomis API</a> with AJAX and JSON</h2>
+    <p>Data from 2011 Census showing Ethnicity breakdowns for Muslims by Region.</p>
+    <table>
+        <tr>
+            <td valign="top">
+                <b>Choose an area:</b>
+                <div style="width: 200px;" id="mylist"><span style="color: #0000a0;">Please wait...</span>
+                </div>
+            </td>
+            <td valign="top">
+                <div style="width: 400px; padding-top: 10px;" id="mydata"></div>
+        </tr>
+    </table>
+    <div id="pie_container" style="min-width: 310px; height: 400px; max-width: 600px; margin-left: 650px; margin-top: -380px;"></div>
+    <div class="sex_selector">
+        <input type="button" value="Females">
+        <input type="button" value="Males">
+        <input type="button" value="All">
+    </div>
+    <div id="pyramid_container" style="min-width: 310px; max-width: 800px; height: 400px"></div>
+    <table id="religions">
+        <tr>
+            <td valign="top">
+                <b>Choose a religion:</b>
+                <div id="mylist">
+                    <input type="button" value="All" code="0">
+                    <input type="button" value="Muslims" code="5">
+                    <input type="button" value="Christians" code="1">
+                    <input type="button" value="Hindu" code="3">
+                    <input type="button" value="Jewish" code="4">
+                    <input type="button" value="No religion" code="9">
+                    <input type="button" value="Sikh" code="6">
+                    <input type="button" value="Buddhist" code="2">
+                    <input type="button" value="Other religion" code="7">
+                </div>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript" src="http://www.nomisweb.co.uk/js/jquery-1.5.2.js"></script>
+    <script type="text/javascript" src="/Census/EthbyRel.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="/Census/EconbySex.js"></script>
+    <script type="text/javascript" src="/Census/popPyramid.js"></script>
+
+</body>
+
+</html>
