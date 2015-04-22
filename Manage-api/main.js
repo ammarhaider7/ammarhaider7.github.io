@@ -32,8 +32,8 @@ var o = {
     tagPull: function(auth) {
                 $.ajax({
                       type: 'GET',
-                      url: '//manage-api.ensighten.com/manage/deployments?',
-                      data: 'name="UK SiteCatalyst Page Code"&spaceId="1501"',
+                      url: '//manage-api.ensighten.com/manage/deployments',
+                      data: 'name=UK SiteCatalyst Page Code&spaceId=1501',
                       contentType: 'application/x-www-form-urlencoded',
                       headers: {
                           "Authorization": "Bearer " + auth.access_token,
