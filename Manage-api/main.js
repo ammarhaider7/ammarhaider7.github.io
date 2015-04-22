@@ -12,7 +12,7 @@ $(function() {
     o.authAjax(username,password);
     //Run deployment ajax when user clicks get code
     $('#getCode').click(function() {
-        var spaceVal = $(this).val();
+        var spaceVal = $('#field1').val()
         !!o.loggedIn ? o.tagPull(o.auth.access_token, o.spaces.spaceVal) : alert('Not logged in');
     })
 });
