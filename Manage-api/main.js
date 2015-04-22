@@ -77,10 +77,9 @@ var o = {
                           "Accept": "application/json"
                       },
                       success: function(response) {
-                          $('.login').fadeOut('slow');
-                          $('#main').show();
                           console.log(response);
                           o.siteCatPageTag = response;
+                          $('.TagCode').show();
                       },
                       error: function() {
                           console.log('Didn\'t work');
