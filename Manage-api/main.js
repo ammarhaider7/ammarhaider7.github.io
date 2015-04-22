@@ -12,8 +12,9 @@ $(function() {
     o.authAjax(username,password);
     //Run deployment ajax when user clicks get code
     $('#getCode').click(function() {
-        var spaceVal = $('#field1').val()
-        !!o.loggedIn ? o.tagPull(o.auth.access_token, o.spaces.spaceVal) : alert('Not logged in');
+        var DID = $('#field1').val();
+        var SID = $('option:selected').attr('value');
+        o.loggedIn ? o.tagPull(o.auth.access_token, SID, DID) : alert('Not logged in');
     })
 });
 
@@ -21,12 +22,6 @@ var o = {
     
     loggedIn: false,
     
-    spaces: {
-                ceProd: "1501",
-                ceStage: "1503",
-                expProd: "7649",
-                expStage: "7709"
-            },
     //CORS using jQuery
     authAjax: function(username,password) {
             $.ajax({
@@ -52,10 +47,10 @@ var o = {
             },
 
     //Get some deployments
-    tagPull: function(auth, DID) {
+    tagPull: function(auth, SID, DID) {
                 $.ajax({
                       type: 'GET',
-                      url: '//manage-api.ensighten.com/manage/spaces/1501/deployments/' + DID,
+                      url: '//manage-api.ensighten.com/manage/spaces/' + SID + '/deployments/' + DID,
                       contentType: 'application/x-www-form-urlencoded',
                       headers: {
                           "Authorization": "Bearer " + auth.access_token,
