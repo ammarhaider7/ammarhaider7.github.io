@@ -22,7 +22,7 @@ $.ajax({
     // Set any custom headers here.
     // If you set any non-simple headers, your server must include these
     // headers in the 'Access-Control-Allow-Headers' response header.
-      "Accept": "application/vnd.com.ensighten.manage-v1+json",
+      //"Accept": "application/vnd.com.ensighten.manage-v1+json",
       "Authorization": "Basic " + btoa("experian" + ":" + "ammar.haider" + ":" + 'Haider26463.1!'),
   },
 
