@@ -7,8 +7,8 @@ $.ajax({
   type: 'POST',
 
   // The URL to make the request to.
-  url: '//manage-api.ensighten.com/auth/token?grant_type=password',
-  //data: 'grant_type=password',
+  url: '//manage-api.ensighten.com/auth/token',
+  data: 'grant_type=password',
 
   // The 'contentType' property sets the 'Content-Type' header.
   // The JQuery default for this property is
