@@ -7,7 +7,7 @@ $.ajax({
   type: 'POST',
 
   // The URL to make the request to.
-  url: 'https://manage-api.ensighten.com/auth/token',
+  url: '//manage-api.ensighten.com/auth/token',
   data: 'grant_type=password',
 
   // The 'contentType' property sets the 'Content-Type' header.
@@ -48,55 +48,3 @@ $.ajax({
       console.log('Didn\'t work);
   }
 });
-
-
-/* //A simple helper method to help sort out the browser differences 
-
-function createCORSRequest(method, url) {
-    var xhr = new XMLHttpRequest();
-    if ("withCredentials" in xhr) {
-
-        // Check if the XMLHttpRequest object has a "withCredentials" property.
-        // "withCredentials" only exists on XMLHTTPRequest2 objects.
-        xhr.open(method, url, true);
-
-    } else if (typeof XDomainRequest != "undefined") {
-
-        // Otherwise, check if XDomainRequest.
-        // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
-        xhr = new XDomainRequest();
-        xhr.open(method, url);
-
-    } else {
-        // Otherwise, CORS is not supported by the browser.
-        xhr = null;
-
-    }
-    return xhr;
-}
-
-// Make the actual CORS request.
-function makeCorsRequest() {
-    var method = 'POST';
-    var url = "//manage-api.ensighten.com/auth/token";
-    var xhr = createCORSRequest(method, url);
-        xhr.withCredentials = true;
-    if (!xhr) {
-        throw new Error('CORS not supported');
-    }
-}
-
-xhr.onload = function () {
-    var responseText = xhr.responseText;
-    console.log(responseText);
-    // process the response.
-};
-
-xhr.onerror = function () {
-    console.log('There was an error!');
-};
-
-var body = 'grant_type=password'
-
-//Make request
-xhr.send(body);*/
