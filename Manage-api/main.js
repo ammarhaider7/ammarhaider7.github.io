@@ -54,6 +54,7 @@ var o = {
                       o.auth = response;
                       o.loggedIn = true;
                       $('.login form #success').show();
+                      $('.login').remove();
                       $('#main').show();
                   },
 
