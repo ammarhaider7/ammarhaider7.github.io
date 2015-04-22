@@ -45,6 +45,6 @@ $.ajax({
     // Note that if the error was due to a CORS issue,
     // this function will still fire, but there won't be any additional
     // information about the error.
-      console.log('Didn\'t work);
+      console.log('Didn\'t work');
   }
 });
