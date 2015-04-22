@@ -41,7 +41,7 @@ var o = {
                   success: function(response) {
                     // Here's where you handle a successful response.
                       o.auth = response;
-                      loggedIn = true;
+                      o.loggedIn = true;
                   },
 
                   error: function() {
