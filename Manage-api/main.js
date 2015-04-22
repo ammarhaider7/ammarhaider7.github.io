@@ -7,9 +7,25 @@
 
 //Run ajax on Dom ready
 $(function() {
-    var username = prompt("Username");
-    var password = prompt("Password");
-    o.authAjax(username,password);
+    
+    var loginVisible = false;
+    
+    setTimeout(function() {
+        $('.login').fadeIn('slow');
+        loginVisible = true;
+    }, 200);
+    
+    $('.enviar').click(function() {
+        
+        var username = $('.login #username').val();
+        var password = $('.login #password').val();
+        o.authAjax(username, password);
+    
+    })
+    
+//    var username = prompt("Username");
+//    var password = prompt("Password");
+//    o.authAjax(username,password);
     //Run deployment ajax when user clicks get code
     $('#getCode').click(function() {
         var DID = $('#field1').val();
@@ -35,13 +51,14 @@ var o = {
                   },
                   success: function(response) {
                     // Here's where you handle a successful response.
+                      $('.login form #success').show();
                       o.auth = response;
                       o.loggedIn = true;
                   },
 
                   error: function() {
                       console.log('Didn\'t work');
-                      alert('Access denied');
+                      $('.login form #fail').show();
                   }
                 })
             },
@@ -57,11 +74,14 @@ var o = {
                           "Accept": "application/json"
                       },
                       success: function(response) {
+                          $('.login').fadeOut('slow');
+                          $('#main').show();
                           console.log(response);
                           o.siteCatPageTag = response;
                       },
                       error: function() {
                           console.log('Didn\'t work');
+
                       }
                 })
             }
