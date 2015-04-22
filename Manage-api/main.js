@@ -79,7 +79,9 @@ var o = {
                       success: function(response) {
                           console.log(response);
                           o.siteCatPageTag = response;
+                          $('.TagCode code').text(o.siteCatPageTag.code);
                           $('.TagCode').show();
+          
                       },
                       error: function() {
                           console.log('Didn\'t work');
