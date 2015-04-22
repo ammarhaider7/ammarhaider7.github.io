@@ -47,13 +47,13 @@ var o = {
             },
 
     //Get some deployments
-    tagPull: function(auth, SID, DID) {
+    tagPull: function(token, SID, DID) {
                 $.ajax({
                       type: 'GET',
                       url: '//manage-api.ensighten.com/manage/spaces/' + SID + '/deployments/' + DID,
                       contentType: 'application/x-www-form-urlencoded',
                       headers: {
-                          "Authorization": "Bearer " + auth.access_token,
+                          "Authorization": "Bearer " + token,
                           "Accept": "application/json"
                       },
                       success: function(response) {
