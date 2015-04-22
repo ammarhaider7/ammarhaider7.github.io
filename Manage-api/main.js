@@ -35,8 +35,9 @@ $.ajax({
       "Authorization": "Basic " + btoa("ammar.haider" + ":" + 'Haider26463.1!'),
   },
 
-  success: function() {
+  success: function(response) {
     // Here's where you handle a successful response.
+      console.log(response);
   },
 
   error: function() {
@@ -44,6 +45,7 @@ $.ajax({
     // Note that if the error was due to a CORS issue,
     // this function will still fire, but there won't be any additional
     // information about the error.
+      console.log('Didn\'t work);
   }
 });
 
