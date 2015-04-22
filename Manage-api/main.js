@@ -36,7 +36,7 @@ var o = {
                   contentType: 'application/x-www-form-urlencoded',
 
                   headers: {
-                      "Authorization": "Basic " + btoa("experian" + ":" + "username" + ":" + 'password')
+                      "Authorization": "Basic " + btoa("experian" + ":" + username + ":" + password)
                   },
                   success: function(response) {
                     // Here's where you handle a successful response.
