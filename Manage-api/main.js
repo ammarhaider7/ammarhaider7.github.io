@@ -51,14 +51,16 @@ var o = {
                   },
                   success: function(response) {
                     // Here's where you handle a successful response.
-                      $('.login form #success').show();
                       o.auth = response;
                       o.loggedIn = true;
+                      $('.login form #success').show();
+                      $('#main').show();
                   },
 
                   error: function() {
                       console.log('Didn\'t work');
                       $('.login form #fail').show();
+
                   }
                 })
             },
