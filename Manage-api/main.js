@@ -39,7 +39,7 @@
                       error: function() {
                           console.log('Didn\'t work');
                       }
-                });
+             })
 
     }
     
