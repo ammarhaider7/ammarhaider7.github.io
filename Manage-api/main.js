@@ -16,7 +16,7 @@ $(function() {
     }, 200);
 
     $('.enviar').submit(function(e) {
-        e.preventDefault();
+        return false;
         var username = $('.login #username').val();
         var password = $('.login #password').val();
         o.authAjax(username, password);
