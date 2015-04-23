@@ -16,11 +16,11 @@ $(function() {
     }, 200);
 
     $('.login form').submit(function(e) {
-        return false;
+        
         var username = $('.login #username').val();
         var password = $('.login #password').val();
         o.authAjax(username, password);
-
+        e.preventDefault();
     });
 
     //Run deployment ajax when user clicks get code
