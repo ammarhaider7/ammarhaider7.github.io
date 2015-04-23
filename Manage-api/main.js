@@ -15,7 +15,7 @@ $(function() {
         loginVisible = true;
     }, 200);
 
-    $('.enviar').click(function() {
+    $('.enviar').submit(function() {
         var username = $('.login #username').val();
         var password = $('.login #password').val();
         o.authAjax(username, password);
