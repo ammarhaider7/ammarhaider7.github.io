@@ -15,7 +15,7 @@ $(function() {
         loginVisible = true;
     }, 200);
 
-    $('.enviar').submit(function(e) {
+    $('.login form').submit(function(e) {
         return false;
         var username = $('.login #username').val();
         var password = $('.login #password').val();
