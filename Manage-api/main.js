@@ -7,25 +7,21 @@
 
 //Run ajax on Dom ready
 $(function() {
-    
+
     var loginVisible = false;
-    
+
     setTimeout(function() {
         $('.login').fadeIn('slow');
         loginVisible = true;
     }, 200);
-    
+
     $('.enviar').click(function() {
-        
         var username = $('.login #username').val();
         var password = $('.login #password').val();
         o.authAjax(username, password);
-    
-    })
-    
-//    var username = prompt("Username");
-//    var password = prompt("Password");
-//    o.authAjax(username,password);
+
+    });
+
     //Run deployment ajax when user clicks get code
     $('#getCode').click(function() {
         var DID = $('#field1').val();
@@ -35,9 +31,9 @@ $(function() {
 });
 
 var o = {
-    
+
     loggedIn: false,
-    
+
     //CORS using jQuery
     authAjax: function(username,password) {
             $.ajax({
@@ -45,7 +41,6 @@ var o = {
                   url: '//manage-api.ensighten.com/auth/token',
                   data: 'grant_type=password',
                   contentType: 'application/x-www-form-urlencoded',
-
                   headers: {
                       "Authorization": "Basic " + btoa("experian" + ":" + username + ":" + password)
                   },
@@ -56,10 +51,11 @@ var o = {
                       $('.login form #success').show();
                       $('.login').remove();
                       $('#main').show();
-                  },
-
+                      //Set a cookie lasting 60 mins so the user doesn't get logged out
+                      
+                  }, 
                   error: function() {
-                      console.log('Didn\'t work');
+                      //console.log('Didn\'t work');
                       $('.login form #fail').show();
 
                   }
@@ -77,14 +73,16 @@ var o = {
                           "Accept": "application/json"
                       },
                       success: function(response) {
-                          console.log(response);
-                          o.siteCatPageTag = response;
-                          $('.TagCode code').text(o.siteCatPageTag.code);
+                          //console.log(response);
+                          o.tag = response;
+                          $('.TagCode code').text(o.tag.code);
                           $('.TagCode').show();
-          
+
                       },
                       error: function() {
-                          console.log('Didn\'t work');
+                          //console.log('Didn\'t work');
+                          $('.TagCode code').text("There was an error retrieving the code");
+                          $('.TagCode').show();
 
                       }
                 })
