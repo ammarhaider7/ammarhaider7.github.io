@@ -33,7 +33,7 @@ $(function() {
 var o = {
 
     loggedIn: false,
-    table: false;
+    table: false,
 
     //CORS using jQuery
     authAjax: function(username,password) {
