@@ -49,7 +49,7 @@ var o = {
                     // Here's where you handle a successful response.
                       o.auth = response;
                       o.loggedIn = true;
-                      $('.login form #success').show();
+                      $('body').css({'background-color': '#333', color: 'rgba(200, 200, 200, 1)'});
                       $('.login').remove();
                       $('#main').show();
                       //Set a cookie lasting 60 mins so the user doesn't get logged out
@@ -57,7 +57,7 @@ var o = {
                   }, 
                   error: function() {
                       //console.log('Didn\'t work');
-                      $('.login form #fail').show();
+                      alert("Log in failed");
 
                   }
                 })
