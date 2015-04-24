@@ -87,7 +87,7 @@ var o = {
                                     if(!o.table) {
                                         $('#TagDetails').append('<tr><td>' + name + '</td><td>' + exec + '</td><td>' + lastAct + '</td><td>' + lastMod + '</td><td>' + conditions + '</td><td>' + dependencies + '</td><td>' + comments + '</td></tr>');
                                     } else {
-                                        $('#TagDetails tbody').remove();
+                                        $('#TagDetails tbody tr').remove();
                                         $('#TagDetails').append('<tr><td>' + name + '</td><td>' + exec + '</td><td>' + lastAct + '</td><td>' + lastMod + '</td><td>' + conditions + '</td><td>' + dependencies + '</td><td>' + comments + '</td></tr>');
                                     }
 
