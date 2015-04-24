@@ -84,7 +84,7 @@ var o = {
                                         comments = o.tags[i].comments,
                                         code = o.tags[i].code;
 
-                                $('#TagDetails').replaceWith('<tr><td>' + name + '</td><td>' + exec + '</td><td>' + lastAct + '</td><td>' + lastMod + '</td><td>' + conditions + '</td><td>' + dependencies + '</td><td>' + comments + '</td></tr>');
+                                $('#TagDetails tbody').replaceWith('<tr><td>' + name + '</td><td>' + exec + '</td><td>' + lastAct + '</td><td>' + lastMod + '</td><td>' + conditions + '</td><td>' + dependencies + '</td><td>' + comments + '</td></tr>');
 
                                   }
 
