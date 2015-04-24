@@ -30,6 +30,7 @@ $(function() {
             o.loggedIn ? o.tagPull(o.auth.access_token, SID) : alert('Not logged in');
         } else {
             $('#TagDetails tbody tr').remove();
+            $('.numTags').remove();
             var SID = $('option:selected').attr('value');
             o.loggedIn ? o.tagPull(o.auth.access_token, SID) : alert('Not logged in');
         }
@@ -94,7 +95,7 @@ var o = {
                                         $('#TagDetails').append('<tr><td>' + name + '</td><td>' + exec + '</td><td>' + lastAct + '</td><td>' + lastMod + '</td><td>' + conditions + '</td><td>' + dependencies + '</td><td>' + comments + '</td></tr>');
                                     
                                     }
-                                  $('#TagDetails').before('<p>No. tags: ' + o.tags.length + '</p>');
+                                  $('#TagDetails').before('<p class="numTags">No. tags: ' + o.tags.length + '</p>');
                                   o.table = true;
                                   $('.TagCode').show();
 
