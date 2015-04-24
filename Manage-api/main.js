@@ -76,7 +76,7 @@ var o = {
                       success: function(response) {
                           //console.log(response);
                           o.tag = response;
-                          $('.TagCode code').text(o.tag.code);
+                          $('.TagCode code').text(o.tag.);
                           $('.TagCode').show();
 
                       },
