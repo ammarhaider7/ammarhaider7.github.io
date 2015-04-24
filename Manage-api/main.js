@@ -73,19 +73,22 @@ var o = {
                           "Accept": "application/json"
                       },
                       success: function(response) {
-                          //console.log(response);
-                          o.tag = response;
-                          var name = o.tag.name,
-                              exec = o.tag.executionTime,
-                              lastAct = o.tag.lastAction,
-                              lastMod = o.tag.modifyDate,
-                              conditions = o.tag.conditionIds,
-                              dependencies = o.tag.dependentDeployments,
-                              comments = o.tag.comments,
-                              code = o.tag.code;
-                        
-                          $('#TagDetails').append('<tr><td>' + name + '</td><td>' + exec + '</td><td>' + lastAct + '</td><td>' + lastMod + '</td><td>' + conditions + '</td><td>' + dependencies + '</td><td>' + comments + '</td></tr>');
-                          $('.TagCode').show();
+                                  o.tags = response;
+                                  for (var i = 0; i < o.tags.length; i++) {
+                                    var name = o.tags[i].name,
+                                        exec = o.tags[i].executionTime,
+                                        lastAct = o.tags[i].lastAction,
+                                        lastMod = o.tags[i].modifyDate,
+                                        conditions = o.tags[i].conditionIds,
+                                        dependencies = o.tags[i].dependentDeployments,
+                                        comments = o.tags[i].comments,
+                                        code = o.tags[i].code;
+
+                                $('#TagDetails').append('<tr><td>' + name + '</td><td>' + exec + '</td><td>' + lastAct + '</td><td>' + lastMod + '</td><td>' + conditions + '</td><td>' + dependencies + '</td><td>' + comments + '</td></tr>');
+
+                                  }
+
+                                  $('.TagCode').show();
 
                       },
                       error: function() {
@@ -94,7 +97,7 @@ var o = {
                           $('.TagCode').show();
 
                       }
-                })
+                });
             }
 
 }
