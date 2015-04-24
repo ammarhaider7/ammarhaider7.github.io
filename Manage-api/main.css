@@ -38,6 +38,6 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-input, option {
+input, option, select {
     color: rgb(68, 55, 55)
 }
