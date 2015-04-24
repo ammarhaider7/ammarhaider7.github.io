@@ -25,9 +25,8 @@ $(function() {
 
     //Run deployment ajax when user clicks get code
     $('#getCode').click(function() {
-        var DID = $('#field1').val();
         var SID = $('option:selected').attr('value');
-        o.loggedIn ? o.tagPull(o.auth.access_token, SID, DID) : alert('Not logged in');
+        o.loggedIn ? o.tagPull(o.auth.access_token, SID) : alert('Not logged in');
     })
 });
 
@@ -64,10 +63,10 @@ var o = {
             },
 
     //Get some deployments
-    tagPull: function(token, SID, DID) {
+    tagPull: function(token, SID) {
                 $.ajax({
                       type: 'GET',
-                      url: '//manage-api.ensighten.com/manage/spaces/' + SID + '/deployments/' + DID,
+                      url: '//manage-api.ensighten.com/manage/deployments?spaceId=' + SID + '&status=enabled_published',
                       contentType: 'application/x-www-form-urlencoded',
                       headers: {
                           "Authorization": "Bearer " + token,
@@ -76,7 +75,16 @@ var o = {
                       success: function(response) {
                           //console.log(response);
                           o.tag = response;
-                          $('.TagCode code').text(o.tag.name);
+                          var name = o.tag.name,
+                              exec = o.tag.executionTime,
+                              lastAct = o.tag.lastAction,
+                              lastMod = o.tag.modifyDate,
+                              conditions = o.tag.conditionIds,
+                              dependencies = o.tag.dependentDeployments,
+                              comments = o.tag.comments,
+                              code = o.tag.code;
+                        
+                          $('#TagDetails').append('<tr><td>' + name + '</td><td>' + exec + '</td><td>' + lastAct + '</td><td>' + lastMod + '</td><td>' + conditions + '</td><td>' + dependencies + '</td><td>' + comments + '</td></tr>');
                           $('.TagCode').show();
 
                       },
