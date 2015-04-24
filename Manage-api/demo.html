@@ -1,20 +1,26 @@
 <html>
     <head>   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">   
+    <link rel="stylesheet" href="/main.css">   
     </head>
         <body>
-            <section class="login" style="display: none;">
-                <div class="titulo">ECS - Ensighten API</div>
+            <section class="login form-signin" style="display: none;">
+                
                 <form action="#" method="post" enctype="application/x-www-form-urlencoded">
-                    <input id="username" type="text" required title="Usuario Requerido" placeholder="Username" data-icon="U">
+                  <h2 class="form-signin-heading">ECS - Ensighten API</h2>
+                   <label for="inputEmail" class="sr-only">Username</label>
+                   <input id="username" class="form-control" placeholder="Username" required autofocus>
                     <p></p>
-                    <input id="password" type="password" required title="Password Requerido" placeholder="Password" data-icon="x">
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input id="password" class="form-control" type="password" required title="Password Requerido" placeholder="Password" data-icon="x">
                     <p></p>
-                    <button type="submit" class="enviar">Sign in</button>
-<!--                    <a href="#" class="enviar"></a>-->
+                    <button type="submit" class="enviar btn btn-lg btn-primary btn-block">Sign in</button>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                      </label>
+                    </div>
                     <p></p>
-                    <span id="fail"><b>Login failed!</b></span>
-                    <span id="success"><b>Success!</b></span>
                 </form>
             </section>
             <div id="main" style="display: none;">
@@ -28,7 +34,7 @@
                 </select>
                 <p>
                 <form id="form1" name="form1"> 
-                    <input id="field1" type="text" class="required" / placeholder="Enter Deployment ID">
+                    <input id="field1" type="text" placeholder="Enter Deployment ID">
                 </form>
                 <div>
                     <input id="getCode" type="button" value="Get Tags"/>
