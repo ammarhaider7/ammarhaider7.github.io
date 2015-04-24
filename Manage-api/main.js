@@ -90,17 +90,17 @@ var o = {
                                         dependencies = o.tags[i].dependentDeployments,
                                         comments = o.tags[i].comments,
                                         code = o.tags[i].code;
+                                      
+                                        $('#TagDetails').before('<p>No. tags: ' + o.tags.length + '</p>');
 
                                         $('#TagDetails').append('<tr><td>' + name + '</td><td>' + exec + '</td><td>' + lastAct + '</td><td>' + lastMod + '</td><td>' + conditions + '</td><td>' + dependencies + '</td><td>' + comments + '</td></tr>');
+                                    
                                     }
-
-                                  }
-                          
                                   o.table = true;
                                   $('.TagCode').show();
-                                  
 
-                      },
+                                  },
+                          
                       error: function() {
                           //console.log('Didn\'t work');
                           $('.TagCode code').text("There was an error retrieving the code");
