@@ -25,8 +25,14 @@ $(function() {
 
     //Run deployment ajax when user clicks get code
     $('#getCode').click(function() {
-        var SID = $('option:selected').attr('value');
-        o.loggedIn ? o.tagPull(o.auth.access_token, SID) : alert('Not logged in');
+        if(!o.table) {
+            var SID = $('option:selected').attr('value');
+            o.loggedIn ? o.tagPull(o.auth.access_token, SID) : alert('Not logged in');
+        } else {
+            $('#TagDetails tbody tr').remove();
+            var SID = $('option:selected').attr('value');
+            o.loggedIn ? o.tagPull(o.auth.access_token, SID) : alert('Not logged in');
+        }
     })
 });
 
@@ -84,10 +90,7 @@ var o = {
                                         dependencies = o.tags[i].dependentDeployments,
                                         comments = o.tags[i].comments,
                                         code = o.tags[i].code;
-                                    if(!o.table) {
-                                        $('#TagDetails').append('<tr><td>' + name + '</td><td>' + exec + '</td><td>' + lastAct + '</td><td>' + lastMod + '</td><td>' + conditions + '</td><td>' + dependencies + '</td><td>' + comments + '</td></tr>');
-                                    } else {
-                                        $('#TagDetails tbody tr').remove();
+
                                         $('#TagDetails').append('<tr><td>' + name + '</td><td>' + exec + '</td><td>' + lastAct + '</td><td>' + lastMod + '</td><td>' + conditions + '</td><td>' + dependencies + '</td><td>' + comments + '</td></tr>');
                                     }
 
