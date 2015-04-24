@@ -32,19 +32,27 @@
                     <option value="7709">UK Experian Corp - Stage</option>
                 </select>
                 <p>
-                <form id="form1" name="form1"> 
-                    <input id="field1" type="text" placeholder="Enter Deployment ID">
-                </form>
                 <div>
-                    <input id="getCode" type="button" value="Get Tags"/>
+                    <input id="getCode" type="button" value="Get Tag data"/>
                 </div>
-           
                <div class="TagCode" style="display: none;">
-                   <p>Tag code:<br><br>
-                       <code>
-                       This is the code
-                       </code>
-                   </p>
+                    <p>Tag data:<br><br>
+                      <table class="table table-bordered" id="TagDetails">
+                        <thead>
+                          <tr>
+                            <th>Tag Name</th>
+                            <th>Execution time</th>
+                            <th>Last action</th>
+                            <th>Last modified</th>
+                            <th>Conditions</th>
+                            <th>Dependencies</th>
+                            <th>Comments</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </p>
                </div>
             </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
