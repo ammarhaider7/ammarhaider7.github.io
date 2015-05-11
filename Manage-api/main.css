@@ -50,7 +50,7 @@ h1 {
 }
 #TagDetails {
 	width: 35%;
-	margin-left: 10%;
+	margin-left: 5%;
 }
 
 .main-left {
@@ -70,7 +70,7 @@ h1 {
 #TagsRight {
 	float:right;
 	width: 35%;
-	margin-right: 10%;
+	margin-right: 5%;
 	margin-top: -50px;
 }
 
