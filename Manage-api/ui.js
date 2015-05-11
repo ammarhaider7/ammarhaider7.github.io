@@ -15,6 +15,8 @@ $(function() {
 	
 	o.compareArrs(lArr,rArr,o.compareAttr);
 	
+	$('tr.tag').not('.match-found').css('background-color','rgb(255, 220, 42)');
+	
 	var c = $('.highlight').length/2;
 	
 	alert(c + ' inconsistencies found');
@@ -100,6 +102,7 @@ var o = {
 						for (var j = 0; j < arr2.length; j++) {
 							if (arr1[i].id === arr2[j].id) {
 								 fn(arr1[i],arr2[j]);
+								 $('tr.' + arr1[i].id).addClass('match-found');
 								}
 							}
 						}
@@ -170,7 +173,7 @@ var o = {
 																	})();
 								   var dependencies = el.dependentDeployments;
 									  
-										$(selector).append('<tr class="' + id + '"><td>' + name + '</td><td><table><tr class="executionTime"><td><u>Execution time: </u></td><td class="exec">' + exec + '</td></tr><tr class="lastAction"><td><u>Last action: </u></td><td class="last-act">' + lastAct + '</td></tr><tr class="modifyDate"><td><u>Last modified: </u></td><td class="last-mod">' + lastMod + '</td></tr><tr class="conditionIds"><td><u>Conditions: </u></td><td class="cond">' + conditions + '</td></tr><tr class="dependentDeployments"><td><u>Dependencies: </u></td><td class="depend">' + dependencies + '</td></tr><tr class="comments"><td><u>Comments: </u></td><td class="comm">' + comments + '</td></tr></table></td></tr><tr class="status"><td><u>Status: </u></td><td class="comm">' + status + '</td></tr></table></td></tr>');
+										$(selector).append('<tr class="tag ' + id + '"><td>' + name + '</td><td><table><tr class="executionTime"><td><u>Execution time: </u></td><td class="exec">' + exec + '</td></tr><tr class="lastAction"><td><u>Last action: </u></td><td class="last-act">' + lastAct + '</td></tr><tr class="modifyDate"><td><u>Last modified: </u></td><td class="last-mod">' + lastMod + '</td></tr><tr class="conditionIds"><td><u>Conditions: </u></td><td class="cond">' + conditions + '</td></tr><tr class="dependentDeployments"><td><u>Dependencies: </u></td><td class="depend">' + dependencies + '</td></tr><tr class="comments"><td><u>Comments: </u></td><td class="comm">' + comments + '</td></tr></table></td></tr><tr class="status"><td><u>Status: </u></td><td class="comm">' + status + '</td></tr></table></td></tr>');
 									  
 								  });
                                   //$(selector).before('<p class="numTags">No. tags: ' + o.tags.length + '</p>');
