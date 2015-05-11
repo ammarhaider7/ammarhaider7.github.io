@@ -15,7 +15,7 @@ $(function() {
 	
 	o.compareArrs(lArr,rArr,o.compareAttr);
 	
-	$('tr.tag').not('.match-found').css('background-color','rgb(255, 220, 42)');
+	$('tr.tag').not('.match-found').css('background-color','rgb(129, 113, 32)');
 	
 	var c = $('.highlight').length/2;
 	
