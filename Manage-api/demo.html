@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/Manage-api/main.css">
     </head>
         <body>
-            <section class="login form-signin" style="display: none;">
+		  <section class="login form-signin" style="display: none;">
                 <form action="#" method="post" enctype="application/x-www-form-urlencoded">
                   <h2 class="form-signin-heading">ECS - Ensighten API</h2>
                    <label for="inputEmail" class="sr-only">Username</label>
@@ -22,41 +22,55 @@
                     <p></p>
                 </form>
             </section>
-            <div id="main" class="container" style="display: none;">
-                <h1>Demo using the Ensighten Manage API</h1>
+           <div id="main" class="container" style="display: none;">
+           <h1>Demo using the Ensighten Manage API</h1>
+            <div class="main-left"> 
+               <p><b>Space # 1</b></p>
                 <select><p>Select a space:</p>
                     <option selected="selected" value="0">Select a space</option>
                     <option value="1501">UK Credit Expert - Prod</option>
                     <option value="1503">UK Credit Expert - Stage</option>
-                    <option value="7469">UK Experian Corp - Prod</option>
-                    <option value="7709">UK Experian Corp - Stage</option>
+					<option value="7469">UK Experian Corp - Prod</option>
+					<option value="7709">UK Experian Corp - Stage</option>
                 </select>
                 <p>
-                <div>
-                    <input id="getCode" type="button" value="Get Tag data"/>
-                </div>
+				</p>
+		   	</div>
+			<div class="main-right"> 
+		   	<p><b>Space # 2</b></p>
+			<select><p>Select a space:</p>
+				<option selected="selected" value="0">Select a space</option>
+				<option value="1501">UK Credit Expert - Prod</option>
+				<option value="1503">UK Credit Expert - Stage</option>
+				<option value="7469">UK Experian Corp - Prod</option>
+				<option value="7709">UK Experian Corp - Stage</option>
+			</select>
+				<p></p>
+			</div>
+			<div class="tag-data-btn">
+				<input id="getCode" type="button" value="Get Tag data"/>
+				<input id="compareTags" type="button" value="Compare">
+			</div>
                <div class="TagCode" style="display: none;">
                     <br><br>
-                      <table class="table table-bordered" id="TagDetails">
-                        <thead>
-                          <tr>
-                            <th>Tag Name</th>
-                            <th>Execution time</th>
-                            <th>Last action</th>
-                            <th>Last modified</th>
-                            <th>Conditions</th>
-                            <th>Dependencies</th>
-                            <th>Comments</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                      </table>
+                      <table class="table table-bordered col-md-6" id="TagDetails">
+                       <th>Tag Name</th>
+						<th>Attributes</th>
+                      </table>                      
                     </p>
+               </div>
+				<div class="TagCodeRight" style="display: none;">	
+					<br><br>
+					<table class="table table-bordered col-md-6" id="TagsRight">
+                       <th>Tag Name</th>
+						<th>Attributes</th>
+				  	</table>
+           
+				   </p>
                </div>
             </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src="/Manage-api/main.js"></script>
+        <script src="/Manage-api/ui.js"></script>
 
         </body>
 </html>
