@@ -38,6 +38,7 @@ $(function() {
     $('#getCode').click(function() {
 		
 			var SIDl = $('.main-left option:selected').attr('value'),
+				auth = o.auth.access_token,
 				SIDr = $('.main-right option:selected').attr('value'),
 				lTable = '#TagDetails',
 				rTable = '#TagsRight',
@@ -49,12 +50,12 @@ $(function() {
 			if(SIDl != 0) { 
 				$(lTable).html('<tr><th>Tag Name</th><th>Attributes</th></tr>');
 				//Ajax
-				o.tagPull(SIDl,lTable,lDiv,l) 
+				o.tagPull(auth,SIDl,lTable,lDiv,l) 
 				}
 			if(SIDr != 0) { 
 				$(rTable).html('<tr><th>Tag Name</th><th>Attributes</th></tr>');
 				//Ajax
-				o.tagPull(SIDr,rTable,rDiv,r) 
+				o.tagPull(auth,SIDr,rTable,rDiv,r) 
 				}
     });
 });
@@ -132,7 +133,7 @@ var o = {
             },
 
     //Get some deployments
-    tagPull: function(token, SID) {
+    tagPull: function(token, SID, selector, div, r_l) {
                 $.ajax({
                       type: 'GET',
                       url: '//manage-api.ensighten.com/manage/deployments?spaceId=' + SID + '&status=enabled_published',
