@@ -139,7 +139,7 @@ var o = {
     tagPull: function(token, SID, selector, div, r_l) {
                 $.ajax({
                       type: 'GET',
-                      url: '//manage-api.ensighten.com/manage/deployments?spaceId=' + SID + '&status=enabled_published',
+                      url: '//manage-api.ensighten.com/manage/deployments?spaceId=' + SID,
                       contentType: 'application/x-www-form-urlencoded',
                       headers: {
                           "Authorization": "Bearer " + token,
