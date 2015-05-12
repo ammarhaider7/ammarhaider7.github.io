@@ -229,7 +229,7 @@ var o = {
 
 		  }
 		})).done(function() {
-				$('.spinner').remove();
+				$('.spinner').css('display','none');
 				$('.TagCode').show();
 
 		});
