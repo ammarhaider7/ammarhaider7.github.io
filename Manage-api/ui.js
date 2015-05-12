@@ -62,9 +62,9 @@ var o = {
 	l: {},
     highlight: function(id, attr) {
 				
-					 var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+					 //var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
 							 
-					 $('table tr.' + id + ' .' + attr).css('background-color', hue).addClass('highlight');
+					 $('table tr.' + id + ' .' + attr).css('background-color', 'rgb(144, 8, 8)').addClass('highlight');
 				},
 	compareAttr: function(x,y) {
 						
