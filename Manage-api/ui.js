@@ -132,7 +132,7 @@ var o = {
             $.when(    
                 $.ajax({
                       type: 'GET',
-                      url: '//manage-api.ensighten.com/manage/deployments?spaceId=' + SID1 + '&status=enabled_published',
+                      url: '//manage-api.ensighten.com/manage/deployments?spaceId=' + SID1,
                       contentType: 'application/x-www-form-urlencoded',
                       headers: {
                           "Authorization": "Bearer " + token,
@@ -181,7 +181,7 @@ var o = {
                       }
                 }), $.ajax({
                       type: 'GET',
-                      url: '//manage-api.ensighten.com/manage/deployments?spaceId=' + SID2 + '&status=enabled_published',
+                      url: '//manage-api.ensighten.com/manage/deployments?spaceId=' + SID2,
                       contentType: 'application/x-www-form-urlencoded',
                       headers: {
                           "Authorization": "Bearer " + token,
