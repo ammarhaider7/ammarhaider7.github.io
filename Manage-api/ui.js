@@ -70,12 +70,12 @@ var o = {
 						
 					metadata = [
 						'executionTime',
-						'lastAction',
+						//'lastAction',
 						//'modifyDate',
 						'conditionIds',
 						'dependentDeployments',
-						'comments',
-						'status'
+						//'comments',
+						//'status'
 					];
 					
 					for (var i = 0; i < metadata.length; i++) {
