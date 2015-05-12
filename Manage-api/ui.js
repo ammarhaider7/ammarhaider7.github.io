@@ -38,19 +38,19 @@ $(function() {
 
     //Run deployment ajax when user clicks get code
     $('#getCode').click(function() {
-		
-			var SIDl = $('.main-left option:selected').attr('value'),
-				SIDr = $('.main-right option:selected').attr('value'),
-				lTable = '#TagDetails',
-				rTable = 'tr.tag';
+		$('.spinner').css('display','block');
+		var SIDl = $('.main-left option:selected').attr('value'),
+			SIDr = $('.main-right option:selected').attr('value'),
+			lTable = '#TagDetails',
+			rTable = 'tr.tag';
 
-			if(SIDl != 0 && SIDr != 0) { 
-				$(lTable).html('<tr><th>Tag Name</th><th>Space # 1</th><th>Space # 2</th></tr>');
-				//Ajax
-				o.tagPull(o.auth.access_token,SIDl,SIDr,lTable,rTable);
-				} else {
-					$('.TagCode').text('Please select two spaces');
-				}
+		if(SIDl != 0 && SIDr != 0) { 
+			$(lTable).html('<tr><th>Tag Name</th><th>Space # 1</th><th>Space # 2</th></tr>');
+			//Ajax
+			o.tagPull(o.auth.access_token,SIDl,SIDr,lTable,rTable);
+			} else {
+				$('.TagCode').text('Please select two spaces');
+			}
     });
 });
 
@@ -229,7 +229,7 @@ var o = {
 
 		  }
 		})).done(function() {
-
+				$('.spinner').remove();
 				$('.TagCode').show();
 
 		});
