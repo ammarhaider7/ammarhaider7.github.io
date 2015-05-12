@@ -15,7 +15,7 @@ $(function() {
 	
 	o.compareArrs(lArr,rArr,o.compareAttr);
 	
-	$('tr.tag').not('.match-found').css('background-color','rgb(129, 113, 32)');
+	//$('tr.tag').not('.match-found').css('background-color','rgb(129, 113, 32)');
 	
 	var c = $('.highlight').length/2;
 	
@@ -40,24 +40,16 @@ $(function() {
     $('#getCode').click(function() {
 		
 			var SIDl = $('.main-left option:selected').attr('value'),
-				auth = o.auth.access_token,
 				SIDr = $('.main-right option:selected').attr('value'),
 				lTable = '#TagDetails',
-				rTable = '#TagsRight',
-				lDiv = '.TagCode',
-				rDiv = '.TagCodeRight',
-				r = 'r',
-				l = 'l';
+				rTable = 'tr.tag';
 
-			if(SIDl != 0) { 
-				$(lTable).html('<tr><th>Tag Name</th><th>Attributes</th></tr>');
+			if(SIDl != 0 && SIDr != 0) { 
+				$(lTable).html('<tr><th>Tag Name</th><th>Space # 1</th><th>Space # 2</th></tr>');
 				//Ajax
-				o.tagPull(auth,SIDl,lTable,lDiv,l) 
-				}
-			if(SIDr != 0) { 
-				$(rTable).html('<tr><th>Tag Name</th><th>Attributes</th></tr>');
-				//Ajax
-				o.tagPull(auth,SIDr,rTable,rDiv,r) 
+				o.tagPull(o.auth.access_token,SIDl,SIDr,lTable,rTable);
+				} else {
+					$('.TagCode').text('Please select two spaces');
 				}
     });
 });
@@ -66,8 +58,8 @@ var o = {
 
     loggedIn: false,
     table: false,
-	r: { table: false },
-	l: { table: false },
+	r: {},
+	l: {},
     highlight: function(id, attr) {
 				
 					 var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
@@ -136,51 +128,50 @@ var o = {
             },
 
     //Get some deployments
-    tagPull: function(token, SID, selector, div, r_l) {
+    tagPull: function(token,SID1,SID2,selector1,selector2) {
+            $.when(    
                 $.ajax({
                       type: 'GET',
-                      url: '//manage-api.ensighten.com/manage/deployments?spaceId=' + SID,
+                      url: '//manage-api.ensighten.com/manage/deployments?spaceId=' + SID1,
                       contentType: 'application/x-www-form-urlencoded',
                       headers: {
                           "Authorization": "Bearer " + token,
                           "Accept": "application/json"
                       },
                       success: function(response) {
-                                  o[r_l].tags = response;
-						  		  o[r_l].tags.forEach(function(el) {
-								    var name = el.name,
-                                        exec = el.executionTime,
-                                        lastAct = el.lastAction,
-                                        lastMod = el.modifyDate,
-                                        conditions = el.conditionIds,
-                                        comments = el.comments,
-										id = el.id,
-										status = el.status,
-                                        code = el.code;
-									    el.conditionIds = el.conditionIds.join(','),
-										el.dependentDeployments = (function() {
-																	var str = '',
-																		delimit;
-																		for(var i = 0; i<el.dependentDeployments.length; i++) {
-																			if(el.dependentDeployments.length > 1) {
-																					delimit = ',';
-																			} else {
-																					delimit = '';
-																			}
-																			str += el.dependentDeployments[i].deploymentId + delimit;
-																		}
-																	return str;
-																	})();
-								   var dependencies = el.dependentDeployments;
-									  
-										$(selector).append('<tr class="tag ' + id + '"><td>' + name + '</td><td><table><tr class="executionTime"><td><u>Execution time: </u></td><td class="exec">' + exec + '</td></tr><tr class="lastAction"><td><u>Last action: </u></td><td class="last-act">' + lastAct + '</td></tr><tr class="modifyDate"><td><u>Last modified: </u></td><td class="last-mod">' + lastMod + '</td></tr><tr class="conditionIds"><td><u>Conditions: </u></td><td class="cond">' + conditions + '</td></tr><tr class="dependentDeployments"><td><u>Dependencies: </u></td><td class="depend">' + dependencies + '</td></tr><tr class="comments"><td><u>Comments: </u></td><td class="comm">' + comments + '</td></tr><tr class="status"><td><u>Status: </u></td><td class="status">' + status + '</td></tr></td></tr></table></td></tr>');
-									  
-								  });
-                                  //$(selector).before('<p class="numTags">No. tags: ' + o.tags.length + '</p>');
-                                  //o.table = true;
-                                  $(div).show();
-						  		  o[r_l].table = true;
-                                  },
+				o.l.tags = response;
+		  		o.l.idArr = [];
+				o.l.tags.forEach(function(el) {
+					o.l.name = el.name;
+					o.l.exec = el.executionTime;
+					o.l.lastAct = el.lastAction;
+					o.l.lastMod = el.modifyDate;
+					o.l.conditions = el.conditionIds;
+					o.l.comments = el.comments;
+					o.l.id = el.id;
+					o.l.idArr.push(o.l.id);
+					o.l.status = el.status;
+					o.l.code = el.code;
+					el.conditionIds = el.conditionIds.join(','),
+					el.dependentDeployments = (function() {
+												var str = '',
+													delimit;
+													for(var i = 0; i<el.dependentDeployments.length; i++) {
+														if(el.dependentDeployments.length > 1) {
+																delimit = ',';
+														} else {
+																delimit = '';
+														}
+														str += el.dependentDeployments[i].deploymentId + delimit;
+													}
+													return str;
+												})();
+				   o.l.dependencies = el.dependentDeployments;
+
+					$(selector1).append('<tr class="tag ' + o.l.id + '"><td>' + o.l.name + '</td><td><table><tr class="executionTime"><td><u>Execution time: </u></td><td class="exec">' + o.l.exec + '</td></tr><tr class="lastAction"><td><u>Last action: </u></td><td class="last-act">' + o.l.lastAct + '</td></tr><tr class="modifyDate"><td><u>Last modified: </u></td><td class="last-mod">' + o.l.lastMod + '</td></tr><tr class="conditionIds"><td><u>Conditions: </u></td><td class="cond">' + o.l.conditions + '</td></tr><tr class="dependentDeployments"><td><u>Dependencies: </u></td><td class="depend">' + o.l.dependencies + '</td></tr><tr class="comments"><td><u>Comments: </u></td><td class="comm">' + o.l.comments + '</td></tr><tr class="status"><td><u>Status: </u></td><td class="status">' + o.l.status + '</td></tr></td></tr></table></td></tr>');
+
+				  })
+			  },
                           
                       error: function() {
                           //console.log('Didn\'t work');
@@ -188,7 +179,55 @@ var o = {
                           $('.TagCode').show();
 
                       }
-                });
-            }
+                }), $.ajax({
+			  type: 'GET',
+			  url: '/Manage-api/ce_tags_' + SID2 + '.json',
 
+			  success: function(response) {
+						o.r.tags = response;
+				  		o.r.idArr = [];
+						o.r.tags.forEach(function(el) {
+							o.r.name = el.name;
+							o.r.exec = el.executionTime;
+							o.r.lastAct = el.lastAction;
+							o.r.lastMod = el.modifyDate;
+							o.r.conditions = el.conditionIds;
+							o.r.comments = el.comments;
+							o.r.id = el.id;
+							o.r.idArr.push(o.r.id);
+							o.r.status = el.status;
+							o.r.code = el.code;
+							el.conditionIds = el.conditionIds.join(','),
+							el.dependentDeployments = (function() {
+											var str = '',
+												delimit;
+												for(var i = 0; i<el.dependentDeployments.length; i++) {
+													if(el.dependentDeployments.length > 1) {
+															delimit = ',';
+													} else {
+															delimit = '';
+													}
+													str += el.dependentDeployments[i].deploymentId + delimit;
+												}
+												return str;
+											})();
+						   o.r.dependencies = el.dependentDeployments;
+							
+						   $(selector2 + '.' + o.r.id).append('<td><table><tr class="executionTime"><td><u>Execution time: </u></td><td class="exec">' + o.r.exec + '</td></tr><tr class="lastAction"><td><u>Last action: </u></td><td class="last-act">' + o.r.lastAct + '</td></tr><tr class="modifyDate"><td><u>Last modified: </u></td><td class="last-mod">' + o.r.lastMod + '</td></tr><tr class="conditionIds"><td><u>Conditions: </u></td><td class="cond">' + o.r.conditions + '</td></tr><tr class="dependentDeployments"><td><u>Dependencies: </u></td><td class="depend">' + o.r.dependencies + '</td></tr><tr class="comments"><td><u>Comments: </u></td><td class="comm">' + o.r.comments + '</td></tr><tr class="status"><td><u>Status: </u></td><td class="status">' + o.r.status + '</td></tr></td></tr></table></td></tr>');
+
+						  })
+					  },
+
+			  error: function() {
+				  //console.log('Didn\'t work');
+				  $('.TagCode').text("There was an error retrieving the code");
+				  $('.TagCode').show();
+
+			  }
+		})).done(function() {
+
+				$('.TagCode').show();
+
+		});
+            }
 }
