@@ -1,10 +1,14 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-image: url(https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/subtle-irongrip.png);
-  color: rgb(171, 171, 171);
+  background: #eee;
+  color: #444;
 }
-
+#wrap {
+  margin: 0 auto;
+  width: 96%;
+  max-width: 960px;
+}
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -46,26 +50,40 @@ select, #getCode, option {
 	color:black;
 }
 h1 {
-	margin-left: 10%;
+  margin-bottom: 40px;
 }
 #TagDetails {
 	width: 35%;
 	margin-left: 5%;
 }
 
-.main-left {
-	padding-left: 10%;
+.half {
+  width: 50%;
+  float: left;
+  margin-bottom: 20px;
 }
 
-.main-right {
-	padding-left: 10%;
+label {
+  width: 15%;
+}
+select {
+  width: 70%;
 }
 
 .tag-data-btn {
-	padding-left: 10%;
+  float: right;
+}
+input[type=button] {
+  background: #444;
+  color: #eee!important;
+  border: none;
+  padding: 5px 10px;
+}
+input[type=button]:hover {
+  background: #666;
 }
 .numTags {
-	padding-left: 10%;
+
 }
 #TagsRight {
 	float:right;
