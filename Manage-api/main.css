@@ -94,3 +94,7 @@ input[type=button]:hover {
 #compareTags {
 	color: black;
 }
+.spinner {
+  margin-left: 50%;
+  margin-top: 81px;
+}
