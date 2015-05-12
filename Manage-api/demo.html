@@ -1,76 +1,76 @@
+<!doctype html>
 <html>
-    <head>   
+<head>   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">   
     <link rel="stylesheet" href="/Manage-api/main.css">
-    </head>
-        <body>
-		  <section class="login form-signin" style="display: none;">
-                <form action="#" method="post" enctype="application/x-www-form-urlencoded">
-                  <h2 class="form-signin-heading">ECS - Ensighten API</h2>
-                   <label for="inputEmail" class="sr-only">Username</label>
-                   <input id="username" class="form-control" placeholder="Username" required autofocus>
-                    <p></p>
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <input id="password" class="form-control" type="password" required title="Password Requerido" placeholder="Password" data-icon="x">
-                    <p></p>
-                    <button type="submit" class="enviar btn btn-lg btn-primary btn-block">Sign in</button>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                      </label>
+</head>
+<body>
+    <div id="wrap">
+        <section class="login form-signin" style="display: none;">
+            <form action="#" method="post" enctype="application/x-www-form-urlencoded">
+              <h1 class="form-signin-heading">ECS - Ensighten API</h1>
+               <label for="inputEmail" class="sr-only">Username</label>
+               <input id="username" class="form-control" placeholder="Username" required autofocus>
+                <p></p>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input id="password" class="form-control" type="password" required title="Password Requerido" placeholder="Password" data-icon="x">
+                <p></p>
+                <button type="submit" class="enviar btn btn-lg btn-primary btn-block">Sign in</button>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                  </label>
+                </div>
+                <p></p>
+            </form>
+        </section>
+        <section id="main" style="display: none;">
+            <h1>Space comparison using Ensighten Manage API</h1>
+            <form action="demo.html" method="post">
+                <fieldset>
+                    <legend>Choose spaces to compare</legend>
+                    <div class="half"> 
+                        <label for="space1">Space 1</label>
+                        <select name="space1">
+                            <option selected="selected" value="0">Select a space</option>
+                            <option value="1501">UK Credit Expert - Prod</option>
+                            <option value="1503">UK Credit Expert - Stage</option>
+                    		<option value="7469">UK Experian Corp - Prod</option>
+                    		<option value="7709">UK Experian Corp - Stage</option>
+                        </select>
                     </div>
-                    <p></p>
-                </form>
-            </section>
-           <div id="main" style="display: none;">
-           <h1>Space comparison using Ensighten Manage API</h1>
-            <div class="main-left"> 
-               <p><b>Space # 1</b></p>
-                <select><p>Select a space:</p>
-                    <option selected="selected" value="0">Select a space</option>
-                    <option value="1501">UK Credit Expert - Prod</option>
-                    <option value="1503">UK Credit Expert - Stage</option>
-					<option value="7469">UK Experian Corp - Prod</option>
-					<option value="7709">UK Experian Corp - Stage</option>
-                </select>
-                <p>
-				</p>
-		   	</div>
-			<div class="main-right"> 
-		   	<p><b>Space # 2</b></p>
-			<select><p>Select a space:</p>
-				<option selected="selected" value="0">Select a space</option>
-				<option value="1501">UK Credit Expert - Prod</option>
-				<option value="1503">UK Credit Expert - Stage</option>
-				<option value="7469">UK Experian Corp - Prod</option>
-				<option value="7709">UK Experian Corp - Stage</option>
-			</select>
-				<p></p>
-			</div>
-			<div class="tag-data-btn">
-				<input id="getCode" type="button" value="Get Tag data"/>
-				<input id="compareTags" type="button" value="Compare">
-			</div>
-               <div class="TagCode" style="display: none;">
-                    <br><br>
-                      <table class="table table-bordered col-md-6" id="TagDetails">
-                       <th>Tag Name</th>
-						<th>Attributes</th>
-                      </table>                      
-                    </p>
-               </div>
-				<div class="TagCodeRight" style="display: none;">	
-					<br><br>
-					<table class="table table-bordered col-md-6" id="TagsRight">
-                       <th>Tag Name</th>
-						<th>Attributes</th>
-				  	</table>
-           
-				   </p>
-               </div>
+                    <div class="half"> 
+                        <label for="space2">Space 2</label>
+                        <select name="space2">
+                        	<option selected="selected" value="0">Select a space</option>
+                        	<option value="1501">UK Credit Expert - Prod</option>
+                        	<option value="1503">UK Credit Expert - Stage</option>
+                        	<option value="7469">UK Experian Corp - Prod</option>
+                        	<option value="7709">UK Experian Corp - Stage</option>
+                        </select>
+                    </div>
+                    <div class="tag-data-btn">
+                    	<input id="getCode" type="button" value="Get Tag data"/>
+                    	<input id="compareTags" type="button" value="Compare">
+                    </div>
+                </fieldset>
+            </form>
+            <div class="TagCode" style="display: none;">
+                <table class="table table-bordered col-md-6" id="TagDetails">
+                    <th>Tag Name</th>
+                    <th>Attributes</th>
+                </table> 
             </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src="/Manage-api/ui.js"></script>
+        	<div class="TagCodeRight" style="display: none;">	
+        		<table class="table table-bordered col-md-6" id="TagsRight">
+                   <th>Tag Name</th>
+        			<th>Attributes</th>
+        	  	</table>
+           </div>
+        </section>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="ui.js"></script>
 
-        </body>
+</body>
 </html>
