@@ -49,10 +49,18 @@
                         	<option value="7709">UK Experian Corp - Stage</option>
                         </select>
                     </div>
-                    <div class="tag-data-btn">
-                    	<input id="getCode" type="button" value="Get Tag data"/>
-                    	<input id="compareTags" type="button" value="Compare">
-                    </div>
+    			<div class="tag-data-btn">
+    				<div id="liveTags" class="checkbox" style="display: inline-block;">
+    					<label>
+    						<input type="checkbox">Live tags</label>
+    				</div>
+    				<div style="display: inline-block;">
+    					<input id="getCode" type="button" value="Get Tag data">
+    				</div>
+    				<div style="display: inline-block;">
+    					<input id="compareTags" type="button" value="Compare">
+    				</div>
+    			</div>
                 </fieldset>
             </form>
             <img class="spinner" src="//cloud.githubusercontent.com/assets/10219824/7593640/8a328272-f8d3-11e4-8723-3c070e4c5605.gif" style="display: none;"></img>
