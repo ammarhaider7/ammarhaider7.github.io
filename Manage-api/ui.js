@@ -142,7 +142,6 @@ var o = {
                       filters: {
                       	  "live": live
                       },
-                      }
                       success: function(response) {
 				o.l.tags = response;
 		  		o.l.idArr = [];
