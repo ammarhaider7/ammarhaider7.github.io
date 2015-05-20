@@ -42,12 +42,13 @@ $(function() {
 		var SIDl = $('.main-left option:selected').attr('value'),
 			SIDr = $('.main-right option:selected').attr('value'),
 			lTable = '#TagDetails',
-			rTable = 'tr.tag';
+			rTable = 'tr.tag',
+			liveTags = $('#liveTags :checkbox').is(':checked') ? '"filters": "live":true,' : "";
 
 		if(SIDl != 0 && SIDr != 0) { 
 			$(lTable).html('<tr><th>Tag Name</th><th>Space # 1</th><th>Space # 2</th></tr>');
 			//Ajax
-			o.tagPull(o.auth.access_token,SIDl,SIDr,lTable,rTable);
+			o.tagPull(o.auth.access_token,SIDl,SIDr,lTable,rTable,liveTags);
 			} else {
 				$('.TagCode').text('Please select two spaces');
 			}
@@ -128,7 +129,7 @@ var o = {
             },
 
     //Get some deployments
-    tagPull: function(token,SID1,SID2,selector1,selector2) {
+    tagPull: function(token,SID1,SID2,selector1,selector2,live) {
             $.when(    
                 $.ajax({
                       type: 'GET',
@@ -136,6 +137,7 @@ var o = {
                       contentType: 'application/x-www-form-urlencoded',
                       headers: {
                           "Authorization": "Bearer " + token,
+                          live
                           "Accept": "application/json"
                       },
                       success: function(response) {
