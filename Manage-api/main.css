@@ -62,9 +62,9 @@ h1 {
   margin-bottom: 20px;
 }
 
-label {
-  width: 15%;
-}
+/*label {*/
+/*  width: 15%;*/
+/*}*/
 select {
   width: 70%;
 }
