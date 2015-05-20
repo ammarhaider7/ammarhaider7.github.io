@@ -130,8 +130,7 @@ var o = {
 
     //Get some deployments
     tagPull: function(token,SID1,SID2,selector1,selector2,live) {
-            $.when(    
-                $.ajax({
+            $.when($.ajax({
                       type: 'GET',
                       url: '//manage-api.ensighten.com/manage/deployments?spaceId=' + SID1,
                       contentType: 'application/x-www-form-urlencoded',
@@ -190,6 +189,9 @@ var o = {
                       headers: {
                           "Authorization": "Bearer " + token,
                           "Accept": "application/json"
+                      },
+                      filters: {
+                      	  "live": live
                       },
 		  success: function(response) {
 				o.r.tags = response;
