@@ -43,7 +43,7 @@ $(function() {
 			SIDr = $('.main-right option:selected').attr('value'),
 			lTable = '#TagDetails',
 			rTable = 'tr.tag',
-			liveTags = $('#liveTags :checkbox').is(':checked') ? '"filters": "live":true,' : "";
+			liveTags = $('#liveTags :checkbox').is(':checked') ? '"filters": "live":true' : "";
 
 		if(SIDl != 0 && SIDr != 0) { 
 			$(lTable).html('<tr><th>Tag Name</th><th>Space # 1</th><th>Space # 2</th></tr>');
@@ -137,8 +137,8 @@ var o = {
                       contentType: 'application/x-www-form-urlencoded',
                       headers: {
                           "Authorization": "Bearer " + token,
-                          live
-                          "Accept": "application/json"
+                          "Accept": "application/json",
+                          "filters": "live": live || ''
                       },
                       success: function(response) {
 				o.l.tags = response;
