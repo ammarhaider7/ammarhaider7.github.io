@@ -138,8 +138,11 @@ var o = {
                       headers: {
                           "Authorization": "Bearer " + token,
                           "Accept": "application/json",
-                          "filters": "live": live || ''
                       },
+                      filters: {
+                      	  "live": live
+                      },
+                      }
                       success: function(response) {
 				o.l.tags = response;
 		  		o.l.idArr = [];
