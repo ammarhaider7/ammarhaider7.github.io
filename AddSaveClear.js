@@ -1,5 +1,5 @@
 $(function () {
-    var o = {};
+    window.o = {};
     //    //Wrap in quotes
     //        $('a#Wrap_in_quotes').one("click", function (e) {
     //        e.preventDefault();
@@ -28,20 +28,22 @@ $(function () {
         }
     });
     //Add Doc ready
-    if(!o.domReady) {
+    
     $('#copy-button').one("click", function () {
+        if(!o.domReady) {
         $('#scriptTags .tag').first().after('<span id="docReady">\n(function checkJquery() {\nif(window.jQuery) {\nvar $ = jQuery;\n$(document).ready(function() {<span>');
         $('#scriptTags .tag').last().before('<span>});\n} else {\nsetTimeout(checkJquery,100);\n}\n})();\n<span>');
         o.checkjQuery = true;
+        }
     });
-    }
-    if(!o.checkjQuery) {
     $('#dom-ready-button').one("click", function () {
+        if(!o.checkjQuery) {
         $('#scriptTags .tag').first().after('<span id="docReady">\n$(function() {<span>');
         $('#scriptTags .tag').last().before('<span>});\n<span>');
-        o.domReady = true;
+        o.domReady = true
+        }
     });   
-    }
+
     //On submit prevent default behaviour
     $(document).submit(function (e) {
         e.preventDefault();
