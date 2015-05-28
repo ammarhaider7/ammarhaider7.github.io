@@ -32,8 +32,8 @@ $(function () {
         $('#scriptTags .tag').last().before('<span>});\n} else {\nsetTimeout(checkJquery,100);\n}\n})();\n<span>');
     });
     $('#dom-ready-button').one("click", function () {
-        $('#scriptTags .tag').first().after('<span id="docReady">\n$(document).ready(function() {<span>');
-        $('#scriptTags .tag').last().before('<span>});<span>');
+        $('#scriptTags .tag').first().after('<span id="docReady">\n$(function() {<span>');
+        $('#scriptTags .tag').last().before('<span>});\n<span>');
     });   
     //On submit prevent default behaviour
     $(document).submit(function (e) {
