@@ -28,8 +28,7 @@ $(function () {
     });
     //Add Doc ready
     $('#copy-button').one("click", function () {
-        $('#scriptTags .tag').first().after('<span id="docReady">\n(function checkJquery() {
-if(window.$) {\n$(document).ready(function() {<span>');
+        $('#scriptTags .tag').first().after('<span id="docReady">\n(function checkJquery() {\nif(window.$) {\n$(document).ready(function() {<span>');
         $('#scriptTags .tag').last().before('<span>});\n} else {\nsetTimeout(checkJquery,100);\n}\n})();\n<span>');
     });
     //On submit prevent default behaviour
