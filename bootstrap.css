@@ -1427,7 +1427,6 @@ nav .container-fluid {
     margin-top: 15px;
     margin-right: -15px;
     margin-left: -15px;
-    padding-bottom: 50px;
 }
 .col-xs-1,
 .col-sm-1,
@@ -6654,7 +6653,7 @@ form.form-inline {
     font-size: 40%;
 }
 body > .container {
-    padding-bottom: 60px;
+    padding-bottom: 380px;
 }
 .navbar-fixed-bottom {
     display: none;
