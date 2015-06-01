@@ -55,7 +55,7 @@ $(function () {
         }
     });
     //Show the jQuery controls popover but only once
-    $('#jSelect').one("keyup", function () {
+/*    $('#jSelect').one("keyup", function () {
         setTimeout(function () {
             $('.navbar-brand').tooltip('show');
             $('#cssMethdsGr').tooltip('show');
@@ -63,7 +63,7 @@ $(function () {
                 $('.navbar-brand').tooltip('destroy');
             }, 5000);
         }, 800);
-    });
+    });*/
     //When user starts using methods dropdowns, destroy tooltip
     if ($('#cssSelVal').val()) {
         $('#JSfields').click(function () {
