@@ -9,9 +9,9 @@ $(function () {
             //console.log(arr.join(','));
             $('#dynamicCSS').text(arr.join(',\n') + ' {' + '\n').show();
             //Now enable the Hide/Remove popover for when a user hovers over it 
-            $('.HideRemoveWrap').one("mouseenter", function () {
-                $(this).popover('show');
-            });
+            // $('.HideRemoveWrap').one("mouseenter", function () {
+            //     $(this).popover('show');
+            // });
         }
     });
     $('#HideRemove').click(function (e) {
@@ -33,15 +33,15 @@ $(function () {
             $('#dynamicCSS').text("");
         }
     });
-    //Show the jQuery selector popover but only once.
-    $('#HideRemove').one("click", function () {
-        if ($('#cssSelVal').val()) {
-            //Destroy the Hide/Remove popover
-            $('.HideRemoveWrap').popover('destroy');
-            //Show the jQuery selector popover when user clicks on Hide/Remove
-            $('#jSelect .entry').popover('show');
-        }
-    });
+    // //Show the jQuery selector  but only once.
+    // $('#HideRemove').one("click", function () {
+    //     if ($('#cssSelVal').val()) {
+    //         //Destroy the Hide/Remove popover
+    //         $('.HideRemoveWrap').popover('destroy');
+    //         //Show the jQuery selector popover when user clicks on Hide/Remove
+    //         $('#jSelect .entry').popover('show');
+    //     }
+    // });
     //JS Selector CONSTRUCT
     //When a user presses a key in the jQuery selector div
     $('#jSelect').bind("keyup", function () {
