@@ -31,7 +31,7 @@ $(function () {
     
     $('#copy-button').one("click", function () {
         if(!o.domReady) {
-        $('#scriptTags .tag').first().after('<span id="docReady">\n(function checkJquery() {\nif(window.jQuery) {\nvar $ = jQuery;\n$(document).ready(function() {<span>');
+        $('#scriptTags .tag').first().after('<span id="docReady">\n(function checkJquery() {\nif(window.$) {\n$(document).ready(function() {<span>');
         $('#scriptTags .tag').last().before('<span>});\n} else {\nsetTimeout(checkJquery,100);\n}\n})();\n<span>');
         o.checkjQuery = true;
         }
