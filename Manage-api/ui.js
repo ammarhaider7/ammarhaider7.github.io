@@ -278,10 +278,13 @@ var o = {
 				o.r.tags.forEach(function(el) {
 					if(el.id === rightId) {
 					    $('#right-js').text(el.code);
-					}/* else {
-						rightSelector.text('');
-					}*/
+					}
 				});
+
+				$('.modal').on('hide.bs.modal', function (e) {
+					leftSelector.text('');
+					rightSelector.text('');
+				})
 
 			});
 
