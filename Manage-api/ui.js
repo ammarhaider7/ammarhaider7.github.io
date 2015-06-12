@@ -182,6 +182,8 @@ var o = {
 
 					$(selector1).append('<tr class="tag ' + o.l.id + '"><td>' + o.l.name + '</td><td><table><tr class="executionTime"><td><u>Execution time: </u></td><td class="exec">' + o.l.exec + '</td></tr><tr class="lastAction"><td><u>Last action: </u></td><td class="last-act">' + o.l.lastAct + '</td></tr><tr class="modifyDate"><td><u>Last modified: </u></td><td class="last-mod">' + o.l.lastMod + '</td></tr><tr class="conditionIds"><td><u>Conditions: </u></td><td class="cond">' + o.l.conditions + '</td></tr><tr class="dependentDeployments"><td><u>Dependencies: </u></td><td class="depend">' + o.l.dependencies + '</td></tr><tr class="comments"><td><u>Comments: </u></td><td class="comm">' + o.l.comments + '</td></tr><tr class="status"><td><u>Status: </u></td><td class="status">' + o.l.status + '</td></tr></td></tr></table></td></tr>');
 
+					o.l.tagsReady = true;
+
 				})
 			},
 
@@ -237,8 +239,23 @@ var o = {
 							return str;
 						})();
 					o.r.dependencies = el.dependentDeployments;
+
+					(function checkLready() {
+
+						if(o.l.tagsReady) {
+
+							$(selector2 + '.' + o.r.id).append('<td><table><tr class="executionTime"><td><u>Execution time: </u></td><td class="exec">' + o.r.exec + '</td></tr><tr class="lastAction"><td><u>Last action: </u></td><td class="last-act">' + o.r.lastAct + '</td></tr><tr class="modifyDate"><td><u>Last modified: </u></td><td class="last-mod">' + o.r.lastMod + '</td></tr><tr class="conditionIds"><td><u>Conditions: </u></td><td class="cond">' + o.r.conditions + '</td></tr><tr class="dependentDeployments"><td><u>Dependencies: </u></td><td class="depend">' + o.r.dependencies + '</td></tr><tr class="comments"><td><u>Comments: </u></td><td class="comm">' + o.r.comments + '</td></tr><tr class="status"><td><u>Status: </u></td><td class="status">' + o.r.status + '</td></tr></td></tr></table></td></tr>');
+
+						} else {
+
+							setTimeout(checkLready,100);
+
+						}
+ 
+
+
+					})
 					
-					$(selector2 + '.' + o.r.id).append('<td><table><tr class="executionTime"><td><u>Execution time: </u></td><td class="exec">' + o.r.exec + '</td></tr><tr class="lastAction"><td><u>Last action: </u></td><td class="last-act">' + o.r.lastAct + '</td></tr><tr class="modifyDate"><td><u>Last modified: </u></td><td class="last-mod">' + o.r.lastMod + '</td></tr><tr class="conditionIds"><td><u>Conditions: </u></td><td class="cond">' + o.r.conditions + '</td></tr><tr class="dependentDeployments"><td><u>Dependencies: </u></td><td class="depend">' + o.r.dependencies + '</td></tr><tr class="comments"><td><u>Comments: </u></td><td class="comm">' + o.r.comments + '</td></tr><tr class="status"><td><u>Status: </u></td><td class="status">' + o.r.status + '</td></tr></td></tr></table></td></tr>');
 
 				})
 			},
