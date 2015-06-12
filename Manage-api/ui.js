@@ -139,7 +139,7 @@ var o = {
 			url: 'https://manage-api.ensighten.com/manage/deployments/search',
 			contentType: 'application/json',
 			data: JSON.stringify({
-				"fields": "id, spaceId, name, isCustomApp, status, executionTime, comments, code, dependentDeployments, conditionIds, creationDate",
+				"fields": "id, spaceId, name, status, executionTime, comments, code, dependentDeployments, conditionIds, creationDate, lastAct, lastMod",
 				"sort": "+name",	
 				"filters": {
 					"live": live,
