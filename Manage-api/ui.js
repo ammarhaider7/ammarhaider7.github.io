@@ -54,16 +54,6 @@ $(function() {
 		}
 	});
 
-	//Click to get code
-/*	$('.tag-name').click(function() {
-
-		var leftSelector = $('#left-js'),
-			leftCode = $(this)
-		leftSelector.text();
-
-	});*/
-
-
 });
 
 var o = {
@@ -269,6 +259,28 @@ var o = {
 		})).done(function() {
 			$('.spinner').css('display', 'none');
 			$('.TagCode').show();
+			//Click to get code
+			$('.tag-name').click(function() {
+
+				var leftSelector = $('#left-js'),
+					leftId = $(this).parent().attr('id');
+
+				o.l.tags.forEach(function(el) {
+					if(el.id === leftId) {
+					    $('#left-js').text(el.code);
+					}
+				});
+
+				var rightSelector = $('#right-js'),
+					rightId = $(this).parent().attr('id');
+
+				o.r.tags.forEach(function(el) {
+					if(el.id === rightId) {
+					    $('#right-js').text(el.code);
+					}
+				});
+
+			});
 
 		});
 	}
