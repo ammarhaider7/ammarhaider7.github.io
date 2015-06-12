@@ -263,7 +263,7 @@ var o = {
 			$('.tag-name').click(function() {
 
 				var leftSelector = $('#left-js'),
-					leftId = $(this).parent().attr('id');
+					leftId = Number($(this).parent().attr('id'));
 
 				o.l.tags.forEach(function(el) {
 					if(el.id === leftId) {
@@ -272,7 +272,7 @@ var o = {
 				});
 
 				var rightSelector = $('#right-js'),
-					rightId = $(this).parent().attr('id');
+					rightId = Number($(this).parent().attr('id'));
 
 				o.r.tags.forEach(function(el) {
 					if(el.id === rightId) {
