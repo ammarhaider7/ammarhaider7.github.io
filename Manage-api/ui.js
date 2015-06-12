@@ -143,7 +143,8 @@ var o = {
 				"filters": {
 					"live": live,
 					"spaceId":[SID1]
-			},
+				}
+			}),
 			processData : false,
 			headers: {
 				"Authorization": "Bearer " + token,
@@ -200,7 +201,8 @@ var o = {
 				"filters": {
 					"live": live,
 					"spaceId":[SID2]
-			},
+				}
+			}),
 			processData : false,
 			headers: {
 				"Authorization": "Bearer " + token,
