@@ -164,7 +164,7 @@ var o = {
 					o.l.idArr.push(o.l.id);
 					o.l.status = el.status;
 					o.l.code = el.code;
-					// el.conditionIds = el.conditionIds.join(','),
+					el.conditionIds = el.conditionIds.join(','),
 						el.dependentDeployments = (function() {
 							var str = '',
 								delimit;
@@ -222,7 +222,7 @@ var o = {
 					o.r.idArr.push(o.r.id);
 					o.r.status = el.status;
 					o.r.code = el.code;
-					// el.conditionIds = el.conditionIds.join(','),
+					el.conditionIds = el.conditionIds.join(','),
 						el.dependentDeployments = (function() {
 							var str = '',
 								delimit;
