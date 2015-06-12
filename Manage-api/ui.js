@@ -247,12 +247,6 @@ var o = {
 							setTimeout(checkLready,100);
 						}
 					})();
- 
-
-
-					})
-					
-
 				})
 			},
 
