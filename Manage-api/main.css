@@ -103,4 +103,12 @@ input[type=button]:hover {
   color: #E08046;
   cursor: pointer;
 }
+.left-code {
+    width:48%;
+    float: left;
+}
+.right-code {
+    width:48%;
+    float: right;
+}
 
