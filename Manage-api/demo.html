@@ -81,7 +81,68 @@
     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      ...
+        <div class="left-code">
+            <div class="well well-lg">
+            <code id="left-js">
+                $.ajax('https://manage-api.ensighten.com/manage/deployments/search', {
+  contentType: 'application/json',
+  data: JSON.stringify({
+    "fields": "id, spaceId, name, isCustomApp, status, executionTime, comments, code, dependentDeployments, conditionIds, creationDate",
+    "sort": "+name",	
+    "filters": {
+    	"live":true,
+    	"spaceId":[1501]
+    },
+
+  }),
+  processData : false,
+  headers: {
+    Authorization: 'Bearer '+ o.auth.access_token,
+    Accept: 'application/json'
+  },
+  method: 'POST',
+  success: function(data, status) {
+  	window.data = data;
+	console.log('Log: Request successful: ' + status);
+  },
+  error: function(xhr, status) {
+  	console.log('Error: ' + status)
+  }
+});
+            </code>
+            </div>
+        </div>
+        <div class="right-code">
+            <div class="well well-lg">
+            <code id="right-js">
+                $.ajax('https://manage-api.ensighten.com/manage/deployments/search', {
+  contentType: 'application/json',
+  data: JSON.stringify({
+    "fields": "id, spaceId, name, isCustomApp, status, executionTime, comments, code, dependentDeployments, conditionIds, creationDate",
+    "sort": "+name",	
+    "filters": {
+    	"live":true,
+    	"spaceId":[1501]
+    },
+
+  }),
+  processData : false,
+  headers: {
+    Authorization: 'Bearer '+ o.auth.access_token,
+    Accept: 'application/json'
+  },
+  method: 'POST',
+  success: function(data, status) {
+  	window.data = data;
+	console.log('Log: Request successful: ' + status);
+  },
+  error: function(xhr, status) {
+  	console.log('Error: ' + status)
+  }
+});
+            </code>
+            </div>
+        </div>
     </div>
   </div>
 </div>
