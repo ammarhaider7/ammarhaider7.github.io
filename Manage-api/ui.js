@@ -253,6 +253,7 @@ var o = {
 							
 							});
 
+							o.l.tagsReady = false;
 							o.r.tagsReady = true;
 
 							} else {
@@ -300,6 +301,7 @@ var o = {
 								rightSelector.text('');
 							});
 						});
+						o.r.tagsReady = false;
 					} else {
 						setTimeout(checkRready, 100);
 					}
