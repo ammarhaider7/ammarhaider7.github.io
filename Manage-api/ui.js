@@ -53,6 +53,15 @@ $(function() {
 			$('.TagCode').text('Please select two spaces');
 		}
 	});
+
+	//Click to get code
+	$('.tag-name').click(function() {
+
+
+
+	});
+
+
 });
 
 var o = {
@@ -180,11 +189,10 @@ var o = {
 						})();
 					o.l.dependencies = el.dependentDeployments;
 
-					$(selector1).append('<tr class="tag ' + o.l.id + '"><td>' + o.l.name + '</td><td><table><tr class="executionTime"><td><u>Execution time: </u></td><td class="exec">' + o.l.exec + '</td></tr><tr class="lastAction"><td><u>Last action: </u></td><td class="last-act">' + o.l.lastAct + '</td></tr><tr class="modifyDate"><td><u>Last modified: </u></td><td class="last-mod">' + o.l.lastMod + '</td></tr><tr class="conditionIds"><td><u>Conditions: </u></td><td class="cond">' + o.l.conditions + '</td></tr><tr class="dependentDeployments"><td><u>Dependencies: </u></td><td class="depend">' + o.l.dependencies + '</td></tr><tr class="comments"><td><u>Comments: </u></td><td class="comm">' + o.l.comments + '</td></tr><tr class="status"><td><u>Status: </u></td><td class="status">' + o.l.status + '</td></tr></td></tr></table></td></tr>');
-
-					o.l.tagsReady = true;
+					$(selector1).append('<tr class="tag ' + o.l.id + '"><td class="tag-name">' + o.l.name + '</td><td><table><tr class="executionTime"><td><u>Execution time: </u></td><td class="exec">' + o.l.exec + '</td></tr><tr class="lastAction"><td><u>Last action: </u></td><td class="last-act">' + o.l.lastAct + '</td></tr><tr class="modifyDate"><td><u>Last modified: </u></td><td class="last-mod">' + o.l.lastMod + '</td></tr><tr class="conditionIds"><td><u>Conditions: </u></td><td class="cond">' + o.l.conditions + '</td></tr><tr class="dependentDeployments"><td><u>Dependencies: </u></td><td class="depend">' + o.l.dependencies + '</td></tr><tr class="comments"><td><u>Comments: </u></td><td class="comm">' + o.l.comments + '</td></tr><tr class="status"><td><u>Status: </u></td><td class="status">' + o.l.status + '</td></tr></td></tr></table></td></tr>');
 
 				})
+				o.l.tagsReady = true;
 			},
 
 			error: function() {
