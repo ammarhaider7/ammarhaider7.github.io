@@ -253,6 +253,8 @@ var o = {
 							
 							});
 
+							o.r.tagsReady = true;
+
 							} else {
 								console.log('checking if left tags ready..')
 								setTimeout(checkLready,100);
@@ -267,35 +269,38 @@ var o = {
 
 					}
 				});
+				
+				if(o.r.tagsReady) {
+					$('.spinner').css('display', 'none');
+					$('.TagCode').show();
+					//Click to get code
+					$('.tag-name').click(function() {
 
-				$('.spinner').css('display', 'none');
-				$('.TagCode').show();
-				//Click to get code
-				$('.tag-name').click(function() {
+						var leftSelector = $('#left-js'),
+							leftId = Number($(this).parent().attr('id'));
 
-					var leftSelector = $('#left-js'),
-						leftId = Number($(this).parent().attr('id'));
+						o.l.tags.forEach(function(el) {
+							if(el.id === leftId) {
+							    $('#left-js').text(el.code);
+							}
+						});
 
-					o.l.tags.forEach(function(el) {
-						if(el.id === leftId) {
-						    $('#left-js').text(el.code);
-						}
+						var rightSelector = $('#right-js'),
+							rightId = Number($(this).parent().attr('id'));
+
+						o.r.tags.forEach(function(el) {
+							if(el.id === rightId) {
+							    $('#right-js').text(el.code);
+							}
+						});
+
+						$('.modal').on('hide.bs.modal', function (e) {
+							leftSelector.text('');
+							rightSelector.text('');
+						});
 					});
+				}
 
-					var rightSelector = $('#right-js'),
-						rightId = Number($(this).parent().attr('id'));
-
-					o.r.tags.forEach(function(el) {
-						if(el.id === rightId) {
-						    $('#right-js').text(el.code);
-						}
-					});
-
-					$('.modal').on('hide.bs.modal', function (e) {
-						leftSelector.text('');
-						rightSelector.text('');
-					});
-				});
 			});
 	}
 }
