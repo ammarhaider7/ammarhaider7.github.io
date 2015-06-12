@@ -42,7 +42,7 @@ $(function() {
 		var SIDl = $('.main-left option:selected').attr('value'),
 			SIDr = $('.main-right option:selected').attr('value'),
 			lTable = '#TagDetails',
-			rTable = 'tr.tag',
+			rTable = '#TagsRight',
 			liveTags = $('#liveTags :checkbox').is(':checked');
 
 		if (SIDl != 0 && SIDr != 0) {
