@@ -43,7 +43,7 @@ $(function() {
 			SIDr = $('.main-right option:selected').attr('value'),
 			lTable = '#TagDetails',
 			rTable = 'tr.tag',
-			liveTags = $('#liveTags :checkbox').is(':checked');
+			liveTags = $('#liveTags :checkbox').is(':checked') ? true : '';
 
 		if (SIDl != 0 && SIDr != 0) {
 			$(lTable).html('<tr><th>Tag Name</th><th>Space # 1</th><th>Space # 2</th></tr>');
