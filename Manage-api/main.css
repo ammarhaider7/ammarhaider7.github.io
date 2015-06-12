@@ -98,3 +98,9 @@ input[type=button]:hover {
   margin-left: 50%;
   margin-top: 81px;
 }
+.tag-name:hover {
+  text-decoration: : underline;
+  color: #E08046;
+  cursor: pointer;
+}
+
