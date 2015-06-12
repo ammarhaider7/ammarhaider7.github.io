@@ -38,6 +38,8 @@ $(function() {
 
 	//Run deployment ajax when user clicks get code
 	$('#getCode').click(function() {
+
+		$('')
 		$('.spinner').css('display', 'block');
 		var SIDl = $('.main-left option:selected').attr('value'),
 			SIDr = $('.main-right option:selected').attr('value'),
@@ -193,107 +195,107 @@ var o = {
 				$('.TagCode').show();
 
 			}
-		}), $.ajax({
-  			method: 'POST',
-			url: 'https://manage-api.ensighten.com/manage/deployments/search',
-			contentType: 'application/json',
-			data: JSON.stringify({
-				"fields": "id, spaceId, name, status, executionTime, comments, code, dependentDeployments, conditionIds, creationDate, lastAct, lastMod",
-				"sort": "+name",	
-				"filters": {
-					"live": live,
-					"spaceId":[SID2]
-				}
-			}),
-			processData : false,
-			headers: {
-				"Authorization": "Bearer " + token,
-				"Accept": "application/json",
-			},
-			success: function(response) {
-				o.r.tags = response;
-				o.r.idArr = [];
+			})).done(function() {
 
-				(function checkLready() {	
+				$.ajax({
+		  			method: 'POST',
+					url: 'https://manage-api.ensighten.com/manage/deployments/search',
+					contentType: 'application/json',
+					data: JSON.stringify({
+						"fields": "id, spaceId, name, status, executionTime, comments, code, dependentDeployments, conditionIds, creationDate, lastAct, lastMod",
+						"sort": "+name",	
+						"filters": {
+							"live": live,
+							"spaceId":[SID2]
+						}
+					}),
+					processData : false,
+					headers: {
+						"Authorization": "Bearer " + token,
+						"Accept": "application/json",
+					},
+					success: function(response) {
+						o.r.tags = response;
+						o.r.idArr = [];
 
-					if(o.l.tagsReady) {			
-				
-					o.r.tags.forEach(function(el) {
-						o.r.name = el.name;
-						o.r.exec = el.executionTime;
-						o.r.lastAct = el.lastAction;
-						o.r.lastMod = el.modifyDate;
-						o.r.conditions = el.conditionIds;
-						o.r.comments = el.comments;
-						o.r.id = el.id;
-						o.r.idArr.push(o.r.id);
-						o.r.status = el.status;
-						o.r.code = el.code;
-						el.conditionIds = el.conditionIds.join(',').toString();
-							el.dependentDeployments = (function() {
-								var str = '',
-									delimit;
-								for (var i = 0; i < el.dependentDeployments.length; i++) {
-									if (el.dependentDeployments.length > 1) {
-										delimit = ',';
-									} else {
-										delimit = '';
-									}
-									str += el.dependentDeployments[i].deploymentId + delimit;
-								}
-								return str;
-							})();
-						o.r.dependencies = el.dependentDeployments;
+						(function checkLready() {	
 
-						$(selector2 + '.' + o.r.id).append('<td><table><tr class="executionTime"><td><u>Execution time: </u></td><td class="exec">' + o.r.exec + '</td></tr><tr class="lastAction"><td><u>Last action: </u></td><td class="last-act">' + o.r.lastAct + '</td></tr><tr class="modifyDate"><td><u>Last modified: </u></td><td class="last-mod">' + o.r.lastMod + '</td></tr><tr class="conditionIds"><td><u>Conditions: </u></td><td class="cond">' + o.r.conditions + '</td></tr><tr class="dependentDeployments"><td><u>Dependencies: </u></td><td class="depend">' + o.r.dependencies + '</td></tr><tr class="comments"><td><u>Comments: </u></td><td class="comm">' + o.r.comments + '</td></tr><tr class="status"><td><u>Status: </u></td><td class="status">' + o.r.status + '</td></tr></td></tr></table></td></tr>');
-					
+							if(o.l.tagsReady) {			
+						
+							o.r.tags.forEach(function(el) {
+								o.r.name = el.name;
+								o.r.exec = el.executionTime;
+								o.r.lastAct = el.lastAction;
+								o.r.lastMod = el.modifyDate;
+								o.r.conditions = el.conditionIds;
+								o.r.comments = el.comments;
+								o.r.id = el.id;
+								o.r.idArr.push(o.r.id);
+								o.r.status = el.status;
+								o.r.code = el.code;
+								el.conditionIds = el.conditionIds.join(',').toString();
+									el.dependentDeployments = (function() {
+										var str = '',
+											delimit;
+										for (var i = 0; i < el.dependentDeployments.length; i++) {
+											if (el.dependentDeployments.length > 1) {
+												delimit = ',';
+											} else {
+												delimit = '';
+											}
+											str += el.dependentDeployments[i].deploymentId + delimit;
+										}
+										return str;
+									})();
+								o.r.dependencies = el.dependentDeployments;
+
+								$(selector2 + '.' + o.r.id).append('<td><table><tr class="executionTime"><td><u>Execution time: </u></td><td class="exec">' + o.r.exec + '</td></tr><tr class="lastAction"><td><u>Last action: </u></td><td class="last-act">' + o.r.lastAct + '</td></tr><tr class="modifyDate"><td><u>Last modified: </u></td><td class="last-mod">' + o.r.lastMod + '</td></tr><tr class="conditionIds"><td><u>Conditions: </u></td><td class="cond">' + o.r.conditions + '</td></tr><tr class="dependentDeployments"><td><u>Dependencies: </u></td><td class="depend">' + o.r.dependencies + '</td></tr><tr class="comments"><td><u>Comments: </u></td><td class="comm">' + o.r.comments + '</td></tr><tr class="status"><td><u>Status: </u></td><td class="status">' + o.r.status + '</td></tr></td></tr></table></td></tr>');
+							
+							});
+
+							} else {
+								console.log('checking if left tags ready..')
+								setTimeout(checkLready,100);
+							}
+						})();	
+					},
+
+					error: function() {
+						//console.log('Didn\'t work');
+						$('.TagCode').text("There was an error retrieving the code");
+						$('.TagCode').show();
+
+					}
+				});
+
+				$('.spinner').css('display', 'none');
+				$('.TagCode').show();
+				//Click to get code
+				$('.tag-name').click(function() {
+
+					var leftSelector = $('#left-js'),
+						leftId = Number($(this).parent().attr('id'));
+
+					o.l.tags.forEach(function(el) {
+						if(el.id === leftId) {
+						    $('#left-js').text(el.code);
+						}
 					});
 
-					} else {
-						console.log('checking if left tags ready..')
-						setTimeout(checkLready,100);
-					}
-				})();
-					
-			},
+					var rightSelector = $('#right-js'),
+						rightId = Number($(this).parent().attr('id'));
 
-			error: function() {
-				//console.log('Didn\'t work');
-				$('.TagCode').text("There was an error retrieving the code");
-				$('.TagCode').show();
+					o.r.tags.forEach(function(el) {
+						if(el.id === rightId) {
+						    $('#right-js').text(el.code);
+						}
+					});
 
-			}
-		})).done(function() {
-			$('.spinner').css('display', 'none');
-			$('.TagCode').show();
-			//Click to get code
-			$('.tag-name').click(function() {
-
-				var leftSelector = $('#left-js'),
-					leftId = Number($(this).parent().attr('id'));
-
-				o.l.tags.forEach(function(el) {
-					if(el.id === leftId) {
-					    $('#left-js').text(el.code);
-					}
+					$('.modal').on('hide.bs.modal', function (e) {
+						leftSelector.text('');
+						rightSelector.text('');
+					});
 				});
-
-				var rightSelector = $('#right-js'),
-					rightId = Number($(this).parent().attr('id'));
-
-				o.r.tags.forEach(function(el) {
-					if(el.id === rightId) {
-					    $('#right-js').text(el.code);
-					}
-				});
-
-				$('.modal').on('hide.bs.modal', function (e) {
-					leftSelector.text('');
-					rightSelector.text('');
-				})
-
 			});
-
-		});
 	}
 }
