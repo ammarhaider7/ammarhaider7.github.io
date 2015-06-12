@@ -278,9 +278,9 @@ var o = {
 				o.r.tags.forEach(function(el) {
 					if(el.id === rightId) {
 					    $('#right-js').text(el.code);
-					} else {
+					}/* else {
 						rightSelector.text('');
-					}
+					}*/
 				});
 
 			});
