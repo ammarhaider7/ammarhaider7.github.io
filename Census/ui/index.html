@@ -3,7 +3,7 @@
 
 <head>
 	<link href="/resources/bootstrap.css" rel="stylesheet">
-	<link href="/Census/ui/main.css" rel="stylesheet">
+	<link href="/Census/d3/main.css" rel="stylesheet">
 	<!-- <link href="/resources/non-responsive.css" rel="stylesheet"> -->
 	<script src="/resources/angular.js"></script>
 </head>
@@ -41,15 +41,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <!-- <a class="navbar-brand" href="#">Project name</a> -->
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="nav navbar-nav">       
+            <li class="active dropdown"><a href="#">Demographics</a></li>
+            <li><a href="#about">Health</a></li>         
+            <li><a href="#contact">Labour Market</a></li> 
+            <li><a href="#contact">Housing</a></li>
+            <li><a href="#contact">Deprivation</a></li>
+<!--             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Deprivation<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">Action</a></li>
                 <li><a href="#">Another action</a></li>
@@ -59,27 +61,34 @@
                 <li><a href="#">Separated link</a></li>
                 <li><a href="#">One more separated link</a></li>
               </ul>
-            </li>
+            </li> -->
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+<!--           <ul class="nav navbar-nav navbar-right">
             <li><a href="../navbar/">Default</a></li>
             <li><a href="../navbar-static-top/">Static top</a></li>
             <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
-          </ul>
+          </ul> -->
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     </div>
 	<div class="container">
     <div class="span3">
-
-		<h1 id='intro'>Intro header</h1>
+      <div class="intro-container">
+		    <h1>Intro header</h1>
 	        <p>
             Long scrolling text here... Ovi lispmd idr. Blah goo bar foor foo.  Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo.
             Long scrolling text here... Ovi lispmd idr. Blah goo bar foor foo.  Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo.
-            
-        </p>
-
+          </p>
+      </div>       
+        <div class="donut3">
+          <!-- Single button -->
+          <div class="btn-group">
+            <button id = "donut3-btn" type="button" class="btn btn-primary" aria-haspopup="true" aria-expanded="false">
+              Animate
+            </button>
+          </div> 
+        </div>
         <h1>Big header</h1>
         <p>
             Long scrolling text here... Ovi lispmd idr. Blah goo bar foor foo.  Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo. Ovi lispmd idr. Blah goo bar foor foo.
@@ -126,6 +135,8 @@
 		<script src="/resources/chartist.js"></script>
 		<script src="/resources/d3-min.js"></script>
 		<script src="/Census/ui/main.js"></script>
+    		<script src="/Census/ui/pg_donut3.js"></script>
+<!--    <script src="/Census/d3/d3-donut.js"></script> -->
 	</div>
 </body>
 </html>
