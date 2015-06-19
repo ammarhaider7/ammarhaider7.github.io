@@ -3505,7 +3505,9 @@
      vertical-align: middle;
      border-top: 4px dashed;
      border-right: 4px solid transparent;
-     border-left: 4px solid transparent
+     border-left: 4px solid transparent;
+     float: right;
+     margin-top: 9px;
  }
  .dropdown,
  .dropup {
@@ -4342,11 +4344,14 @@
  }
  @media (min-width: 768px) {
      .navbar-nav {
-         float: left;
-         margin: 0
+         /*float: left;*/
+         margin: 0;
      }
      .navbar-nav>li {
-         float: left
+         float: left;
+         text-align: center;
+         border-right: 1px ridge #E8E8E8;
+         width: 20%
      }
      .navbar-nav>li>a {
          padding-top: 15px;
@@ -4483,7 +4488,8 @@
  }
  .navbar-default {
      background-color: #f8f8f8;
-     border-color: #e7e7e7
+     border-color: #e7e7e7;
+     z-index: 1;
  }
  .navbar-default .navbar-brand {
      color: #777
