@@ -32,7 +32,7 @@ body {
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
-  background: url(/Census/angular/images/triangular.png);
+  background: url(/Census/d3/images/triangular.png);
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
   text-align: center;
   display: table;
@@ -105,4 +105,18 @@ body {
 
 .nav-wrapper {
     min-height:80px;
+}
+
+.arc path {
+  stroke: #fff;
+}
+.intro-container svg {
+  float:right;
+}
+.donut3 {
+  float: right;
+}
+#donut3-btn {
+  margin-top: -218px;
+  margin-left: 20px;
 }
