@@ -18,14 +18,9 @@ $(function() {
 		   var hash = this.hash;
 
 		   // animate
-		   $('html, body').animate({
+		   $('body,html').animate({
 		       scrollTop: $('#navbar').offset().top
-		     }, 500, function(){
-
-		       // when done, add hash to url
-		       // (default click behaviour)
-		       window.location.hash = hash;
-		     });
+		     }, 500);
 	});
-
+	// donut.runAjax(1)
 });
