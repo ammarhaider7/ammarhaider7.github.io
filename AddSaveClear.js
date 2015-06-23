@@ -79,8 +79,8 @@ $(function () {
         }
     });
     
-    $('#escape').click(function(e) {
-        e.preventDefault();
+    $('#methodsPlHolder').on("click", '#escape', function() {
+        // e.preventDefault();
         // List of HTML entities for escaping.
         var htmlEscapes = {
           '&': '&amp;',
