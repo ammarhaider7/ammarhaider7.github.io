@@ -114,11 +114,11 @@ $(function () {
         }
         //When a match is found, populate the relevant method div (i-1) with the method
         if (outputMatch()) {
-            // splitIdVal = valTxtId.split('(');
-            // //Split method to make space for Quotes and then update
-            // splitIdValp1 = splitIdVal[0] + "(";
-            // splitIdValp2 = splitIdVal[1];
-            $('#method' + (i-1)).text(escapedVal);
+            splitIdVal = valTxtId.split('(');
+            //Split method to make space for Quotes and then update
+            splitIdValp1 = splitIdVal[0] + "(";
+            splitIdValp2 = splitIdVal[1];
+            $('#method' + (i-1)).text(splitIdValp1 + escapedVal + splitIdValp2);
         }        
 
         
