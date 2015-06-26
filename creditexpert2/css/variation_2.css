@@ -1,0 +1,151 @@
+/* 
+* Variation 2
+*/
+
+#v2 .flexslider .slide_1 								{ background: url("../images/variation_2/EXPE_WEB_Spotlight_v2_01.jpg") no-repeat center center;}
+#v2 .flexslider .slide_2 								{ background: url("../images/variation_2/EXPE_WEB_Spotlight_v2_02.jpg") no-repeat center center;}
+#v2 .flexslider .slide_3 								{ background: url("../images/variation_2/EXPE_WEB_Spotlight_v2_03.jpg") no-repeat center center;}
+#v2 .flexslider .slide_4 								{ background: url("../images/variation_2/EXPE_WEB_Spotlight_v5_01.jpg") no-repeat center center;}
+#v2 .flexslider .slide_5 								{ background: url("../images/variation_2/EXPE_WEB_Spotlight_v2_05.jpg") no-repeat center center;}
+
+.flexslider.spotlight 									{ background-color: #fff;}
+/* .flexslider.spotlight .right 							{ background: url("../images/variation_2/written_note.png") no-repeat 474px 156px; height: 395px; position: relative;} */
+.flexslider .cta 										{ position: absolute; bottom: 30px; }
+
+.tabs 													{ height: auto;}
+.tabs.row 												{ border: 1px solid #CCCCCC; border-top:none; margin: 0; height: 310px; -webkit-border-bottom-right-radius: 4px;
+-webkit-border-bottom-left-radius: 4px;
+-moz-border-radius-bottomright: 4px;
+-moz-border-radius-bottomleft: 4px;
+border-bottom-right-radius: 4px;
+border-bottom-left-radius: 4px; }
+.tabs .row 												{ margin:0; }
+.inner 													{ padding: 40px; }
+.inner p 												{ font-size: 16px; line-height: 20px; }		
+
+.activators li 											{ width: 105px;text-align: center; }
+.activators li.last 									{ width: 106px; }
+
+
+.flexslider.testimonials 								{ 	border: 1px solid #ccc;
+															background-color: #f7fafd;
+															margin-top: 65px;
+															-webkit-border-radius: 4px;
+															-moz-border-radius: 4px;
+															border-radius: 4px;}
+.flexslider.testimonials li 							{ margin-top: 0;    padding-top: 70px; background:none;}
+.flexslider.testimonials .flex-direction-nav li { padding-top: 0;}
+
+.flexslider h3 											{ color: #342c88; padding: 10px 20px; margin-bottom: 0; background-color: #fff; -webkit-border-top-left-radius: 4px;
+															-webkit-border-top-right-radius: 4px;
+															-moz-border-radius-topleft: 4px;
+															-moz-border-radius-topright: 4px;
+															border-top-left-radius: 4px;
+															border-top-right-radius: 4px;}
+.flexslider.testimonials .slides 									{  border-top: 1px dashed #ccc; min-height: 304px;}
+ul.slides  li 											{ background: none;}
+.flexslider.testimonials .flex-direction-nav a  		{ top: 42%; }
+
+
+.relax 													{ display: none;}
+.footer_nav {
+    margin-top: 70px;
+}
+
+/***** Screen Smaller than 1199px *****/
+@media only screen and (min-width: 960px) and (max-width: 1199px) {
+
+	
+	.activators li 					 					{ padding:10px 21px; }
+	.activators li.last									{ padding-right:23px; }
+	.tabs.row 											{ height:346px; }
+	.flexslider.testimonials .slides 					{ min-height:276px; }
+	/*.flexslider.spotlight .right 						{ background: url("../images/variation_2/written_note@2x.png") no-repeat 380px 207px; background-size:156px 116px;}*/
+	.flexslider.testimonials .slides {min-height: 340px;}
+
+}
+
+/***** Tablet (Smaller than 959px) *****/
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+
+	.activators li 					 					{ padding:10px 6px; }
+	.tabs.row 											{ height:430px; }
+	.flexslider.spotlight .right 						{ height: 250px; }
+	.flexslider .cta 									{ bottom: 10px; }
+
+	#v2 .flexslider .slide { background-size:1040px 276px; }
+
+	.flexslider h3 										{ font-size: 20px; }
+
+	.flexslider.testimonials li { margin-top: 145px; }
+	.flexslider.testimonials li p, .flexslider.testimonials li cite { margin: 0 70px; font-size: 16px; line-height: 20px;}
+	.flexslider.testimonials .slides 					{ height:280px; }
+
+	.flexslider.testimonials li {
+    	margin-top: 0;
+   	 	padding-top: 63px;
+	}
+	.flexslider.testimonials .slides {
+	    min-height: 425px;
+	}
+	.flexslider.testimonials li {
+	    padding-top: 95px;
+	}
+	.flexslider.spotlight .right {background-image:none;}
+}
+
+/***** Mobile (portrait 300px) *****/
+@media only screen and (max-width: 767px) {
+
+	/* Show Credit Rating */
+	.page_01 .slider_paging .slide_1 .content{
+		display: block;
+	}
+	/* Show Credit History */
+	.page_02 .slider_paging .slide_2 .content{
+		display: block;
+	}
+	/* Show Credit Check */
+	.page_03 .slider_paging .slide_3 .content{
+		display: block;
+	}
+	/* Show Credit Score */
+	.page_04 .slider_paging .slide_4 .content{
+		display: block;
+	}
+	/* Show Credit Report */
+	.page_05 .slider_paging .slide_5 .content{
+		display: block;
+	}
+	.flexslider.testimonials 							{ margin-top: 0; border:none; background-color: #fff; }
+	.flexslider h3 										{ border:none; padding:20px 0 10px 0; background:url("../images/rule_mobile_dark.png") no-repeat center bottom; background-size: 320px 1px; font-size: 18px;}
+	.flexslider.testimonials .slides 					{ border: none; min-height: 0;}
+
+	.flex-direction-nav .flex-prev,
+	.flex-direction-nav .flex-next 						{ background-size:25px 30px; width: 25px; height: 30px; }
+	.flex-direction-nav .flex-prev { left: -10px; }
+	.flex-direction-nav .flex-next { right: -10px; }
+
+	.flexslider.testimonials li {
+		padding-top: 20px;
+	}
+	.flexslider.testimonials li p, .flexslider.testimonials li cite { margin:0 30px; font-size: 13px; }
+
+	.flexslider.testimonials .flex-direction-nav a { top:51%;}
+
+}
+
+/***** Mobile (landscape 420px) *****/
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+.example                                {  }
+
+
+
+}
+
+/***** Retina Images *****/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+}
