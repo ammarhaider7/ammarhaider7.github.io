@@ -24,10 +24,12 @@ ensightenServices.factory('Signin', ['$resource', function($resource) {
 ensightenServices.factory('Auth', ['$resource',
   function ($resource) {
     return function(username, password) {
-      return $resource('//manage-api.ensighten.com/auth/token', {
+      return $resource('//manage-api.ensighten.com/auth/token', {}, {
         connect: {
           method:'POST', 
           data: 'grant_type=password',
+          params: {},
+          isArray: false,
           headers: {
           "Authorization": "Basic " + btoa("experian" + ":" + username + ":" + password)
           }
