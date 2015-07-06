@@ -65,7 +65,7 @@ ensightenControllers.controller('TagDetailCtrl', ['$scope', '$routeParams', 'Tag
 }]);*/
 
 ensightenControllers.controller('signinCtrl', ['$scope', 'Auth', '$location',
-	function ($scope, Signin, $location) {
+	function ($scope, Auth, $location) {
 		$scope.submit = function () {
 			Auth.get();
 		}
