@@ -1,0 +1,50 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <h4 class="top-left">Ensighten Dashboard</h4>
+    </div>
+  </div>
+</nav>
+<div class="container main-content">
+<div class="select-space-div" ng-controller="spaceListCtrl">
+  <select class="form-control select" ng-model="mySpace">
+    <option value="" disabled selected>Select a space..</option>
+    <option ng-repeat="space in spaces" >{{space.name}}</option>
+  </select>
+  <button type="button" ng-click="getTags()" class="btn btn-primary run-btn">Run</button>
+</div>
+<div class="table-responsive">
+  Search: <input ng-model="query">
+  Sort by: 
+  <select ng-model="orderProp">
+    <option value="-modifyDate">Last Modified</option>
+    <option value="-creationDate">Last Created</option>
+  </select>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Tag Name</th>
+        <th>Last modified</th>
+        <th>Creation date</th>
+        <th>Latest code</th>
+        <th class="comments-column">Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="tag in tags | filter:query | orderBy:orderProp">
+        <td>{{tag.name}}</td>
+        <td>{{tag.modifyDate | date : 'medium'}}</td>
+        <td>{{tag.creationDate | date : 'medium'}}</td>
+        <td><a href="#/tags/{{tag.id}}" class="code-link">Code for {{tag.name}}</a></td>
+        <td>{{tag.comments}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div> <!-- /container --> 
