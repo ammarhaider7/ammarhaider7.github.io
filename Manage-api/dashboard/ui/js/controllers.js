@@ -67,6 +67,7 @@ ensightenControllers.controller('TagDetailCtrl', ['$scope', '$routeParams', 'Tag
 ensightenControllers.controller('signinCtrl', ['$scope', 'Auth', '$location',
 	function ($scope, Auth, $location) {
 		$scope.submit = function () {
+			console.log($scope.user.name + ": "+ $scope.user.password);
 			Auth($scope.user.name, $scope.user.password).connect(
 				function() {
 					$location.path('/tags').replace();
