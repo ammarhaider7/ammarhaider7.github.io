@@ -23,7 +23,7 @@ ensightenServices.factory('Signin', ['$resource', function($resource) {
 
 ensightenServices.factory('Auth', ['$resource',
   function ($resource) {
-    // return function(username, password) {
+    return function(username, password) {
       return $resource('//manage-api.ensighten.com/auth/token', {}, {
         connect: {
           method:'POST', 
@@ -32,10 +32,9 @@ ensightenServices.factory('Auth', ['$resource',
           isArray: false,
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
-            // "Authorization": "Basic " + btoa("experian" + ":" + username + ":" + password)
-            "Authorization": "Basic " + btoa("experian" + ":" + 'username' + ":" + 'password')
+            "Authorization": "Basic " + btoa("experian" + ":" + username + ":" + password)
           }
         }
       });
-    // }
+    }
 }]);
