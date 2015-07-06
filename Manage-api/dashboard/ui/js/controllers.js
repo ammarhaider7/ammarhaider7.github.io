@@ -64,7 +64,7 @@ ensightenControllers.controller('TagDetailCtrl', ['$scope', '$routeParams', 'Tag
   }
 }]);*/
 
-ensightenControllers.controller('signinCtrl', ['$scope', 'Auth', '$location',
+/*ensightenControllers.controller('signinCtrl', ['$scope', 'Auth', '$location',
 	function ($scope, Auth, $location) {
 		$scope.submit = function () {
 			Auth($scope.user.name, $scope.user.password).connect(
@@ -77,4 +77,23 @@ ensightenControllers.controller('signinCtrl', ['$scope', 'Auth', '$location',
 			);
 		}
 	}
-]);
+]);*/
+
+ensightenControllers.controller('signinCtrl', ['$scope', '$http', '$location',
+	function ($scope, $http, $location) {
+		$scope.submit = $http({
+		method: "POST", 
+		url: "//manage-api.ensighten.com/auth/token",
+		data: 'grant_type=password',
+		headers: {
+			"Content-Type": "application/x-www-form-urlencoded",
+			"Authorization": "Basic " + btoa("experian" + ":" + username + ":" + password)
+		}
+		}).
+		success(function() {
+		  $location.path('/tags').replace();
+		}).
+		error(function() {
+			$scope.invalid = true;
+		});
+}]);
