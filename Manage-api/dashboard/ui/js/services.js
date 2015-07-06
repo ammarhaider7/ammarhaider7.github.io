@@ -30,7 +30,7 @@ ensightenServices.factory('Auth', ['$resource',
           data: 'grant_type=password',
           headers: {
           "Authorization": "Basic " + btoa("experian" + ":" + username + ":" + password)
-          },
+          }
         }
       });
     }
