@@ -31,7 +31,8 @@ ensightenServices.factory('Auth', ['$resource',
           params: {},
           isArray: false,
           headers: {
-          "Authorization": "Basic " + btoa("experian" + ":" + username + ":" + password)
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": "Basic " + btoa("experian" + ":" + username + ":" + password)
           }
         }
       });
