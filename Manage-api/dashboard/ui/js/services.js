@@ -20,3 +20,16 @@ ensightenServices.factory('Signin', ['$resource', function($resource) {
     }
   });
 }]);
+
+ensightenServices.factory('Auth', ['$resource',
+  function ($resource) {
+    return $resource('//manage-api.ensighten.com/auth/token', {
+      get: {
+        method:'POST', 
+        data: 'grant_type=password',
+        headers: {
+        "Authorization": "Basic " + btoa("experian" + ":" + $scope.user.name + ":" + $scope.user.password)
+        },
+      }
+    });
+}]);
