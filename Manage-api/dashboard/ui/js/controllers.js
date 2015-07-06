@@ -51,7 +51,7 @@ ensightenControllers.controller('TagDetailCtrl', ['$scope', '$routeParams', 'Tag
 }]);
 
 //Sign in controller
-ensightenControllers.controller('signinCtrl', ['$scope', 'Signin', '$location', function($scope, Signin, $location) {
+/*ensightenControllers.controller('signinCtrl', ['$scope', 'Signin', '$location', function($scope, Signin, $location) {
   $scope.submit = function() {
     Signin.query(function(data) {
       angular.forEach(data, function(el) {
@@ -62,4 +62,12 @@ ensightenControllers.controller('signinCtrl', ['$scope', 'Signin', '$location', 
     });
     $scope.invalid = true;
   }
-}]);
+}]);*/
+
+ensightenControllers.controller('signinCtrl', ['$scope', 'Auth', '$location',
+	function ($scope, Signin, $location) {
+		$scope.submit = function () {
+			Auth.get();
+		}
+	}
+]);
