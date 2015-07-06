@@ -79,7 +79,7 @@ ensightenControllers.controller('TagDetailCtrl', ['$scope', '$routeParams', 'Tag
 	}
 ]);*/
 
-ensightenControllers.controller('signinCtrl', ['$scope', '$http', '$location',
+/*ensightenControllers.controller('signinCtrl', ['$scope', '$http', '$location',
 	function ($scope, $http, $location) {
 		$scope.submit = function() {
 		$http({
@@ -98,4 +98,17 @@ ensightenControllers.controller('signinCtrl', ['$scope', '$http', '$location',
 			$scope.invalid = true;
 		});
 	}
+}]);*/
+
+ensightenControllers.controller('signinCtrl', ['$scope', '$location', 'Auth'
+	function ($scope, $location, Auth) {
+		$scope.submit = function() {
+			Auth($scope.user.name, $scope.user.password).connect()
+			.success(function() {
+			  $location.path('/tags').replace();
+			})
+			.error(function() {
+				$scope.invalid = true;
+			});
+		}
 }]);
