@@ -30,7 +30,7 @@ ensightenServices.factory('Auth', ['$resource',
           data: 'grant_type=password',
           params: {},
           isArray: false,
-          withCredentials: true,
+          Content-Type: 'application/x-www-form-urlencoded',
           headers: {
           "Authorization": "Basic " + btoa("experian" + ":" + username + ":" + password)
           }
