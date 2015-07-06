@@ -34,6 +34,7 @@ ensightenControllers.controller('spaceListCtrl', function($scope) {
 ensightenControllers.controller('tagListCtrl', ['$scope', 'Tags', function($scope, Tags) {
   $scope.tags = Tags.query();
   $scope.orderProp = '-modifyDate';
+  $scope.tableRun = false;
 }]);
 
 //Tag details (code) controller
@@ -106,7 +107,6 @@ ensightenControllers.controller('signinCtrl', ['$scope', '$location', 'Auth',
 			Auth($scope.user.name, $scope.user.password).connect()
 			.success(function() {
 			  $location.path('/tags').replace();
-			  $scope.tableRun = false;
 			})
 			.error(function() {
 				$scope.invalid = true;
