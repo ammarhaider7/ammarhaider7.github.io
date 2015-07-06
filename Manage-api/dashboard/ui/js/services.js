@@ -21,7 +21,7 @@ ensightenServices.factory('Signin', ['$resource', function($resource) {
   });
 }]);
 
-ensightenServices.factory('Auth', ['$resource',
+/*ensightenServices.factory('Auth', ['$resource',
   function ($resource) {
     return function(username, password) {
       return $resource('//manage-api.ensighten.com/auth/token', {}, {
@@ -37,4 +37,22 @@ ensightenServices.factory('Auth', ['$resource',
         }
       });
     }
+}]);*/
+
+ensightenServices.factory('Auth', ['$http', function ($http) {
+  return function(username, password) {
+    return {
+      connect: function() {
+        return $http({
+          method: "POST", 
+          url: "//manage-api.ensighten.com/auth/token",
+          data: 'grant_type=password',
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": "Basic " + btoa("experian" + ":" + username + ":" + password)
+          }
+        });
+      }
+    }
+  }
 }]);
