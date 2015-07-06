@@ -104,12 +104,15 @@ ensightenControllers.controller('TagDetailCtrl', ['$scope', '$routeParams', 'Tag
 ensightenControllers.controller('signinCtrl', ['$scope', '$location', 'Auth',
 	function ($scope, $location, Auth) {
 		$scope.submit = function() {
-			Auth($scope.user.name, $scope.user.password).connect()
-			.success(function() {
-			  $location.path('/tags').replace();
-			})
-			.error(function() {
-				$scope.invalid = true;
-			});
+			Auth($scope.user.name, $scope.user.password)
+				.connect()
+				.success(function(response) {
+					$rootScope.auth = response;
+					console.log($rootScope);
+				  	$location.path('/tags').replace();
+				})
+				.error(function() {
+					$scope.invalid = true;
+				});
 		}
 }]);
