@@ -5,15 +5,15 @@ var ensightenApp = angular.module('ensightenApp', ['ngRoute', 'ensightenControll
 ensightenApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
   when('/tags', {
-    templateUrl: 'Partials/tag-list.html',
+    templateUrl: 'partials/tag-list.html',
     controller: 'tagListCtrl'
   }).
   when('/tags/:tagId', {
-    templateUrl: 'Partials/tag-detail.html',
+    templateUrl: 'partials/tag-detail.html',
     controller: 'TagDetailCtrl'
   }).
   otherwise({
     redirectTo: '/sign-in',
-    templateUrl: 'Partials/sign-in.html'
+    templateUrl: 'partials/sign-in.html'
   });
 }]);
