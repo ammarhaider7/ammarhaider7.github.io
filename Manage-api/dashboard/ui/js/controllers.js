@@ -106,6 +106,7 @@ ensightenControllers.controller('signinCtrl', ['$scope', '$location', 'Auth',
 			Auth($scope.user.name, $scope.user.password).connect()
 			.success(function() {
 			  $location.path('/tags').replace();
+			  $scope.tableRun = false;
 			})
 			.error(function() {
 				$scope.invalid = true;
