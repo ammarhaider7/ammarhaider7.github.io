@@ -23,13 +23,15 @@ ensightenServices.factory('Signin', ['$resource', function($resource) {
 
 ensightenServices.factory('Auth', ['$resource',
   function ($resource) {
-    return $resource('//manage-api.ensighten.com/auth/token', {
-      get: {
-        method:'POST', 
-        data: 'grant_type=password',
-        headers: {
-        "Authorization": "Basic " + btoa("experian" + ":" + $scope.user.name + ":" + $scope.user.password)
-        },
-      }
-    });
+    return function(username, password) {
+      return $resource('//manage-api.ensighten.com/auth/token', {
+        connect: {
+          method:'POST', 
+          data: 'grant_type=password',
+          headers: {
+          "Authorization": "Basic " + btoa("experian" + ":" + username + ":" + password)
+          },
+        }
+      });
+    }
 }]);
