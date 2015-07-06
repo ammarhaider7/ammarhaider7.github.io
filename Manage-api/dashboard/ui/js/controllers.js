@@ -81,14 +81,15 @@ ensightenControllers.controller('TagDetailCtrl', ['$scope', '$routeParams', 'Tag
 
 ensightenControllers.controller('signinCtrl', ['$scope', '$http', '$location',
 	function ($scope, $http, $location) {
-		$scope.submit = $http({
-		method: "POST", 
-		url: "//manage-api.ensighten.com/auth/token",
-		data: 'grant_type=password',
-		headers: {
-			"Content-Type": "application/x-www-form-urlencoded",
-			"Authorization": "Basic " + btoa("experian" + ":" + username + ":" + password)
-		}
+		$scope.submit = function() {
+		$http({
+			method: "POST", 
+			url: "//manage-api.ensighten.com/auth/token",
+			data: 'grant_type=password',
+			headers: {
+				"Content-Type": "application/x-www-form-urlencoded",
+				"Authorization": "Basic " + btoa("experian" + ":" + $scope.user.name + ":" + $scope.user.password)
+			}
 		}).
 		success(function() {
 		  $location.path('/tags').replace();
@@ -96,4 +97,5 @@ ensightenControllers.controller('signinCtrl', ['$scope', '$http', '$location',
 		error(function() {
 			$scope.invalid = true;
 		});
+	}
 }]);
