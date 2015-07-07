@@ -44,10 +44,12 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
   $scope.orderProp = 'age';
   $scope.tableRun = false;
   $scope.getTags = function() {
+  	$scope.loader = true;
     spaceFactory.setSpace($scope.selectedSpace.id);
 	console.log(spaceFactory.getSpace());
 	Tags(tokenFactory.getToken(), spaceFactory.getSpace()).pull()
 	.success(function(tags) {
+		$scope.loader = false;
 		$scope.tableRun = true;
 		console.log(tags);
 		window.tags = tags;
@@ -56,6 +58,7 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
 		return $scope.tags = tags;
 	})
 	.error(function() {
+		$scope.loader = false;
 		console.log("Error");
 	});
   }
