@@ -12,16 +12,17 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <form novalidate class="navbar-form navbar-right" role="form" ng-submit="submit()" ng-controller="signinCtrl">
-        <div class="invalid-submit" ng-show="invalid">
-          <p>Incorrect username / password</p>
-        </div>
         <div class="form-group">
           <input type="text" placeholder="Username" class="form-control" ng-model="user.name" required>
         </div>
         <div class="form-group">
           <input type="password" placeholder="Password" class="form-control" ng-model="user.password" required>
         </div>
-        <button type="submit" class="btn btn-success">Sign in</button>
+        <button type="submit" class="btn btn-success" ng-show="!invalid">Sign in</button>
+        <img alt="activity indicator" src="/resources/ajax-loader.gif" ng-show="loader">
+        <div class="invalid-submit" ng-show="invalid">
+          <p>Incorrect username / password</p>
+        </div>
       </form>
     </div><!--/.navbar-collapse -->
   </div>
