@@ -43,7 +43,7 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
   }];
   $scope.orderProp = 'age';
   $scope.tableRun = false;
-$scope.getTags = (function() {
+$scope.getTags = function() {
 
 	var tags = tagFactory.getTags();
 	
@@ -70,7 +70,7 @@ $scope.getTags = (function() {
 				$scope.loader = false;
 			});				
 	}
-})();
+};
   $scope.orderProp = '-modifyDate';
   $scope.tableRun = true;
 }]);
