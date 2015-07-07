@@ -43,7 +43,7 @@ ensightenServices.factory('Auth', ['$http', function ($http) {
   return function(username, password) {
     return {
       connect: function() {
-        return $http({
+        $http({
           method: "POST", 
           url: "//manage-api.ensighten.com/auth/token",
           data: 'grant_type=password',
