@@ -27,7 +27,7 @@ var ensightenControllers = angular.module('ensightenControllers', []);
 });*/
 
 //Tag list controller
-ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags', 'spaceFactory', function($scope, tokenFactory, Tags, spaceFactory) {
+ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags', 'spaceFactory', 'tagFactory', function($scope, tokenFactory, Tags, spaceFactory, tagFactory) {
   $scope.spaces = [{
     'name': 'UK Credit Expert - Prod',
     'id': 1501,
@@ -56,20 +56,22 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
 		console.log("Error");
 	});
 	console.log($scope.tags);
+	tagFactory.setTags = $scope.tags;
   }
   $scope.orderProp = '-modifyDate';
   $scope.tableRun = true;
 }]);
 
 //Tag details (code) controller
-ensightenControllers.controller('TagDetailCtrl', ['$scope', '$routeParams', 'Tags', function($scope, $routeParams, Tags) {
-  Tags.query(function(data) {
+ensightenControllers.controller('TagDetailCtrl', ['$scope', '$routeParams', 'tagFactory', function($scope, $routeParams, tagFactory) {
+/*  Tags.query(function(data) {
     angular.forEach(data, function(el) {
       if (el.id == $routeParams.tagId) {
         return $scope.tag = el;
       }
     });
-  });
+  });*/
+  $scope.tag = tokenFactory.getTagById($routeParams.tagId);
 
   $scope.tagId = $routeParams.tagId;
 
