@@ -1,5 +1,4 @@
 /* Controllers */
-'use strict';
 /*Note: We have specified an Angular Module to load using ng-app="ensightenApp", 
 where ensightenApp is the name of our module. This module will contain the spaceListCtrl.*/
 
@@ -109,7 +108,7 @@ ensightenControllers.controller('TagDetailCtrl', ['$scope', '$routeParams', 'Tag
 	}
 }]);*/
 
-ensightenControllers.controller('signinCtrl', ['$scope', '$location', '$rootScope', 'tokenFactory', 'Auth',
+ensightenControllers.controller('signinCtrl', ['$scope', '$location', 'tokenFactory', 'Auth',
 	function ($scope, $location, tokenFactory, Auth) {
 		$scope.submit = function() {
 			Auth($scope.user.name, $scope.user.password)
