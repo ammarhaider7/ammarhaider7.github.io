@@ -32,9 +32,9 @@ ensightenControllers.controller('spaceListCtrl', function($scope, spaceFactory) 
 });
 
 //Tag list controller
-ensightenControllers.controller('tagListCtrl', ['$scope', '$rootScope', 'Tags', 'spaceFactory', function($scope, $rootScope, Tags, spaceFactory) {
+ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags', 'spaceFactory', function($scope, tokenFactory, Tags, spaceFactory) {
 $scope.tableRun = false;
-$scope.tags = Tags($rootScope.auth.access_token, spaceFactory.getSetSpace).pull()
+$scope.tags = Tags(tokenFactory.getToken, spaceFactory.getSetSpace).pull()
 	.success(function(tags) {
 		return tags;
 	})
@@ -108,14 +108,14 @@ ensightenControllers.controller('TagDetailCtrl', ['$scope', '$routeParams', 'Tag
 	}
 }]);*/
 
-ensightenControllers.controller('signinCtrl', ['$scope', '$location', '$rootScope', 'Auth',
-	function ($scope, $location, $rootScope, Auth) {
+ensightenControllers.controller('signinCtrl', ['$scope', '$location', '$rootScope', 'tokenFactory', 'Auth',
+	function ($scope, $location, tokenFactory, Auth) {
 		$scope.submit = function() {
 			Auth($scope.user.name, $scope.user.password)
 				.connect()
 				.success(function(response) {
-					$rootScope.auth = response;
-					console.log($rootScope);
+					tokenFactory.setToken = response.access_token;
+					console.log(response);
 				  	$location.path('/tags').replace();
 				})
 				.error(function() {
