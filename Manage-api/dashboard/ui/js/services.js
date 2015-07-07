@@ -117,7 +117,7 @@ ensightenServices.factory('tokenFactory', function() {
 ensightenServices.factory('tagFactory', function() {
   var o = {};
   o.setTags = function(tags) {
-    o.tags = tags;
+    this.tags = tags;
   };
   o.getTagById = function(id) {
     var tag;
@@ -128,5 +128,8 @@ ensightenServices.factory('tagFactory', function() {
     });
     return tag;
   };
+  o.getTags = function() {
+    return this.tags;
+  }
   return o;
 });
