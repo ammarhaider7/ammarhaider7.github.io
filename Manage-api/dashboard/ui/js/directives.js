@@ -6,7 +6,7 @@ ensightenDirectives.directive('highlightJs', ['$browser', function($browser) {
     link: function(scope, element, attributes) {
       $browser.notifyWhenNoOutstandingRequests(function() {
         console.log('Im done!');
-        // hljs.highlightBlock(element[0]);
+        hljs.highlightBlock(element[0]);
       });
 
     }
