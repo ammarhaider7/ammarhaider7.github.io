@@ -55,6 +55,7 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
 	.error(function() {
 		console.log("Error");
 	});
+	console.log($scope.tags);
   }
   $scope.orderProp = '-modifyDate';
   $scope.tableRun = true;
