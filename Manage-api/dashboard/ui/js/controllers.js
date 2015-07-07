@@ -6,7 +6,7 @@ where ensightenApp is the name of our module. This module will contain the space
 var ensightenControllers = angular.module('ensightenControllers', []);
 
 //Space List controller
-ensightenControllers.controller('spaceListCtrl', function($scope) {
+ensightenControllers.controller('spaceListCtrl', function($scope, spaceFactory) {
 /*	The concept of a scope in Angular is crucial. A scope can be seen as the glue which allows the template, 
 	model and controller to work together. Angular uses scopes, along with the information contained in the template, 
 	data model, and controller, to keep models and views separate, but in sync. Any changes made to the model are 
@@ -31,7 +31,7 @@ ensightenControllers.controller('spaceListCtrl', function($scope) {
 });
 
 //Tag list controller
-ensightenControllers.controller('tagListCtrl', ['$scope', '$rootScope', 'Tags', function($scope, $rootScope, Tags) {
+ensightenControllers.controller('tagListCtrl', ['$scope', '$rootScope', 'Tags', 'spaceFactory', function($scope, $rootScope, Tags, spaceFactory) {
 $scope.tableRun = false;
 $scope.tags = Tags($rootScope.auth.access_token, spaceFactory.getSetSpace).pull()
 	.success(function(tags) {
