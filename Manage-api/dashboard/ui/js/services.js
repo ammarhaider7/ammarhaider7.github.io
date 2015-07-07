@@ -120,11 +120,13 @@ ensightenServices.factory('tagFactory', function() {
     o.tags = tags;
   };
   o.getTagById = function(id) {
+    var tag;
     angular.forEach(this.tags, function (el) {
       if(el.id == id) {
-        return el;
+        return tag = el;
       }
     });
+    return tag;
   };
   return o;
 });
