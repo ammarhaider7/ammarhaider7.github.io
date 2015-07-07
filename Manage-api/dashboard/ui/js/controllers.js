@@ -69,7 +69,7 @@ $scope.getTags = (function() {
 				console.log("Error");
 				$scope.loader = false;
 			});				
-
+	}
 })();
   $scope.orderProp = '-modifyDate';
   $scope.tableRun = true;
