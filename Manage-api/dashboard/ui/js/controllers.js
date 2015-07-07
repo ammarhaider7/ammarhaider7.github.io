@@ -33,6 +33,8 @@ ensightenControllers.controller('spaceListCtrl', function($scope, spaceFactory) 
 //Tag list controller
 ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags', 'spaceFactory', function($scope, tokenFactory, Tags, spaceFactory) {
 $scope.tableRun = false;
+console.log(tokenFactory);
+console.log(spaceFactory);
 $scope.tags = Tags(tokenFactory.getToken, spaceFactory.getSetSpace).pull()
 	.success(function(tags) {
 		return tags;
