@@ -43,31 +43,34 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
   }];
   $scope.orderProp = 'age';
   $scope.tableRun = false;
-$scope.getTags = function() {
+$scope.getTags = (function() {
+
 	var tags = tagFactory.getTags();
+	
 	if(tags) {
 		console.log(tags)
 		return $scope.tags = tags;
-	}
-	return false;
-} || function () {
-	$scope.loader = true;
-	spaceFactory.setSpace($scope.selectedSpace.id);
-	console.log(tokenFactory);
-	console.log(spaceFactory);
-	Tags(tokenFactory.getToken(), spaceFactory.getSpace()).pull()
-		.success(function(tags) {
-			console.log(tags);
-			tagFactory.setTags(tags);
-			console.log(tagFactory);
-			return $scope.tags = tags;
-			$scope.loader = false;
-		})
-		.error(function() {
-			console.log("Error");
-			$scope.loader = false;
-		});
-}
+
+	} else {
+
+		$scope.loader = true;
+		spaceFactory.setSpace($scope.selectedSpace.id);
+		console.log(tokenFactory);
+		console.log(spaceFactory);
+		Tags(tokenFactory.getToken(), spaceFactory.getSpace()).pull()
+			.success(function(tags) {
+				console.log(tags);
+				tagFactory.setTags(tags);
+				console.log(tagFactory);
+				return $scope.tags = tags;
+				$scope.loader = false;
+			})
+			.error(function() {
+				console.log("Error");
+				$scope.loader = false;
+			});				
+
+})();
   $scope.orderProp = '-modifyDate';
   $scope.tableRun = true;
 }]);
