@@ -69,6 +69,7 @@ $scope.getTags = function() {
 		});
 }
   $scope.orderProp = '-modifyDate';
+  $scope.tableRun = true;
 }]);
 
 //Tag details (code) controller
