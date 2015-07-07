@@ -40,3 +40,10 @@ pre, #code {
 .invalid-submit p {
 	margin-bottom: 0px;
 }
+.search-box {
+	width: 25%;
+	display: inline;
+}
+#sort-by {
+	width: 13%;
+}
