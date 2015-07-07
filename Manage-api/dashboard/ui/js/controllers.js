@@ -50,7 +50,7 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
 	.success(function(tags) {
 		$scope.tableRun = true;
 		console.log(tags);
-		tagFactory.setTags = tags;
+		tagFactory.setTags(tags);
 		return $scope.tags = tags;
 	})
 	.error(function() {
@@ -69,7 +69,7 @@ ensightenControllers.controller('TagDetailCtrl', ['$scope', '$routeParams', 'tag
       }
     });
   });*/
-	console.log('$routeParams: ' + $routeParams);
+	console.log('$routeParams: ' + $routeParams.tagId);
 	console.log("tagFactory.getTagById($routeParams.tagId): " + tagFactory.getTagById($routeParams.tagId));
   	$scope.tag = tagFactory.getTagById($routeParams.tagId);
   	$scope.tagId = $routeParams.tagId;
