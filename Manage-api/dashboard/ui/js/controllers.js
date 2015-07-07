@@ -42,20 +42,20 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
     'age': 1
   }];
   $scope.orderProp = 'age';
+  $scope.tableRun = false;
   $scope.getTags = function() {
     console.log($scope);
     spaceFactory.setSpace($scope.selectedSpace.id);
-  }
-$scope.tableRun = false;
-console.log(tokenFactory);
-console.log(spaceFactory);
-$scope.tags = Tags(tokenFactory.getToken, spaceFactory.getSetSpace).pull()
+    console.log(tokenFactory);
+	console.log(spaceFactory);
+	$scope.tags = Tags(tokenFactory.getToken(), spaceFactory.getSetSpace).pull()
 	.success(function(tags) {
 		return tags;
 	})
 	.error(function() {
 		console.log("Error");
 	});
+  }
   $scope.orderProp = '-modifyDate';
   $scope.tableRun = true;
 }]);
