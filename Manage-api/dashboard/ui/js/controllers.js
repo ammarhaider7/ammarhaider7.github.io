@@ -31,16 +31,16 @@ ensightenControllers.controller('spaceListCtrl', function($scope) {
 });
 
 //Tag list controller
-ensightenControllers.controller('tagListCtrl', ['$scope', 'Tags', function($scope, Tags) {
+ensightenControllers.controller('tagListCtrl', ['$scope', '$rootScope', 'Tags', function($scope, $rootScope, Tags) {
+$scope.tableRun = false;
 $scope.tags = Tags($rootScope.auth.access_token, spaceFactory.getSetSpace).pull()
 	.success(function(tags) {
 		return tags;
 	})
 	.error(function() {
 		console.log("Error");
-	})
+	});
   $scope.orderProp = '-modifyDate';
-  $scope.tableRun = false;
 }]);
 
 //Tag details (code) controller
