@@ -130,7 +130,7 @@ ensightenControllers.controller('signinCtrl', ['$scope', '$location', 'tokenFact
 			Auth($scope.user.name, $scope.user.password)
 				.connect()
 				.success(function(response) {
-					tokenFactory.setToken = response.access_token;
+					tokenFactory.setToken(response.access_token);
 					console.log(response);
 				  	$location.path('/tags').replace();
 				})
