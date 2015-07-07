@@ -5,11 +5,7 @@ where ensightenApp is the name of our module. This module will contain the space
 var ensightenControllers = angular.module('ensightenControllers', []);
 
 //Space List controller
-ensightenControllers.controller('spaceListCtrl', function($scope, spaceFactory) {
-/*	The concept of a scope in Angular is crucial. A scope can be seen as the glue which allows the template, 
-	model and controller to work together. Angular uses scopes, along with the information contained in the template, 
-	data model, and controller, to keep models and views separate, but in sync. Any changes made to the model are 
-	reflected in the view; any changes that occur in the view are reflected in the model.*/
+/*ensightenControllers.controller('spaceListCtrl', function($scope, spaceFactory) {
   $scope.spaces = [{
     'name': 'UK Credit Expert - Prod',
     'id': 1501,
@@ -28,10 +24,28 @@ ensightenControllers.controller('spaceListCtrl', function($scope, spaceFactory) 
     console.log($scope);
     spaceFactory.setSpace($scope.selectedSpace.id);
   }
-});
+});*/
 
 //Tag list controller
 ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags', 'spaceFactory', function($scope, tokenFactory, Tags, spaceFactory) {
+  $scope.spaces = [{
+    'name': 'UK Credit Expert - Prod',
+    'id': 1501,
+    'age': 3
+  }, {
+    'name': 'UK Experian Corp - Prod',
+    'id': 7469,
+    'age': 2
+  }, {
+    'name': 'UK GSD - Prod',
+    'id': 11304,
+    'age': 1
+  }];
+  $scope.orderProp = 'age';
+  $scope.getTags = function() {
+    console.log($scope);
+    spaceFactory.setSpace($scope.selectedSpace.id);
+  }
 $scope.tableRun = false;
 console.log(tokenFactory);
 console.log(spaceFactory);
@@ -43,7 +57,7 @@ $scope.tags = Tags(tokenFactory.getToken, spaceFactory.getSetSpace).pull()
 		console.log("Error");
 	});
   $scope.orderProp = '-modifyDate';
-  $scope.tableRun = false;
+  $scope.tableRun = true;
 }]);
 
 //Tag details (code) controller
