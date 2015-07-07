@@ -56,3 +56,45 @@ ensightenServices.factory('Auth', ['$http', function ($http) {
     }
   }
 }]);
+
+//Tag pull service
+ensightenServices.factory('Tags', ['$http', function ($http) {
+  return function(token, spaceId) {
+    return {
+      pull: function() {
+        return $http({
+          method: "POST", 
+          url: "//manage-api.ensighten.com/manage/deployments/search",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + token,
+            "Accept": "application/json"
+          },
+          data: JSON.stringify({
+            "fields": "id, spaceId, name, status, executionTime, comments, code, dependentDeployments, conditionIds, creationDate, lastAction, modifyDate",
+            "sort": "+name",  
+            "filters": {
+              "live": true,
+              "spaceId": spaceId
+            }
+          }),
+          processData : false
+        });
+      }
+    }
+  }
+}]);
+
+//Space Service
+ensightenServices.factory('spaceFactory', function() {
+  var o = {
+    space: ''
+  };
+  o.setSpace = function(space) {
+    o.space = space;
+  };
+  o.getSpace = function() {
+    return o.space;
+  };
+  return o;
+});
