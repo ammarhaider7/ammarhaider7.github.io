@@ -50,6 +50,7 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
 	.success(function(tags) {
 		$scope.tableRun = true;
 		console.log(tags);
+		window.tags = tags;
 		tagFactory.setTags(tags);
 		console.log(tagFactory);
 		return $scope.tags = tags;
