@@ -49,13 +49,13 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
 	Tags(tokenFactory.getToken(), spaceFactory.getSpace()).pull()
 	.success(function(tags) {
 		$scope.tableRun = true;
+		console.log(tags);
+		tagFactory.setTags = tags;
 		return $scope.tags = tags;
 	})
 	.error(function() {
 		console.log("Error");
 	});
-	console.log($scope.tags);
-	tagFactory.setTags = $scope.tags;
   }
   $scope.orderProp = '-modifyDate';
 }]);
