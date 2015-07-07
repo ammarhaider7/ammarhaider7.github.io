@@ -131,14 +131,16 @@ ensightenControllers.controller('TagDetailCtrl', ['$scope', '$routeParams', 'tag
 ensightenControllers.controller('signinCtrl', ['$scope', '$location', 'tokenFactory', 'Auth',
 	function ($scope, $location, tokenFactory, Auth) {
 		$scope.submit = function() {
+			$scope.loader = true;
 			Auth($scope.user.name, $scope.user.password)
 				.connect()
 				.success(function(response) {
 					tokenFactory.setToken(response.access_token);
-					console.log(response);
 				  	$location.path('/tags').replace();
+				  	$scope.loader = false;
 				})
 				.error(function() {
+					$scope.loader = false;
 					$scope.invalid = true;
 				});
 		}
