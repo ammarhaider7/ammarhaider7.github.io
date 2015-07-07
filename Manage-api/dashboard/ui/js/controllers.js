@@ -42,6 +42,7 @@ $scope.tags = Tags(tokenFactory.getToken, spaceFactory.getSetSpace).pull()
 		console.log("Error");
 	});
   $scope.orderProp = '-modifyDate';
+  $scope.tableRun = false;
 }]);
 
 //Tag details (code) controller
