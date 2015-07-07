@@ -50,6 +50,7 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
 	console.log(spaceFactory);
 	Tags(tokenFactory.getToken(), spaceFactory.getSpace).pull()
 	.success(function(tags) {
+		$scope.tableRun = true;
 		return $scope.tags = tags;
 	})
 	.error(function() {
@@ -59,7 +60,6 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
 	tagFactory.setTags = $scope.tags;
   }
   $scope.orderProp = '-modifyDate';
-  $scope.tableRun = true;
 }]);
 
 //Tag details (code) controller
