@@ -112,3 +112,19 @@ ensightenServices.factory('tokenFactory', function() {
   };
   return o;
 });
+
+//Tag Service
+ensightenServices.factory('tagFactory', function() {
+  var o = {};
+  o.setTags = function(tags) {
+    o.tags = tags;
+  };
+  o.getTagById = function(id) {
+    angular.forEach(o.tags, function (el) {
+      if(el.id == id) {
+        return el;
+      }
+    });
+  };
+  return o;
+});
