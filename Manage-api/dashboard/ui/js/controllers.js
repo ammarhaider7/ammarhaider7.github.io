@@ -50,10 +50,10 @@ $scope.getTags = function () {
 	console.log(spaceFactory);
 	Tags(tokenFactory.getToken(), spaceFactory.getSpace()).pull()
 		.success(function(tags) {
+			console.log(tags);
 			tagFactory.setTags(tags);
 			console.log(tagFactory);
 			$scope.loader = false;
-			 $scope.tableRun = true;
 			return $scope.tags = tags;
 		})
 		.error(function() {
@@ -61,7 +61,8 @@ $scope.getTags = function () {
 			$scope.loader = false;
 		});
 }
-  $scope.orderProp = '-modifyDate';
+$scope.orderProp = '-modifyDate';
+console.log("tagFactory.getTags(): " + tagFactory.getTags())
 }]);
 
 //Tag details (code) controller
