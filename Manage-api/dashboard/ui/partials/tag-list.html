@@ -23,9 +23,9 @@
   <button type="button" ng-click="getTags()" class="btn btn-primary run-btn">Run</button>
 </div>
 <div class="table-responsive">
-  Search: <input ng-model="query">
+  Search: <input type="text" class="form-control search-box" ng-model="query" placeholder="Search tags..">
   Sort by: 
-  <select ng-model="orderProp">
+  <select ng-model="orderProp" class="form-control" id="sort-by">
     <option value="-modifyDate">Last Modified</option>
     <option value="-creationDate">Last Created</option>
   </select>
