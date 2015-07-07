@@ -75,7 +75,7 @@ ensightenServices.factory('Tags', ['$http', function ($http) {
             "sort": "+name",  
             "filters": {
               "live": true,
-              "spaceId": spaceId
+              "spaceId": [spaceId]
             }
           }),
           processData : false
