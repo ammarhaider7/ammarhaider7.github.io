@@ -48,7 +48,7 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
     spaceFactory.setSpace($scope.selectedSpace.id);
     console.log(tokenFactory);
 	console.log(spaceFactory);
-	Tags(tokenFactory.getToken(), spaceFactory.getSetSpace).pull()
+	Tags(tokenFactory.getToken(), spaceFactory.getSpace).pull()
 	.success(function(tags) {
 		return $scope.tags = tags;
 	})
