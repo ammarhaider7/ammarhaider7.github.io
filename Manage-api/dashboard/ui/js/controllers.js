@@ -54,6 +54,7 @@ $scope.getTags = function () {
 			tagFactory.setTags(tags);
 			console.log(tagFactory);
 			$scope.loader = false;
+			$scope.tableRun = true;
 			return $scope.tags = tags;
 		})
 		.error(function() {
