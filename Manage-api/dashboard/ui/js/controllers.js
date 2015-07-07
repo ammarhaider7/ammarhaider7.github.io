@@ -26,6 +26,7 @@ ensightenControllers.controller('spaceListCtrl', function($scope, spaceFactory) 
   }];
   $scope.orderProp = 'age';
   $scope.getTags = function() {
+    console.log($scope);
     spaceFactory.setSpace($scope.selectedSpace.id);
   }
 });
