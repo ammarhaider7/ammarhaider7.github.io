@@ -69,10 +69,10 @@ ensightenControllers.controller('TagDetailCtrl', ['$scope', '$routeParams', 'tag
       }
     });
   });*/
-  $scope.tag = tagFactory.getTagById($routeParams.tagId);
-
-  $scope.tagId = $routeParams.tagId;
-
+	console.log(tagFactory.getTagById($routeParams.tagId));
+	$scope.tag = tagFactory.getTagById($routeParams.tagId);
+	$scope.tagId = $routeParams.tagId;
+	console.log($scope.tag);
 }]);
 
 //Sign in controller
