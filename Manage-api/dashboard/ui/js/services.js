@@ -98,3 +98,17 @@ ensightenServices.factory('spaceFactory', function() {
   };
   return o;
 });
+
+//Auth Service
+ensightenServices.factory('tokenFactory', function() {
+  var o = {
+    token: ''
+  };
+  o.setToken = function(token) {
+    o.token = token;
+  };
+  o.getToken = function() {
+    return o.token;
+  };
+  return o;
+});
