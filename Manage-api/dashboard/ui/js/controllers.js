@@ -45,7 +45,8 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
   $scope.tableRun = false;
   console.log(tagFactory);
   if(tagFactory.getTags() != undefined) {
-  	return $scope.tags = tagFactory.getTags();
+  	$scope.tags = tagFactory.getTags();
+  	console.log($scope.tags);
   }
 $scope.getTags = function () {
 	$scope.tableRun = false;
