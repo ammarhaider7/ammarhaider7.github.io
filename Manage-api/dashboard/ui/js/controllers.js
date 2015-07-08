@@ -43,6 +43,9 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
   }];
   $scope.orderProp = 'age';
   $scope.tableRun = false;
+  if(tagFactory.getTags().length > 0) {
+  	return $scope.tags = tagFactory.getTags();
+  }
 $scope.getTags = function () {
 	$scope.tableRun = false;
 	$scope.loader = true;
