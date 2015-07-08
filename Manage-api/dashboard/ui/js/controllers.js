@@ -44,6 +44,7 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
   $scope.orderProp = 'age';
   $scope.tableRun = false;
 $scope.getTags = function () {
+	$scope.tableRun = false;
 	$scope.loader = true;
 	spaceFactory.setSpace($scope.selectedSpace.id);
 	console.log(tokenFactory);
