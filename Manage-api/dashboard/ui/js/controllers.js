@@ -46,14 +46,16 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
   console.log(tagFactory);
 if(tagFactory.getTags() != undefined) {
   	$scope.tags = tagFactory.getTags();
-  	$scope.selectedSpace = spaceFactory.getSpace();
+  	$scope.space = spaceFactory;
+  	console.log($scope);
+  	$scope.selectedSpace = space.getSpace();
   	console.log($scope.selectedSpace);
 }
 $scope.getTags = function () {
 	$scope.tableRun = false;
 	$scope.loader = true;
-	console.log("name: " + $scope.selectedSpace.name.name + " id: " + $scope.selectedSpace.name.id);
-	spaceFactory.setSpace($scope.selectedSpace.name.name, $scope.selectedSpace.name.id);
+	console.log("name: " + $scope.selectedSpace.name + " id: " + $scope.selectedSpace.id);
+	spaceFactory.setSpace($scope.selectedSpace.name, $scope.selectedSpace.id);
 	console.log(spaceFactory);
 	Tags(tokenFactory.getToken(), spaceFactory.getSpaceId()).pull()
 		.success(function(tags) {
