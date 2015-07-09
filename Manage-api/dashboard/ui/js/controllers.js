@@ -23,7 +23,6 @@ if(tagFactory.getTags() != undefined) {
   	$scope.tags = tagFactory.getTags();
   	$scope.tableRun = true;
   	$scope.selectedSpace = spaceFactory.getSpace();
-	console.log($scope);
   	console.log($scope.selectedSpace);
 }
 $scope.getTags = function () {
