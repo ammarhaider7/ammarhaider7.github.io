@@ -53,7 +53,7 @@ $scope.getTags = function () {
 	$scope.tableRun = false;
 	$scope.loader = true;
 	console.log($scope);
-	spaceFactory.setSpace($scope.selectedSpace.name, $scope.selectedSpace.id);
+	spaceFactory.setSpace($scope.selectedSpace.name.name, $scope.selectedSpace.name.id);
 	console.log(spaceFactory);
 	Tags(tokenFactory.getToken(), spaceFactory.getSpaceId()).pull()
 		.success(function(tags) {
