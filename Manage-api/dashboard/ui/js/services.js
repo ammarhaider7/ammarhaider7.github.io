@@ -88,7 +88,7 @@ ensightenServices.factory('Tags', ['$http', function ($http) {
 //Space Service
 ensightenServices.factory('spaceFactory', function() {
   var o = {
-    space: ''
+    space: {}
   };
   o.setSpace = function(space, id) {
     this.space.name = space;
