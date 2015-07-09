@@ -18,7 +18,7 @@
     <option ng-repeat="space in spaces" >{{space.name}}</option>
   </select>-->
   <select class="form-control select" ng-options="space.name for space in spaces" ng-model="selectedSpace">
-    <option value="" disabled selected>Select a space..</option>
+    <option value="" disabled>Select a space..</option>
   </select>
   <button type="button" ng-click="getTags()" class="btn btn-primary run-btn">Run</button>
 </div>
