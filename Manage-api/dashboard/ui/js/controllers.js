@@ -18,7 +18,7 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
     'id': 11304
   }];
 var matchSpaces = function(spaceName) {
-  	angular.forEach($scope.spaces, function (space) {
+  	return angular.forEach($scope.spaces, function (space) {
   		console.log(space);
   		if(space.name == spaceName) return space;
   	})
