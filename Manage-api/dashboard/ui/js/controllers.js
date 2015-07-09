@@ -23,10 +23,12 @@ var matchSpaces = function(spaceName) {
   	})
 }		
 if(tagFactory.getTags() != undefined) {
-  	$scope.tags = tagFactory.getTags();
-  	$scope.tableRun = true;
-  	$scope.selectedSpace = matchSpaces(spaceFactory.getSpace().name);
-  	console.log($scope.selectedSpace);
+  $scope.tags = tagFactory.getTags();
+  $scope.tableRun = true;
+  console.log(spaceFactory.getSpace());
+  console.log(spaceFactory.getSpace().name);
+  $scope.selectedSpace = matchSpaces(spaceFactory.getSpace().name);
+  console.log($scope.selectedSpace);
 }
 $scope.getTags = function () {
 	$scope.tableRun = false;
