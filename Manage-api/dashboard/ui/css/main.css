@@ -32,6 +32,9 @@ pre, #code {
 .comments-column {
 	width: 15%;
 }
+.code-column {
+	width: 20%;
+}
 .invalid-submit {
 	color: rgb(255, 60, 60);
 	display: inline-block;
