@@ -7,16 +7,31 @@ var ensightenControllers = angular.module('ensightenControllers', []);
 //Tag list controller
 ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags', 'spaceFactory', 'tagFactory', function($scope, tokenFactory, Tags, spaceFactory, tagFactory) {
   $scope.tableRun = false;
-  $scope.spaces = [{
-    'name': 'UK Credit Expert - Prod',
-    'id': 1501
-  }, {
-    'name': 'UK Experian Corp - Prod',
-    'id': 7469
-  }, {
-    'name': 'UK GSD - Prod',
-    'id': 11304
-  }];
+$scope.spaces = [{
+	name: 'UK Credit Expert - Prod',
+	id: 1501
+}, {
+	name: 'UK Credit Expert - Stage',
+	id: 1503
+}, {
+	name: 'UK Experian Corp - Prod',
+	id: 7469
+}, {
+	name: 'UK Experian Corp - Stage',
+	id: 7709
+}, {
+	name: 'UK GSD - Prod',
+	id: 11304
+}, {
+	name: 'UK GSD - Pre-prod',
+	id: 11307
+}, {
+	name: 'UK Credit Matcher - Prod',
+	id: 4237
+}, {
+	name: 'UK Credit Matcher - Stage',
+	id: 4236
+}];
   var matchSpaces = function(spaceName) {
   	var matchedSpace;
   	angular.forEach($scope.spaces, function (space) {
