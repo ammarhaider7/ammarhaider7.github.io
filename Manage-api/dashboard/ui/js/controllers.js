@@ -4,42 +4,17 @@ where ensightenApp is the name of our module. This module will contain the space
 
 var ensightenControllers = angular.module('ensightenControllers', []);
 
-//Space List controller
-/*ensightenControllers.controller('spaceListCtrl', function($scope, spaceFactory) {
-  $scope.spaces = [{
-    'name': 'UK Credit Expert - Prod',
-    'id': 1501,
-    'age': 3
-  }, {
-    'name': 'UK Experian Corp - Prod',
-    'id': 7469,
-    'age': 2
-  }, {
-    'name': 'UK GSD - Prod',
-    'id': 11304,
-    'age': 1
-  }];
-  $scope.orderProp = 'age';
-  $scope.getTags = function() {
-    console.log($scope);
-    spaceFactory.setSpace($scope.selectedSpace.id);
-  }
-});*/
-
 //Tag list controller
 ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags', 'spaceFactory', 'tagFactory', function($scope, tokenFactory, Tags, spaceFactory, tagFactory) {
   $scope.spaces = [{
     'name': 'UK Credit Expert - Prod',
-    'id': 1501,
-    'age': 3
+    'id': 1501
   }, {
     'name': 'UK Experian Corp - Prod',
-    'id': 7469,
-    'age': 2
+    'id': 7469
   }, {
     'name': 'UK GSD - Prod',
-    'id': 11304,
-    'age': 1
+    'id': 11304
   }];
   $scope.orderProp = 'age';
   $scope.tableRun = false;
