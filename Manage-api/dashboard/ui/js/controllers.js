@@ -17,12 +17,14 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
     'name': 'UK GSD - Prod',
     'id': 11304
   }];
-var matchSpaces = function(spaceName) {
-  	return angular.forEach($scope.spaces, function (space) {
+  var matchSpaces = function(spaceName) {
+  	var matchedSpace;
+  	angular.forEach($scope.spaces, function (space) {
   		console.log(space);
-  		if(space.name == spaceName) return space;
-  	})
-}		
+  		if(space.name == spaceName) matchedSpace = space;
+  	});
+  	return matchedSpace;
+  }			
 if(tagFactory.getTags() != undefined) {
   $scope.tags = tagFactory.getTags();
   $scope.tableRun = true;
@@ -53,12 +55,6 @@ $scope.getTags = function () {
 		});
 }
 $scope.orderProp = '-modifyDate';
-$scope.switchSelect = function () {
-	$scope.selectedSpace = {
-		name: 'UK GSD - Prod',
-		id: 11304
-	}
-}
 }]);
 
 //Tag details (code) controller
