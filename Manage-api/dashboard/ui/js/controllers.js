@@ -21,9 +21,8 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
   console.log(tagFactory);
 if(tagFactory.getTags() != undefined) {
   	$scope.tags = tagFactory.getTags();
-  	$scope.space = spaceFactory;
-  	console.log($scope);
-  	$scope.selectedSpace = $scope.space.getSpace();
+  	$scope.selectedSpace = spaceFactory.getSpace();
+	console.log($scope);
   	console.log($scope.selectedSpace);
 }
 $scope.getTags = function () {
