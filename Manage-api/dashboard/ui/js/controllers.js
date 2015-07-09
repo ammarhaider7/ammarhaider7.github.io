@@ -16,7 +16,6 @@ ensightenControllers.controller('tagListCtrl', ['$scope', 'tokenFactory', 'Tags'
     'name': 'UK GSD - Prod',
     'id': 11304
   }];
-  $scope.orderProp = 'age';
   $scope.tableRun = false;
   console.log(tagFactory);
 if(tagFactory.getTags() != undefined) {
@@ -47,6 +46,12 @@ $scope.getTags = function () {
 		});
 }
 $scope.orderProp = '-modifyDate';
+$scope.switchSelect = function () {
+	$scope.selectedSpace = {
+		name: 'UK GSD - Prod',
+		id: 11304
+	}
+}
 }]);
 
 //Tag details (code) controller
