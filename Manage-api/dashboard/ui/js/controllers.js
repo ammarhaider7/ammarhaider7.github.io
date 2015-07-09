@@ -25,7 +25,7 @@ var matchSpaces = function(spaceName) {
 if(tagFactory.getTags() != undefined) {
   	$scope.tags = tagFactory.getTags();
   	$scope.tableRun = true;
-  	$scope.selectedSpace = matchSpaces(spaceFactory.getSpaceName());
+  	$scope.selectedSpace = matchSpaces(spaceFactory.getSpace().name);
   	console.log($scope.selectedSpace);
 }
 $scope.getTags = function () {
