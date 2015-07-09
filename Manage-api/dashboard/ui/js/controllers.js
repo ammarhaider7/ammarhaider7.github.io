@@ -48,7 +48,7 @@ if(tagFactory.getTags() != undefined) {
   	$scope.tags = tagFactory.getTags();
   	$scope.space = spaceFactory;
   	console.log($scope);
-  	$scope.selectedSpace = space.getSpace();
+  	$scope.selectedSpace = $scope.space.getSpace();
   	console.log($scope.selectedSpace);
 }
 $scope.getTags = function () {
