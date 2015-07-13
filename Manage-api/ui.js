@@ -68,7 +68,7 @@ var o = {
 
 		//var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
 
-		$('table tr.' + id + ' .' + attr).css('background-color', 'rgb(144, 8, 8)').addClass('highlight');
+		$('table tr.' + id + ' .' + attr).css('background-color', '#f0ad4e').addClass('highlight');
 	},
 	compareAttr: function(x, y) {
 
@@ -117,10 +117,10 @@ var o = {
 				// Here's where you handle a successful response.
 				o.auth = response;
 				o.loggedIn = true;
-				$('body').css({
-					'background-color': '#333',
-					color: 'rgba(200, 200, 200, 1)'
-				});
+				// $('body').css({
+				// 	'background-color': '#333',
+				// 	color: 'rgba(200, 200, 200, 1)'
+				// });
 				$('.login').remove();
 				$('#main').show();
 				//Set a cookie lasting 60 mins so the user doesn't get logged out
