@@ -31,7 +31,7 @@
                     <legend>Choose spaces to compare</legend>
                     <div class="half main-left"> 
                         <label for="space1">Space 1</label>
-                        <select name="space1">
+                        <select class="form-control" name="space1">
                             <option selected="selected" value="0">Select a space</option>
                             <option value="1501">UK Credit Expert - Prod</option>
                             <option value="1503">UK Credit Expert - Stage</option>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="half main-right"> 
                         <label for="space2">Space 2</label>
-                        <select name="space2">
+                        <select class="form-control" name="space2">
                         	<option selected="selected" value="0">Select a space</option>
                         	<option value="1501">UK Credit Expert - Prod</option>
                         	<option value="1503">UK Credit Expert - Stage</option>
@@ -55,17 +55,17 @@
     						<input type="checkbox">Live tags</label>
     				</div>
     				<div style="display: inline-block;">
-    					<input id="getCode" type="button" value="Get Tag data">
+    					<input id="getCode" type="button" class="btn" value="Get Tag data">
     				</div>
     				<div style="display: inline-block;">
-    					<input id="compareTags" type="button" value="Compare">
+    					<input id="compareTags" type="button" class="btn" value="Compare">
     				</div>
     			</div>
                 </fieldset>
             </form>
             <img class="spinner" src="//cloud.githubusercontent.com/assets/10219824/7593640/8a328272-f8d3-11e4-8723-3c070e4c5605.gif" style="display: none;"></img>
             <div class="TagCode" style="display: none;">
-                <table class="table table-bordered col-md-6" id="TagDetails">
+                <table class="table table-striped table-bordered col-md-6" id="TagDetails">
                     <th>Tag Name</th>
                     <th>Attributes</th>
                 </table> 
