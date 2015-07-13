@@ -36,6 +36,7 @@
         <th>Tag Name</th>
         <th>Last modified</th>
         <th>Creation date</th>
+        <th>Last action</th>
         <th class="code-column">Latest code</th>
         <th class="comments-column">Comments</th>
       </tr>
@@ -45,6 +46,7 @@
         <td>{{tag.name}}</td>
         <td>{{tag.modifyDate | date : 'medium'}}</td>
         <td>{{tag.creationDate | date : 'medium'}}</td>
+        <td>{{tag.lastAction}}</td>
         <td><a href="#/tags/{{tag.id}}" class="code-link">Code for {{tag.name}}</a></td>
         <td>{{tag.comments}}</td>
       </tr>
