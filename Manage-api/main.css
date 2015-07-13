@@ -112,3 +112,6 @@ input[type=button]:hover {
     float: right;
 }
 
+.half .form-control {
+    width: 90%;
+}
