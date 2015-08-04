@@ -9,6 +9,5 @@ ensightenDirectives.directive('highlightJs', ['$timeout', function($timeout) {
         }, 100);
 
     }
-   }
- }
- ]);
+  }
+}]);
