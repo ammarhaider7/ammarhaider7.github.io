@@ -10,6 +10,8 @@ ensightenDirectives.directive('highlightJs', [/*'$timeout', */function(/*$timeou
 
     }*/
     compile: function(element, attrs) {
+    	console.log(element);
+    	window.element = element;
     	hljs.highlightBlock(element[0]);
     }
     }
