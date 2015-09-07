@@ -81,7 +81,7 @@ Realtime.Models.ordersTrend = Backbone.Model.extend({
     for (i = 0, len = day.length; i < len; i++) {
       interval = day[i];
       dateStr = interval.name;
-      dateStr = dateStr.replace('-', '/');
+      dateStr = dateStr.replace(/-/g, '/');
       dateStr = dateStr.replace(/T/g, ' ');
       dateStr = dateStr.substr(0, dateStr.indexOf('+'));
       data.push({
