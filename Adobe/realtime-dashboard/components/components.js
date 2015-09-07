@@ -193,7 +193,7 @@
   Realtime.Components.spinnerComp = React.createClass({
     render: function() {
       return img({
-        src: 'images/ajax-loader.gif',
+        src: '//cloud.githubusercontent.com/assets/10219824/9718875/60a4eac0-5577-11e5-92bc-d0b6cd391c6e.gif',
         className: 'spinner ' + this.props.spinner
       });
     }
