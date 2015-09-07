@@ -14,7 +14,7 @@ window.Realtime = {
 
 Realtime.config = {
   username: "ammar.haider:Experian Interactive",
-  secret: "b46a6131b46ec17eb3b3adcf7cb4405e",
+  secret: "",
   reportSuite: "expiukexperiancreditprod",
   endpoint: "api.omniture.com",
   method: 'Report.Run',
