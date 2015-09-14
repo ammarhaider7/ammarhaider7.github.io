@@ -619,7 +619,7 @@
           return d3.svg.axis().scale(state.y(data, state)).orient("left");
         },
         line: function(data, state) {
-          return d3.svg.line().interpolate("linear").x(function(d) {
+          return d3.svg.line().interpolate("cardinal").x(function(d) {
             var _x;
             _x = state.x(data, state);
             return _x(d.name);
