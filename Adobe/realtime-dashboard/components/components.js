@@ -662,10 +662,10 @@
       })(this));
     },
     optionsArr: [
-      // {
-      //   id: 'today|minute:20',
-      //   text: 'Today'
-      // }, 
+      {
+        id: '-12 hours|minute:12',
+        text: 'Last 12 hours'
+      },
       {
         id: '-1 hour|minute:1',
         text: 'Last hour'
@@ -675,10 +675,11 @@
       }, {
         id: '-3 hour|minute:3',
         text: 'Last 3 hours'
-      }, {
-        id: '-12 hours|minute:12',
-        text: 'Last 12 hours'
-      }
+      },
+      {
+        id: 'today|minute:20',
+        text: 'Today'
+      } 
     ],
     handleChange: function(event) {
       var date, hours, splitVal;
