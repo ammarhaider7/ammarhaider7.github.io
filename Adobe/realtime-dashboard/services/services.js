@@ -31,7 +31,7 @@
           search = {};
         }
         if (dateGranularity == null) {
-          dateGranularity = 'minute:60';
+          dateGranularity = 'minute:12';
         }
         return {
           'reportDescription': {
