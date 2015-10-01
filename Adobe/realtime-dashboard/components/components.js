@@ -662,10 +662,11 @@
       })(this));
     },
     optionsArr: [
+      // {
+      //   id: 'today|minute:20',
+      //   text: 'Today'
+      // }, 
       {
-        id: 'today|minute:20',
-        text: 'Today'
-      }, {
         id: '-1 hour|minute:1',
         text: 'Last hour'
       }, {
