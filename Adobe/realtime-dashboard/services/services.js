@@ -25,7 +25,7 @@
           top = 10;
         }       
         if (dateFrom == null) {
-          dateFrom = "today";
+          dateFrom = "-12 hours";
         }
         if (search == null) {
           search = {};
