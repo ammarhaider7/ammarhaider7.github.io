@@ -65,12 +65,13 @@ Realtime.Models.ordersTrend = Backbone.Model.extend({
   defaults: {
     data: [],
     dateFrom: '-12 hours',
-    dateGranularity: (function() {
-      var date, hours;
-      date = new Date;
-      hours = date.getHours();
-      return "minute:" + (hours + 1);
-    })(),
+    // dateGranularity: (function() {
+    //   var date, hours;
+    //   date = new Date;
+    //   hours = date.getHours();
+    //   return "minute:" + (hours + 1);
+    // })(),
+    dateGranularity: 'minute:12',
     update: false
   },
   url: "https://" + Realtime.config.endpoint + "/admin/1.4/rest/?method=" + Realtime.config.method,
