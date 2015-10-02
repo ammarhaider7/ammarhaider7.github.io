@@ -647,6 +647,7 @@
               model: trend,
               spinner: 'hide'
             });
+            console.log('trend chart ajax call made..')
             node = React.findDOMNode(_this.refs.trendChart);
             if (trend.get('update') === false) {
               return _this.d3TrendChart(node, trend.get('data'), _this.state);
@@ -731,7 +732,7 @@
     },
     componentDidMount: function() {
       this.runAjax();
-      return setInterval(this.runAjax, Realtime.config.interval * 6);
+      return setInterval(this.runAjax, Realtime.config.interval * 2);
     },
     d3TrendChart: function(node, data, state) {
       var _line, _xAxis, _yAxis, focus, formatTime, mousemove, overlayRect, trendLine;
