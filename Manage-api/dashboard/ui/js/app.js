@@ -1,6 +1,6 @@
 'use strict';
 
-var ensightenApp = angular.module('ensightenApp', ['ngRoute', 'ensightenControllers', 'ensightenServices', 'ensightenDirectives']);
+var ensightenApp = angular.module('ensightenApp', ['ngRoute', 'ensightenControllers', 'ensightenServices', 'ensightenDirectives','angulartics', 'angulartics.adobe.analytics']);
 
 ensightenApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
