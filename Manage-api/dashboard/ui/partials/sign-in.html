@@ -11,7 +11,7 @@
        <h4 class="top-left">Ensighten Dashboard</h4>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <form novalidate class="navbar-form navbar-right" role="form" ng-submit="submit()" ng-controller="signinCtrl">
+      <form novalidate class="navbar-form navbar-right" role="form" ng-submit="submit()" ng-controller="signinCtrl" analytics-on="submit" analytics-event="sign-in">
         <div class="form-group">
           <input type="text" placeholder="Username" class="form-control" ng-model="user.name" required>
         </div>
