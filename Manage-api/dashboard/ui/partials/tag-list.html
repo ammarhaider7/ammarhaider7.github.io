@@ -1,56 +1,58 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-       <h4 class="top-left">Ensighten Dashboard</h4>
+<div analytics-listener>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+         <h4 class="top-left">Ensighten Dashboard</h4>
+      </div>
     </div>
+  </nav>
+  <div class="container main-content">
+  <div class="select-space-div">
+  <!--  <select class="form-control select" ng-model="mySpace">
+      <option value="" disabled selected>Select a space..</option>
+      <option ng-repeat="space in spaces" >{{space.name}}</option>
+    </select>-->
+    <select class="form-control select" ng-options="space.name for space in spaces" ng-model="selectedSpace">
+      <option value="" disabled>Select a space..</option>
+    </select>
+    <button type="button" ng-click="getTags()" class="btn btn-primary run-btn">Run</button>
   </div>
-</nav>
-<div class="container main-content">
-<div class="select-space-div">
-<!--  <select class="form-control select" ng-model="mySpace">
-    <option value="" disabled selected>Select a space..</option>
-    <option ng-repeat="space in spaces" >{{space.name}}</option>
-  </select>-->
-  <select class="form-control select" ng-options="space.name for space in spaces" ng-model="selectedSpace">
-    <option value="" disabled>Select a space..</option>
-  </select>
-  <button type="button" ng-click="getTags()" class="btn btn-primary run-btn">Run</button>
+  <div class="table-responsive table">
+    Search: <input type="text" class="form-control search-box" ng-model="query" placeholder="Search tags by name, date, id, code..">
+    Sort by: 
+    <select ng-model="orderProp" class="form-control" id="sort-by">
+      <option value="-modifyDate">Last Modified</option>
+      <option value="-creationDate">Last Created</option>
+    </select>
+    <img alt="activity indicator" class="table-loader" src="//cloud.githubusercontent.com/assets/10219824/8552136/15a88786-24d3-11e5-8c89-84a2a1d0f12d.gif" ng-show="loader">
+    <table class="table table-striped table-hover" ng-show="tags.length > 0" ng-hide="!tableRun">
+      <thead>
+        <tr>
+          <th>Tag Name</th>
+          <th>Last modified</th>
+          <th>Creation date</th>
+          <th>Last action</th>
+          <th class="code-column">Latest code</th>
+          <th class="comments-column">Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="tag in tags | filter:query | orderBy:orderProp">
+          <td>{{tag.name}}</td>
+          <td>{{tag.modifyDate | date : 'medium'}}</td>
+          <td>{{tag.creationDate | date : 'medium'}}</td>
+          <td>{{tag.lastAction}}</td>
+          <td><a href="#/tags/{{tag.id}}" class="code-link">Code for {{tag.name}}</a></td>
+          <td>{{tag.comments}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div> <!-- /container --> 
 </div>
-<div class="table-responsive table">
-  Search: <input type="text" class="form-control search-box" ng-model="query" placeholder="Search tags by name, date, id, code..">
-  Sort by: 
-  <select ng-model="orderProp" class="form-control" id="sort-by">
-    <option value="-modifyDate">Last Modified</option>
-    <option value="-creationDate">Last Created</option>
-  </select>
-  <img alt="activity indicator" class="table-loader" src="//cloud.githubusercontent.com/assets/10219824/8552136/15a88786-24d3-11e5-8c89-84a2a1d0f12d.gif" ng-show="loader">
-  <table class="table table-striped table-hover" ng-show="tags.length > 0" ng-hide="!tableRun">
-    <thead>
-      <tr>
-        <th>Tag Name</th>
-        <th>Last modified</th>
-        <th>Creation date</th>
-        <th>Last action</th>
-        <th class="code-column">Latest code</th>
-        <th class="comments-column">Comments</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="tag in tags | filter:query | orderBy:orderProp">
-        <td>{{tag.name}}</td>
-        <td>{{tag.modifyDate | date : 'medium'}}</td>
-        <td>{{tag.creationDate | date : 'medium'}}</td>
-        <td>{{tag.lastAction}}</td>
-        <td><a href="#/tags/{{tag.id}}" class="code-link">Code for {{tag.name}}</a></td>
-        <td>{{tag.comments}}</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-</div> <!-- /container --> 
