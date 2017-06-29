@@ -7,6 +7,13 @@ body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   overflow-x: hidden;
 }
+.texture-bg {
+    z-index: 0;
+    background: url(../img/texture.png);
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
 p {
   font-size: 20px;
 }
@@ -53,7 +60,8 @@ hr.star-light {
   border-color: white;
 }
 hr.star-light:after {
-  background-color: #18BC9C;
+  /*background-color: #18BC9C;*/
+  background-color: #12171f;
   color: white;
 }
 hr.star-primary {
@@ -66,9 +74,16 @@ hr.star-primary:after {
 .img-centered {
   margin: 0 auto;
 }
+.profile-img {
+  border-radius: 200px;
+  -webkit-box-shadow: 0px 2px 40px 3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 2px 40px 3px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 40px 3px rgba(0,0,0,0.75);
+}
 header {
   text-align: center;
-  background: #18BC9C;
+  /*background: #18BC9C;*/
+  background: url(../img/texture.png);
   color: white;
 }
 header .container {
@@ -103,7 +118,8 @@ header .intro-text .skills {
   }
 }
 .navbar-custom {
-  background: #2C3E50;
+  /*background: #2C3E50;*/
+  background: url(../img/texture.png);
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
@@ -181,7 +197,8 @@ section h2 {
   font-size: 3em;
 }
 section.success {
-  background: #18BC9C;
+  /*background: #18BC9C;*/
+  background: url(../img/texture.png);
   color: white;
 }
 @media (max-width: 767px) {
@@ -191,6 +208,9 @@ section.success {
   section.first {
     padding-top: 75px;
   }
+}
+.skills-row {
+  margin-top: 30px;
 }
 #portfolio .portfolio-item {
   margin: 0 0 15px;
