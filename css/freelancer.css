@@ -74,6 +74,17 @@ hr.star-primary:after {
 .img-centered {
   margin: 0 auto;
 }
+.navbar-img-logo {
+  width: 5%;
+  height: 5%;
+  display: inline;
+}
+.hero-logo-img {
+  margin-top: 30px;
+  width: 10%;
+  height: 10%;
+  border-radius: 10px;
+}
 .profile-img {
   border-radius: 200px;
   -webkit-box-shadow: 0px 2px 40px 3px rgba(0,0,0,0.75);
