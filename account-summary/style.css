@@ -1,0 +1,44 @@
+.payment-segment {
+	rx: 14;
+}
+
+.payment-segment-paid {
+    fill: #33D167;
+    stroke: #176531;
+}
+
+.payment-segment-unpaid {
+    fill: #DE344F;
+    stroke: #771323;
+}
+
+.payment-segment-future {
+    fill: #ddd;
+    stroke: #666;
+}
+
+.payment-segment-next {
+    fill: #ffb913;
+    stroke: #b77f08;
+}
+.payment-clock-title {
+	font-weight: 700;
+	font-family: Source Sans Pro, sans-serif;
+	text-anchor: middle;
+	fill: #4a4a4a;
+}
+.payment-clock-text {
+	font-size: 45px;
+    font-weight: 700;
+    font-family: Montserrat,sans-serif;
+    fill: #4a4a4a;
+}
+.center-text-link {
+    font-size: 15px;
+    text-decoration: underline;
+    text-anchor: middle;
+    fill: #005bc6;
+}
+.payment-segment-label {
+    font-size: 10px;
+}
