@@ -1,0 +1,17 @@
+.balance-chart-title {
+	font-weight: 700;
+	font-family: Source Sans Pro, sans-serif;
+	text-anchor: middle;
+	fill: #4a4a4a;
+}
+.balance-chart-text, .balance-chart-text-prefix {
+	font-size: 55px;
+    font-weight: 700;
+    font-family: Montserrat,sans-serif;
+    fill: #4a4a4a;
+}
+.balance-chart-point {
+  fill: #2750c8;
+  stroke: white;
+  stroke-width: 2px;
+}
